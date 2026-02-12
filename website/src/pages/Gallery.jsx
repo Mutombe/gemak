@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, ChevronLeft, ChevronRight, ZoomIn, MapPin, Calendar, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -19,6 +19,26 @@ export default function GalleryPage() {
   const closeLightbox = useCallback(() => setLightboxIndex(null), []);
   const goNext = useCallback(() => setLightboxIndex(prev => (prev + 1) % filtered.length), [filtered.length]);
   const goPrev = useCallback(() => setLightboxIndex(prev => (prev - 1 + filtered.length) % filtered.length), [filtered.length]);
+
+  /* ── Keyboard navigation for lightbox ── */
+  useEffect(() => {
+    if (lightboxIndex === null) return;
+    const onKeyDown = (e) => {
+      switch (e.key) {
+        case 'ArrowRight': goNext(); break;
+        case 'ArrowLeft': goPrev(); break;
+        case 'Escape': closeLightbox(); break;
+      }
+    };
+    window.addEventListener('keydown', onKeyDown);
+    return () => window.removeEventListener('keydown', onKeyDown);
+  }, [lightboxIndex, goNext, goPrev, closeLightbox]);
+
+  /* ── Swipe handler for lightbox ── */
+  const handleLightboxDragEnd = (_, info) => {
+    if (info.offset.x < -80) goNext();
+    else if (info.offset.x > 80) goPrev();
+  };
 
   // Masonry height pattern — alternating tall/short for visual interest
   const getSpanClass = (idx) => {
@@ -44,7 +64,7 @@ export default function GalleryPage() {
       <PageSEO title="Gallery" description="View our portfolio of completed security installations — CCTV systems, gate automation, electric fencing, and smart home security projects across Zimbabwe." keywords="security installation gallery, CCTV projects, gate automation, electric fencing Zimbabwe" />
 
       {/* Hero — Cinematic Parallax */}
-      <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
+      <section className="hero-section relative min-h-[70vh] flex items-center justify-center overflow-hidden">
         {/* Vision: Dramatic wide-angle shot of a secured estate at dusk with visible CCTV cameras and perimeter lighting */}
         <div className="absolute inset-0">
           <img
@@ -302,14 +322,18 @@ export default function GalleryPage() {
               <ChevronRight size={24} />
             </button>
 
-            {/* Image */}
+            {/* Image — drag to swipe */}
             <motion.div
               key={lightboxIndex}
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.9 }}
               transition={{ duration: 0.3 }}
-              className="max-w-5xl w-full px-4"
+              drag="x"
+              dragConstraints={{ left: 0, right: 0 }}
+              dragElastic={0.15}
+              onDragEnd={handleLightboxDragEnd}
+              className="max-w-5xl w-full px-4 cursor-grab active:cursor-grabbing"
               onClick={(e) => e.stopPropagation()}
             >
               <img
@@ -328,6 +352,7 @@ export default function GalleryPage() {
                   )}
                 </div>
                 <p className="text-white/20 text-xs mt-3">{lightboxIndex + 1} / {filtered.length}</p>
+                <p className="text-white/10 text-[10px] mt-1 hidden md:block">Arrow keys to navigate &middot; ESC to close</p>
               </div>
             </motion.div>
           </motion.div>

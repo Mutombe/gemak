@@ -3,6 +3,7 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Shield, ShieldCheck, Target, Eye, Heart, Award, Users, MapPin, Clock, ArrowRight, CheckCircle2 } from 'lucide-react';
 import AnimatedSection, { StaggerContainer, StaggerItem } from '../components/AnimatedSection';
+import AnimatedCounter from '../components/AnimatedCounter';
 import PageSEO from '../components/PageSEO';
 import { stats, branches } from '../data/siteData';
 
@@ -31,7 +32,7 @@ export default function AboutPage() {
       <PageSEO title="About Us" description="Learn about Gemak Security Shop — Zimbabwe's trusted security solutions provider since 2009. Our mission, values, history, and nationwide presence." />
 
       {/* Hero — Split Layout */}
-      <section className="relative min-h-[70vh] flex items-end overflow-hidden">
+      <section className="hero-section relative min-h-[70vh] flex items-end overflow-hidden">
         {/* BG Image — Vision: Close-up of a CCTV camera lens with dramatic lighting showing reflection */}
         <div className="absolute inset-0">
           <img src="https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=1920&q=80" alt="Security camera" className="w-full h-full object-cover" />
@@ -91,7 +92,7 @@ export default function AboutPage() {
             {stats.map((stat, i) => (
               <StaggerItem key={i}>
                 <div>
-                  <span className="font-display text-4xl md:text-6xl text-gemak-black">{stat.value}</span>
+                  <span className="font-display text-4xl md:text-6xl text-gemak-black"><AnimatedCounter value={stat.value} /></span>
                   <p className="font-heading uppercase tracking-wider text-gemak-black/60 text-sm mt-2">{stat.label}</p>
                 </div>
               </StaggerItem>

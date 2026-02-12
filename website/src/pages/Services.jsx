@@ -1,5 +1,5 @@
 import React from 'react';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Camera, ShieldAlert, DoorOpen, Zap, Shield, Home as HomeIcon, ArrowRight, CheckCircle2, Phone } from 'lucide-react';
@@ -86,6 +86,7 @@ function ServiceBlock({ service, index }) {
 
 export default function ServicesPage() {
   const { hash } = useLocation();
+  const [activeService, setActiveService] = useState(services[0]?.id || '');
 
   useEffect(() => {
     if (hash) {
@@ -94,12 +95,33 @@ export default function ServicesPage() {
     }
   }, [hash]);
 
+  /* ── Intersection Observer — highlight active service in sticky nav ── */
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveService(entry.target.id);
+          }
+        });
+      },
+      { rootMargin: '-30% 0px -60% 0px', threshold: 0 }
+    );
+
+    services.forEach((service) => {
+      const el = document.getElementById(service.id);
+      if (el) observer.observe(el);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <>
       <PageSEO title="Services" description="Professional security services — CCTV installation, alarm systems, gate automation, electric fencing, guard equipment, and smart home security." keywords="CCTV installation, alarm systems, gate automation, electric fencing, guard services, smart home security, Zimbabwe" />
 
       {/* Hero */}
-      <section className="relative min-h-[60vh] flex items-end overflow-hidden">
+      <section className="hero-section relative min-h-[60vh] flex items-end overflow-hidden">
         {/* BG — Vision: Wide shot of a modern commercial building with visible security infrastructure */}
         <div className="absolute inset-0">
           <img src="8.jpg" alt="Security services" className="w-full h-full object-cover" />
@@ -122,13 +144,21 @@ export default function ServicesPage() {
           <div className="flex items-center gap-1 overflow-x-auto py-3 scrollbar-hide">
             {services.map((service) => {
               const Icon = iconMap[service.icon] || Shield;
+              const isActive = activeService === service.id;
               return (
                 <a
                   key={service.id}
                   href={`#${service.id}`}
-                  className="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-white/40 hover:text-gemak-green hover:bg-gemak-green/5 text-xs font-heading uppercase tracking-wider whitespace-nowrap transition-all"
+                  className={`relative inline-flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-heading uppercase tracking-wider whitespace-nowrap transition-all duration-300 ${
+                    isActive
+                      ? 'text-gemak-green bg-gemak-green/10'
+                      : 'text-white/40 hover:text-gemak-green hover:bg-gemak-green/5'
+                  }`}
                 >
                   <Icon size={14} /> {service.title}
+                  {isActive && (
+                    <motion.div layoutId="service-nav-active" className="absolute bottom-0 left-2 right-2 h-0.5 bg-gemak-green rounded-full" />
+                  )}
                 </a>
               );
             })}

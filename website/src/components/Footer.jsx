@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ShieldCheck, Phone, Mail, MapPin, ExternalLink, ArrowUpRight, Facebook, Twitter, Linkedin, Instagram } from 'lucide-react';
+import { Phone, Mail, MapPin, ExternalLink, ArrowUpRight, Facebook, Twitter, Linkedin, Instagram } from 'lucide-react';
 import { siteInfo, branches } from '../data/siteData';
 import AnimatedSection from './AnimatedSection';
 
@@ -12,12 +12,13 @@ export default function Footer() {
     Company: [
       { label: 'About Us', path: '/about' },
       { label: 'Our Services', path: '/services' },
+      { label: 'Security Services', path: '/security-services' },
       { label: 'Gallery', path: '/gallery' },
       { label: 'Contact', path: '/contact' },
     ],
     Products: [
       { label: 'CCTV Cameras', path: '/shop?cat=CCTV+Cameras' },
-      { label: 'Alarm Systems', path: '/shop?cat=Alarm+Systems' },
+      { label: 'Alarm Systems', path: '/shop?cat=Alarms' },
       { label: 'Self Defense', path: '/shop?cat=Self+Defense' },
       { label: 'All Products', path: '/shop' },
     ],
@@ -30,7 +31,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="relative bg-gemak-black-light border-t border-white/5 pt-16">
+    <footer className="dark-section relative bg-gemak-black-light border-t border-white/5 pt-16">
       {/* Decorative Elements */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-radial-green opacity-30 pointer-events-none" />
 
@@ -62,12 +63,13 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
           {/* Brand */}
           <div className="lg:col-span-2">
-            <Link to="/" className="flex items-center gap-2 mb-4">
-              <ShieldCheck size={28} className="text-gemak-green" />
-              <div className="flex flex-col leading-none">
-                <span className="font-display text-2xl tracking-wide">GEMAK</span>
-                <span className="text-[8px] tracking-[0.3em] text-gemak-green font-heading uppercase">Security Shop</span>
-              </div>
+            <Link to="/" className="inline-block mb-4">
+              <img
+                src="/light-logo.png"
+                alt="Gemak Security Shop"
+                className="h-12 w-auto object-contain"
+                loading="eager"
+              />
             </Link>
             <p className="text-white/40 text-sm leading-relaxed max-w-sm">
               Zimbabwe's leading security solutions provider with 9 branches nationwide. 

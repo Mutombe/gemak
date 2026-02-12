@@ -1,136 +1,242 @@
 import React from 'react';
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import { Link } from 'react-router-dom';
-import { motion, useScroll, useTransform, useMotionValue, useSpring, AnimatePresence } from 'framer-motion';
-import { Shield, Camera, Zap, DoorOpen, ShieldAlert, Home as HomeIcon, ArrowRight, ArrowUpRight, Star, ChevronRight, Play, CheckCircle2, Phone, MapPin, Eye, Lock, Radio } from 'lucide-react';
+import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
+import { Shield, Camera, Zap, DoorOpen, ShieldAlert, Home as HomeIcon, ArrowRight, ArrowUpRight, Star, ChevronRight, CheckCircle2, Phone, MapPin, Eye, Lock, Radio, ChevronLeft } from 'lucide-react';
 import AnimatedSection, { StaggerContainer, StaggerItem } from '../components/AnimatedSection';
+import AnimatedCounter from '../components/AnimatedCounter';
 import PageSEO from '../components/PageSEO';
 import { services, products, testimonials, stats, siteInfo, branches } from '../data/siteData';
 
 const iconMap = { Camera, ShieldAlert, DoorOpen, Zap, Shield, Home: HomeIcon };
 
-/* ═══════════════ HERO ═══════════════ */
+/* ── Ripple utility ── */
+function createRipple(e) {
+  const el = e.currentTarget;
+  const circle = document.createElement('span');
+  const d = Math.max(el.clientWidth, el.clientHeight);
+  const r = d / 2;
+  const rect = el.getBoundingClientRect();
+  Object.assign(circle.style, {
+    width: `${d}px`, height: `${d}px`,
+    left: `${e.clientX - rect.left - r}px`,
+    top: `${e.clientY - rect.top - r}px`,
+    position: 'absolute', borderRadius: '50%',
+    background: 'rgba(255,255,255,0.2)',
+    transform: 'scale(0)',
+    animation: 'ripple 0.6s ease-out',
+    pointerEvents: 'none',
+  });
+  el.appendChild(circle);
+  circle.addEventListener('animationend', () => circle.remove());
+}
+
+/* ── Hero carousel slides ── */
+const heroSlides = [
+  {
+    image: 'https://images.unsplash.com/photo-1558002038-1055907df827?w=1920&q=80',
+    badge: "Zimbabwe's #1 Security Provider",
+    headline: <>PROTECT<br />WHAT <span className="text-gradient-green">MATTERS</span><br /><span className="text-gemak-red">MOST</span></>,
+    subtitle: 'Advanced security systems, professional guard equipment, and smart home solutions. Harnessing technology for your convenience across 9 branches nationwide.',
+    cta: { label: 'Explore Services', to: '/services' },
+    ctaSecondary: { label: 'Visit Shop', to: '/shop' },
+  },
+  {
+    image: 'https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=1920&q=80',
+    badge: 'CCTV & Surveillance Experts',
+    headline: <>TOTAL<br /><span className="text-gradient-green">SURVEILLANCE</span><br />SOLUTIONS</>,
+    subtitle: 'From 2MP to 5MP, Hikvision to Dahua — HD cameras, NVR kits, PTZ systems, and AI-powered analytics installed by certified professionals.',
+    cta: { label: 'Our Cameras', to: '/shop' },
+    ctaSecondary: { label: 'Get a Quote', to: '/contact' },
+  },
+  {
+    image: 'https://images.unsplash.com/photo-1521791055366-0d553872125f?w=600&q=80',
+    badge: 'Professional Equipment Supplier',
+    headline: <>EQUIP YOUR<br /><span className="text-gradient-green">SECURITY</span><br /><span className="text-gemak-red">TEAM</span></>,
+    subtitle: 'Guard uniforms, tactical gear, boots, walkie-talkies, blank guns, and more. Everything your security company needs under one roof.',
+    cta: { label: 'Browse Equipment', to: '/shop' },
+    ctaSecondary: { label: 'Learn More', to: '/services' },
+  },
+  {
+    image: 'https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=1920&q=80',
+    badge: '9 Branches Nationwide',
+    headline: <>SECURITY<br />MADE <span className="text-gradient-green">ACCESSIBLE</span><br />FOR ALL</>,
+    subtitle: 'From Harare to Kariba, from homes to enterprises — affordable, world-class security solutions available at every branch.',
+    cta: { label: 'Find a Branch', to: '/contact' },
+    ctaSecondary: { label: 'About Us', to: '/about' },
+  },
+];
+
+/* ═══════════════ HERO CAROUSEL ═══════════════ */
 function HeroSection() {
+  const [activeSlide, setActiveSlide] = useState(0);
+  const timerRef = useRef(null);
   const { scrollY } = useScroll();
-  const y = useTransform(scrollY, [0, 700], [0, 200]);
   const opacity = useTransform(scrollY, [0, 400], [1, 0]);
-  const scale = useTransform(scrollY, [0, 400], [1, 1.1]);
+
+  const resetTimer = useCallback(() => {
+    if (timerRef.current) clearInterval(timerRef.current);
+    timerRef.current = setInterval(() => setActiveSlide(p => (p + 1) % heroSlides.length), 6000);
+  }, []);
+
+  useEffect(() => { resetTimer(); return () => clearInterval(timerRef.current); }, [resetTimer]);
+
+  const goTo = (idx) => { setActiveSlide(idx); resetTimer(); };
+  const goNext = () => goTo((activeSlide + 1) % heroSlides.length);
+  const goPrev = () => goTo((activeSlide - 1 + heroSlides.length) % heroSlides.length);
+
+  const slide = heroSlides[activeSlide];
 
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden">
-      {/* BG Image — Vision: Dramatic aerial shot of a modern secured compound at twilight with visible security systems */}
-      <motion.div style={{ y, scale }} className="absolute inset-0">
-        <img
-          src="https://images.unsplash.com/photo-1558002038-1055907df827?w=1920&q=80"
-          alt="Security systems"
-          className="w-full h-full object-cover"
-          loading="eager"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-gemak-black via-gemak-black/80 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-gemak-black via-transparent to-gemak-black/30" />
-      </motion.div>
+    <section className="hero-section relative min-h-screen flex items-end overflow-hidden">
+      {/* BG Images — crossfade */}
+      <AnimatePresence mode="sync">
+        <motion.div
+          key={activeSlide}
+          initial={{ opacity: 0, scale: 1.08 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
+          className="absolute inset-0"
+        >
+          <img
+            src={slide.image}
+            alt="Gemak Security"
+            className="w-full h-full object-cover"
+            loading="eager"
+          />
+        </motion.div>
+      </AnimatePresence>
 
-      {/* Grid Overlay */}
-      <div className="absolute inset-0 bg-grid-pattern opacity-40" />
+      {/* Persistent overlays */}
+      <div className="absolute inset-0 bg-gradient-to-r from-gemak-black via-gemak-black/85 to-gemak-black/20" />
+      <div className="absolute inset-0 bg-gradient-to-t from-gemak-black via-gemak-black/30 to-gemak-black/40" />
+      <div className="absolute inset-0 bg-grid-pattern opacity-30" />
 
-      {/* Animated Lines */}
-      <div className="absolute top-0 left-[20%] w-px h-full bg-gradient-to-b from-transparent via-gemak-green/20 to-transparent" />
-      <div className="absolute top-0 left-[40%] w-px h-full bg-gradient-to-b from-transparent via-gemak-green/10 to-transparent" />
+      {/* Decorative Lines */}
+      <div className="absolute top-0 left-[20%] w-px h-full bg-gradient-to-b from-transparent via-gemak-green/15 to-transparent" />
+      <div className="absolute top-0 left-[40%] w-px h-full bg-gradient-to-b from-transparent via-gemak-green/8 to-transparent" />
       <div className="absolute top-0 left-[60%] w-px h-full bg-gradient-to-b from-transparent via-gemak-green/5 to-transparent" />
 
-      <motion.div style={{ opacity }} className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20">
+      {/* Content */}
+      <motion.div style={{ opacity }} className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-36 pb-24">
         <div className="max-w-3xl">
-          {/* Badge */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="inline-flex items-center gap-2 bg-gemak-green/10 border border-gemak-green/20 rounded-full px-4 py-1.5 mb-6"
-          >
-            <div className="w-2 h-2 rounded-full bg-gemak-green animate-pulse" />
-            <span className="text-gemak-green text-xs font-heading uppercase tracking-wider">Zimbabwe's #1 Security Provider</span>
-          </motion.div>
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeSlide}
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+            >
+              {/* Badge */}
+              <div className="inline-flex items-center gap-2 bg-gemak-green/10 border border-gemak-green/20 rounded-full px-4 py-1.5 mb-6">
+                <div className="w-2 h-2 rounded-full bg-gemak-green animate-pulse" />
+                <span className="text-gemak-green text-xs font-heading uppercase tracking-wider">{slide.badge}</span>
+              </div>
 
-          {/* Headline */}
-          <motion.h1
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-[0.9] tracking-wide"
-          >
-            <span className="text-white">PROTECT</span>
-            <br />
-            <span className="text-white">WHAT</span>{' '}
-            <span className="text-gradient-green">MATTERS</span>
-            <br />
-            <span className="text-gemak-red">MOST</span>
-          </motion.h1>
+              {/* Headline */}
+              <h1 className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-[0.9] tracking-wide text-white">
+                {slide.headline}
+              </h1>
 
-          {/* Subtitle */}
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.5 }}
-            className="mt-6 text-white/50 text-lg md:text-xl max-w-lg leading-relaxed"
-          >
-            Advanced security systems, professional guard equipment, and smart home solutions. 
-            Harnessing technology for your convenience across 9 branches nationwide.
-          </motion.p>
+              {/* Subtitle */}
+              <p className="mt-6 text-white/50 text-lg md:text-xl max-w-lg leading-relaxed">
+                {slide.subtitle}
+              </p>
 
-          {/* CTA */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.7 }}
-            className="mt-8 flex flex-wrap gap-4"
-          >
-            <Link to="/services" className="group relative inline-flex items-center gap-2 bg-gemak-green text-gemak-black font-heading uppercase tracking-wider px-8 py-4 rounded-xl overflow-hidden transition-all duration-300 hover:shadow-xl hover:shadow-gemak-green/20">
-              <span className="relative z-10">Explore Services</span>
-              <ArrowRight size={18} className="relative z-10 group-hover:translate-x-1 transition-transform" />
-              <div className="absolute inset-0 bg-gemak-green-dark translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
-            </Link>
-            <Link to="/shop" className="group inline-flex items-center gap-2 bg-white/5 border border-white/10 text-white font-heading uppercase tracking-wider px-8 py-4 rounded-xl hover:bg-white/10 hover:border-white/20 transition-all">
-              Visit Shop <ArrowUpRight size={18} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-            </Link>
-          </motion.div>
+              {/* CTAs */}
+              <div className="mt-8 flex flex-wrap gap-4">
+                <Link
+                  to={slide.cta.to}
+                  onClick={createRipple}
+                  className="group relative inline-flex items-center gap-2 bg-gemak-green text-gemak-black font-heading uppercase tracking-wider px-8 py-4 rounded-xl overflow-hidden transition-all duration-300 hover:shadow-xl hover:shadow-gemak-green/20"
+                >
+                  <span className="relative z-10">{slide.cta.label}</span>
+                  <ArrowRight size={18} className="relative z-10 group-hover:translate-x-1 transition-transform" />
+                  <div className="absolute inset-0 bg-gemak-green-dark translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
+                </Link>
+                <Link
+                  to={slide.ctaSecondary.to}
+                  onClick={createRipple}
+                  className="group relative inline-flex items-center gap-2 bg-white/5 border border-white/10 text-white font-heading uppercase tracking-wider px-8 py-4 rounded-xl overflow-hidden hover:bg-white/10 hover:border-white/20 transition-all"
+                >
+                  {slide.ctaSecondary.label} <ArrowUpRight size={18} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                </Link>
+              </div>
+            </motion.div>
+          </AnimatePresence>
 
-          {/* Stats Row */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 1 }}
-            className="mt-12 flex flex-wrap gap-8 md:gap-12"
-          >
+          {/* Stats Row — always visible */}
+          <div className="mt-12 flex flex-wrap gap-8 md:gap-12">
             {stats.map((stat, i) => (
               <div key={i} className="flex flex-col">
-                <span className="font-display text-3xl md:text-4xl text-gemak-green">{stat.value}</span>
+                <span className="font-display text-3xl md:text-4xl text-gemak-green">
+                  <AnimatedCounter value={stat.value} />
+                </span>
                 <span className="text-white/30 text-xs font-heading uppercase tracking-wider mt-1">{stat.label}</span>
               </div>
             ))}
-          </motion.div>
+          </div>
         </div>
       </motion.div>
 
-      {/* Scroll Indicator */}
-      <motion.div
-        animate={{ y: [0, 10, 0] }}
-        transition={{ repeat: Infinity, duration: 2 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2"
-      >
-        <div className="w-6 h-10 border-2 border-white/20 rounded-full flex justify-center pt-2">
-          <div className="w-1 h-3 bg-gemak-green rounded-full" />
+      {/* Carousel Navigation — Bottom */}
+      <div className="absolute bottom-8 left-0 right-0 z-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+          {/* Dots + Progress */}
+          <div className="flex items-center gap-3">
+            {heroSlides.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => goTo(i)}
+                className="relative h-1 rounded-full overflow-hidden transition-all duration-500"
+                style={{ width: i === activeSlide ? 48 : 12 }}
+                aria-label={`Go to slide ${i + 1}`}
+              >
+                <div className="absolute inset-0 bg-white/20 rounded-full" />
+                {i === activeSlide && (
+                  <motion.div
+                    className="absolute inset-0 bg-gemak-green rounded-full origin-left"
+                    initial={{ scaleX: 0 }}
+                    animate={{ scaleX: 1 }}
+                    transition={{ duration: 6, ease: 'linear' }}
+                    key={`progress-${activeSlide}`}
+                  />
+                )}
+              </button>
+            ))}
+          </div>
+
+          {/* Arrow Buttons */}
+          <div className="flex items-center gap-2">
+            <button
+              onClick={goPrev}
+              className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white/50 hover:text-gemak-green hover:border-gemak-green/30 transition-all"
+              aria-label="Previous slide"
+            >
+              <ChevronLeft size={18} />
+            </button>
+            <button
+              onClick={goNext}
+              className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white/50 hover:text-gemak-green hover:border-gemak-green/30 transition-all"
+              aria-label="Next slide"
+            >
+              <ChevronRight size={18} />
+            </button>
+          </div>
         </div>
-      </motion.div>
+      </div>
     </section>
   );
 }
 
-/* ═══════════════ SERVICES ═══════════════ */
+/* ═══════════════ SERVICES — Animated Icons ═══════════════ */
 function ServicesSection() {
   return (
     <section className="relative py-24 md:py-32 overflow-hidden">
       <div className="absolute top-0 right-0 w-96 h-96 bg-radial-green opacity-30 pointer-events-none" />
-      
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <AnimatedSection variant="fadeUp">
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-16">
@@ -155,11 +261,16 @@ function ServicesSection() {
                   <div className="relative h-full glass-card rounded-2xl p-6 md:p-8 overflow-hidden hover:border-gemak-green/30 transition-all duration-500">
                     {/* Hover Gradient */}
                     <div className="absolute inset-0 bg-gradient-to-br from-gemak-green/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                    
+
                     <div className="relative">
-                      <div className="w-14 h-14 rounded-2xl bg-gemak-green/10 flex items-center justify-center mb-5 group-hover:bg-gemak-green/20 transition-colors">
+                      {/* Animated Icon */}
+                      <motion.div
+                        whileHover={{ scale: 1.15, rotate: 5 }}
+                        transition={{ type: 'spring', stiffness: 400, damping: 15 }}
+                        className="w-14 h-14 rounded-2xl bg-gemak-green/10 flex items-center justify-center mb-5 group-hover:bg-gemak-green/20 transition-colors"
+                      >
                         <Icon size={24} className="text-gemak-green" />
-                      </div>
+                      </motion.div>
                       <h3 className="font-heading text-xl uppercase tracking-wider text-white group-hover:text-gemak-green transition-colors">
                         {service.title}
                       </h3>
@@ -188,7 +299,7 @@ function FeaturedProducts() {
   return (
     <section className="relative py-24 md:py-32 bg-gemak-black-light overflow-hidden">
       <div className="absolute inset-0 bg-grid-pattern opacity-30" />
-      
+
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <AnimatedSection variant="fadeUp">
           <div className="text-center mb-16">
@@ -205,7 +316,6 @@ function FeaturedProducts() {
             <StaggerItem key={product.id}>
               <Link to={`/shop`} className="group block">
                 <div className="relative rounded-2xl overflow-hidden glass-card hover:border-gemak-green/20 transition-all duration-500">
-                  {/* Image — Vision: Product photography on clean backgrounds */}
                   <div className="aspect-square overflow-hidden bg-white/5">
                     <img
                       src={product.image}
@@ -214,8 +324,7 @@ function FeaturedProducts() {
                       loading="lazy"
                     />
                   </div>
-                  
-                  {/* Badge */}
+
                   {product.badge && (
                     <div className={`absolute top-3 left-3 px-2.5 py-1 rounded-lg text-[10px] font-heading uppercase tracking-wider ${
                       product.badge === 'Premium' ? 'bg-gemak-green text-gemak-black' :
@@ -248,7 +357,11 @@ function FeaturedProducts() {
         </StaggerContainer>
 
         <AnimatedSection variant="fadeUp" delay={0.3} className="mt-12 text-center">
-          <Link to="/shop" className="group inline-flex items-center gap-2 bg-gemak-green/10 border border-gemak-green/20 text-gemak-green font-heading uppercase text-sm tracking-wider px-8 py-3.5 rounded-xl hover:bg-gemak-green hover:text-gemak-black transition-all duration-300">
+          <Link
+            to="/shop"
+            onClick={createRipple}
+            className="group relative inline-flex items-center gap-2 bg-gemak-green/10 border border-gemak-green/20 text-gemak-green font-heading uppercase text-sm tracking-wider px-8 py-3.5 rounded-xl overflow-hidden hover:bg-gemak-green hover:text-gemak-black transition-all duration-300"
+          >
             Browse All Products <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
           </Link>
         </AnimatedSection>
@@ -257,8 +370,15 @@ function FeaturedProducts() {
   );
 }
 
-/* ═══════════════ WHY CHOOSE US ═══════════════ */
+/* ═══════════════ WHY CHOOSE US — Parallax Image ═══════════════ */
 function WhyChooseUs() {
+  const sectionRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ['start end', 'end start'],
+  });
+  const imageY = useTransform(scrollYProgress, [0, 1], ['-8%', '8%']);
+
   const reasons = [
     { icon: Eye, title: "24/7 Surveillance", desc: "Round-the-clock monitoring and support for all installed systems" },
     { icon: Lock, title: "Trusted Since 2009", desc: "Over 15 years of proven security expertise across Zimbabwe" },
@@ -267,24 +387,24 @@ function WhyChooseUs() {
   ];
 
   return (
-    <section className="relative py-24 md:py-32 overflow-hidden">
+    <section ref={sectionRef} className="relative py-24 md:py-32 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
-          {/* Left — Image Composition */}
+          {/* Left — Image with Parallax */}
           <AnimatedSection variant="fadeLeft">
             <div className="relative">
-              {/* Main Image — Vision: Security professional monitoring multiple screens in a control room */}
               <div className="relative rounded-2xl overflow-hidden aspect-[4/3]">
-                <img
+                <motion.img
+                  style={{ y: imageY }}
                   src="https://images.unsplash.com/photo-1521791055366-0d553872125f?w=800&q=80"
                   alt="Security professional"
-                  className="w-full h-full object-cover"
+                  className="w-full h-[120%] object-cover"
                   loading="lazy"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-gemak-black/60 to-transparent" />
               </div>
-              
-              {/* Floating Card */}
+
+              {/* Floating Card — Animated Counter */}
               <motion.div
                 initial={{ opacity: 0, scale: 0.8 }}
                 whileInView={{ opacity: 1, scale: 1 }}
@@ -293,7 +413,7 @@ function WhyChooseUs() {
                 className="absolute -bottom-6 -right-6 md:right-8 bg-gemak-green rounded-2xl p-5 shadow-2xl"
               >
                 <div className="text-gemak-black">
-                  <span className="font-display text-4xl">98%</span>
+                  <span className="font-display text-4xl"><AnimatedCounter value="98%" /></span>
                   <p className="text-gemak-black/70 text-xs font-heading uppercase tracking-wider mt-1">Client Satisfaction</p>
                 </div>
               </motion.div>
@@ -311,8 +431,8 @@ function WhyChooseUs() {
                 SECURITY YOU CAN <span className="text-gradient-green">TRUST</span>
               </h2>
               <p className="text-white/40 mt-4 leading-relaxed">
-                With over a decade of experience and thousands of installations across Zimbabwe, 
-                Gemak Security Shop has earned the trust of homeowners, businesses, and institutions 
+                With over a decade of experience and thousands of installations across Zimbabwe,
+                Gemak Security Shop has earned the trust of homeowners, businesses, and institutions
                 as the nation's premier security provider.
               </p>
             </AnimatedSection>
@@ -321,9 +441,13 @@ function WhyChooseUs() {
               {reasons.map((reason, i) => (
                 <StaggerItem key={i}>
                   <div className="flex items-start gap-4 group">
-                    <div className="w-12 h-12 rounded-xl bg-gemak-green/10 flex items-center justify-center shrink-0 group-hover:bg-gemak-green/20 transition-colors">
+                    <motion.div
+                      whileHover={{ scale: 1.1, rotate: -5 }}
+                      transition={{ type: 'spring', stiffness: 400, damping: 15 }}
+                      className="w-12 h-12 rounded-xl bg-gemak-green/10 flex items-center justify-center shrink-0 group-hover:bg-gemak-green/20 transition-colors"
+                    >
                       <reason.icon size={22} className="text-gemak-green" />
-                    </div>
+                    </motion.div>
                     <div>
                       <h3 className="font-heading text-lg uppercase tracking-wider text-white">{reason.title}</h3>
                       <p className="text-white/30 text-sm mt-1">{reason.desc}</p>
@@ -339,19 +463,35 @@ function WhyChooseUs() {
   );
 }
 
-/* ═══════════════ TESTIMONIALS ═══════════════ */
+/* ═══════════════ TESTIMONIALS — Swipe Support ═══════════════ */
 function TestimonialsSection() {
   const [active, setActive] = useState(0);
+  const timerRef = useRef(null);
+
+  const resetTimer = useCallback(() => {
+    if (timerRef.current) clearInterval(timerRef.current);
+    timerRef.current = setInterval(() => setActive((p) => (p + 1) % testimonials.length), 5000);
+  }, []);
 
   useEffect(() => {
-    const timer = setInterval(() => setActive((p) => (p + 1) % testimonials.length), 5000);
-    return () => clearInterval(timer);
-  }, []);
+    resetTimer();
+    return () => clearInterval(timerRef.current);
+  }, [resetTimer]);
+
+  const goTo = (index) => {
+    setActive(index);
+    resetTimer();
+  };
+
+  const handleDragEnd = (_, info) => {
+    if (info.offset.x < -50) goTo((active + 1) % testimonials.length);
+    else if (info.offset.x > 50) goTo((active - 1 + testimonials.length) % testimonials.length);
+  };
 
   return (
     <section className="relative py-24 md:py-32 bg-gemak-black-light overflow-hidden">
       <div className="absolute inset-0 bg-radial-green opacity-20 pointer-events-none" />
-      
+
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <AnimatedSection variant="fadeUp" className="text-center mb-16">
           <span className="text-gemak-green text-xs font-heading uppercase tracking-[0.3em]">Testimonials</span>
@@ -364,11 +504,15 @@ function TestimonialsSection() {
           <AnimatePresence mode="wait">
             <motion.div
               key={active}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.5 }}
-              className="text-center"
+              initial={{ opacity: 0, x: 80 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -80 }}
+              transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+              drag="x"
+              dragConstraints={{ left: 0, right: 0 }}
+              dragElastic={0.15}
+              onDragEnd={handleDragEnd}
+              className="text-center select-none cursor-grab active:cursor-grabbing"
             >
               <div className="flex items-center justify-center gap-1 mb-6">
                 {[...Array(testimonials[active].rating)].map((_, i) => (
@@ -385,17 +529,20 @@ function TestimonialsSection() {
             </motion.div>
           </AnimatePresence>
 
-          {/* Dots */}
-          <div className="flex items-center justify-center gap-2 mt-10">
-            {testimonials.map((_, i) => (
-              <button
-                key={i}
-                onClick={() => setActive(i)}
-                className={`h-1.5 rounded-full transition-all duration-300 ${
-                  i === active ? 'w-8 bg-gemak-green' : 'w-1.5 bg-white/20 hover:bg-white/40'
-                }`}
-              />
-            ))}
+          {/* Dots + Swipe Hint */}
+          <div className="flex flex-col items-center gap-3 mt-10">
+            <div className="flex items-center gap-2">
+              {testimonials.map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => goTo(i)}
+                  className={`h-1.5 rounded-full transition-all duration-300 ${
+                    i === active ? 'w-8 bg-gemak-green' : 'w-1.5 bg-white/20 hover:bg-white/40'
+                  }`}
+                />
+              ))}
+            </div>
+            <p className="text-white/15 text-xs font-heading uppercase tracking-wider md:hidden">Swipe to navigate</p>
           </div>
         </div>
       </div>
@@ -419,7 +566,9 @@ function BranchesSection() {
           {branches.map((branch, i) => (
             <StaggerItem key={i}>
               <div className={`relative glass-card rounded-xl p-4 text-center hover:border-gemak-green/30 transition-all duration-300 group ${branch.isHQ ? 'border-gemak-green/20' : ''}`}>
-                <MapPin size={20} className="mx-auto text-gemak-green mb-2 group-hover:scale-110 transition-transform" />
+                <motion.div whileHover={{ scale: 1.2, y: -2 }} transition={{ type: 'spring', stiffness: 400, damping: 15 }}>
+                  <MapPin size={20} className="mx-auto text-gemak-green mb-2" />
+                </motion.div>
                 <h3 className="font-heading text-sm uppercase tracking-wider text-white">{branch.city}</h3>
                 {branch.isHQ && (
                   <span className="inline-block mt-1 text-[10px] font-heading uppercase tracking-wider bg-gemak-green/10 text-gemak-green px-2 py-0.5 rounded-full">

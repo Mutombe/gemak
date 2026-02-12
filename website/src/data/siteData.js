@@ -136,70 +136,1726 @@ export const services = [
 export const productCategories = [
   "All",
   "CCTV Cameras",
-  "Accessories",
+  "Alarms",
   "Self Defense",
+  "Spy Cameras",
+  "Dashboard Cameras",
+  "Trackers",
+  "Detectors",
+  "Flashlights",
+  "Money Accessories",
+  "Guard Equipment",
   "Footwear",
   "Communication",
-  "Alarm Systems",
+  "Accessories",
   "Gate Automation",
 ];
 
 export const products = [
-  // CCTV Cameras
+  // ===== CCTV Cameras =====
   {
     id: 1,
-    name: "Hikvision Bullet Camera",
+    name: "5G WiFi Camera",
     category: "CCTV Cameras",
-    price: 45,
-    oldPrice: 55,
+    price: 250,
+    image:
+      "https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=400&q=80",
+    badge: "Premium",
+    rating: 4.9,
+  },
+  {
+    id: 2,
+    name: "2MP Hikvision Bullet Camera",
+    category: "CCTV Cameras",
+    price: 25,
     image:
       "https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=400&q=80",
     badge: "Best Seller",
     rating: 4.8,
   },
   {
-    id: 2,
-    name: "Dahua Dome Camera 4MP",
+    id: 3,
+    name: "2MP Hikvision Dome Camera",
     category: "CCTV Cameras",
-    price: 38,
-    oldPrice: 48,
-    image: "3.jpg",
-    badge: "New",
+    price: 25,
+    image:
+      "https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=400&q=80",
     rating: 4.6,
   },
   {
-    id: 3,
-    name: "PTZ Camera 360°",
+    id: 4,
+    name: "2MP Hilook Bullet Camera",
     category: "CCTV Cameras",
-    price: 120,
-    oldPrice: 150,
+    price: 20,
     image:
-      "https://images.unsplash.com/photo-1589935447067-5531094415d1?w=400&q=80",
-    badge: "Premium",
-    rating: 4.9,
+      "https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=400&q=80",
+    rating: 4.3,
   },
   {
     id: 5,
-    name: "8-Channel NVR Kit",
+    name: "2MP Hilook Dome Camera",
     category: "CCTV Cameras",
-    price: 180,
-    oldPrice: 220,
-    image: "/5.jpg",
-    badge: "Popular",
-    rating: 4.8,
+    price: 20,
+    image:
+      "https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=400&q=80",
+    rating: 4.3,
   },
   {
     id: 6,
-    name: "Spy Camera Clock",
+    name: "AHD ColorVu 4 Channel",
     category: "CCTV Cameras",
+    price: 20,
+    image:
+      "https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=400&q=80",
+    rating: 4.2,
+  },
+  {
+    id: 7,
+    name: "Loveday Dual Lens Camera",
+    category: "CCTV Cameras",
+    price: 60,
+    image:
+      "https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=400&q=80",
+    badge: "New",
+    rating: 4.5,
+  },
+  {
+    id: 8,
+    name: "5MP Dahua IR Bullet Camera",
+    category: "CCTV Cameras",
+    price: 25,
+    image: "3.jpg",
+    rating: 4.6,
+  },
+  {
+    id: 9,
+    name: "5MP AHD Full Color Bullet Camera",
+    category: "CCTV Cameras",
+    price: 30,
+    image:
+      "https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=400&q=80",
+    rating: 4.4,
+  },
+  {
+    id: 10,
+    name: "5MP AHD Full Color Dome Camera",
+    category: "CCTV Cameras",
+    price: 30,
+    image:
+      "https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=400&q=80",
+    rating: 4.4,
+  },
+  {
+    id: 11,
+    name: "Aerbes Solar Camera",
+    category: "CCTV Cameras",
+    price: 60,
+    image:
+      "https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=400&q=80",
+    rating: 4.5,
+  },
+  {
+    id: 12,
+    name: "4G Standalone PTZ Camera",
+    category: "CCTV Cameras",
+    price: 60,
+    image:
+      "https://images.unsplash.com/photo-1589935447067-5531094415d1?w=400&q=80",
+    rating: 4.7,
+  },
+  {
+    id: 13,
+    name: "4G AI Solar WiFi Camera",
+    category: "CCTV Cameras",
+    price: 100,
+    image:
+      "https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=400&q=80",
+    badge: "Hot",
+    rating: 4.8,
+  },
+  {
+    id: 14,
+    name: "4G 3-Lens Camera",
+    category: "CCTV Cameras",
+    price: 90,
+    image:
+      "https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=400&q=80",
+    rating: 4.6,
+  },
+  {
+    id: 15,
+    name: "Mobile DVR",
+    category: "CCTV Cameras",
+    price: 45,
+    image:
+      "https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=400&q=80",
+    rating: 4.2,
+  },
+  {
+    id: 16,
+    name: "Aerbes 8-Way CCTV Kit",
+    category: "CCTV Cameras",
+    price: 300,
+    oldPrice: 450,
+    image:
+      "https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=400&q=80",
+    badge: "Sale",
+    rating: 4.9,
+  },
+  // ===== Alarms =====
+  {
+    id: 17,
+    name: "Wireless Alarm Security System",
+    category: "Alarms",
+    price: 70,
+    image:
+      "https://images.unsplash.com/photo-1558002038-1055907df827?w=400&q=80",
+    badge: "Best Seller",
+    rating: 4.7,
+  },
+  {
+    id: 18,
+    name: "Solar Alarm Lamp",
+    category: "Alarms",
+    price: 20,
+    image:
+      "https://images.unsplash.com/photo-1558002038-1055907df827?w=400&q=80",
+    rating: 4.2,
+  },
+  {
+    id: 19,
+    name: "Mini Alarm",
+    category: "Alarms",
+    price: 10,
+    image:
+      "https://images.unsplash.com/photo-1558002038-1055907df827?w=400&q=80",
+    rating: 4.0,
+  },
+  {
+    id: 20,
+    name: "Alarm Lock",
+    category: "Alarms",
+    price: 5,
+    image:
+      "https://images.unsplash.com/photo-1558002038-1055907df827?w=400&q=80",
+    rating: 4.1,
+  },
+  {
+    id: 21,
+    name: "Door Stopper Alarm",
+    category: "Alarms",
+    price: 5,
+    image:
+      "https://images.unsplash.com/photo-1558002038-1055907df827?w=400&q=80",
+    rating: 4.0,
+  },
+  {
+    id: 22,
+    name: "Door/Window Entry Alarm",
+    category: "Alarms",
+    price: 2,
+    image:
+      "https://images.unsplash.com/photo-1558002038-1055907df827?w=400&q=80",
+    rating: 4.1,
+  },
+  {
+    id: 23,
+    name: "Signal Horn",
+    category: "Alarms",
+    price: 20,
+    image:
+      "https://images.unsplash.com/photo-1558002038-1055907df827?w=400&q=80",
+    rating: 4.3,
+  },
+  {
+    id: 24,
+    name: "Smoke Detector",
+    category: "Alarms",
+    price: 15,
+    image:
+      "https://images.unsplash.com/photo-1558002038-1055907df827?w=400&q=80",
+    rating: 4.5,
+  },
+  {
+    id: 25,
+    name: "Siren Horn",
+    category: "Alarms",
+    price: 5,
+    image:
+      "https://images.unsplash.com/photo-1558002038-1055907df827?w=400&q=80",
+    rating: 4.0,
+  },
+  {
+    id: 26,
+    name: "Fire Alarm System",
+    category: "Alarms",
+    price: 20,
+    image:
+      "https://images.unsplash.com/photo-1558002038-1055907df827?w=400&q=80",
+    badge: "Popular",
+    rating: 4.6,
+  },
+  {
+    id: 27,
+    name: "Smoke Alarm",
+    category: "Alarms",
+    price: 15,
+    image:
+      "https://images.unsplash.com/photo-1558002038-1055907df827?w=400&q=80",
+    rating: 4.4,
+  },
+  {
+    id: 28,
+    name: "Alarm Bell",
+    category: "Alarms",
+    price: 100,
+    oldPrice: 120,
+    image:
+      "https://images.unsplash.com/photo-1558002038-1055907df827?w=400&q=80",
+    rating: 4.5,
+  },
+  {
+    id: 29,
+    name: "Conventional Fire Alarm Control Panel",
+    category: "Alarms",
+    price: 100,
+    image:
+      "https://images.unsplash.com/photo-1558002038-1055907df827?w=400&q=80",
+    badge: "Premium",
+    rating: 4.8,
+  },
+  {
+    id: 30,
+    name: "Outdoor PIR Motion Detector",
+    category: "Alarms",
+    price: 35,
+    image:
+      "https://images.unsplash.com/photo-1558002038-1055907df827?w=400&q=80",
+    rating: 4.3,
+  },
+  {
+    id: 31,
+    name: "Personal Alarm",
+    category: "Alarms",
+    price: 5,
+    image:
+      "https://images.unsplash.com/photo-1558002038-1055907df827?w=400&q=80",
+    rating: 4.1,
+  },
+  {
+    id: 32,
+    name: "Fire Alarm System Detector",
+    category: "Alarms",
+    price: 10,
+    image:
+      "https://images.unsplash.com/photo-1558002038-1055907df827?w=400&q=80",
+    rating: 4.2,
+  },
+  // ===== Self Defense =====
+  {
+    id: 33,
+    name: "60ml NATO Pepper Spray",
+    category: "Self Defense",
+    price: 5,
+    image:
+      "https://images.unsplash.com/photo-1595590424283-b8f17842773f?w=400&q=80",
+    rating: 4.3,
+  },
+  {
+    id: 34,
+    name: "110ml Pepper Spray",
+    category: "Self Defense",
+    price: 10,
+    image:
+      "https://images.unsplash.com/photo-1595590424283-b8f17842773f?w=400&q=80",
+    rating: 4.4,
+  },
+  {
+    id: 35,
+    name: "Lipstick Pepper Spray",
+    category: "Self Defense",
+    price: 3,
+    image:
+      "https://images.unsplash.com/photo-1595590424283-b8f17842773f?w=400&q=80",
+    badge: "Popular",
+    rating: 4.5,
+  },
+  {
+    id: 36,
+    name: "Shooting Taser",
+    category: "Self Defense",
+    price: 50,
+    oldPrice: 65,
+    image: "2.webp",
+    badge: "Premium",
+    rating: 4.8,
+  },
+  {
+    id: 37,
+    name: "800 Taser",
+    category: "Self Defense",
+    price: 10,
+    image: "6.jpg",
+    rating: 4.1,
+  },
+  {
+    id: 38,
+    name: "Stun Gun",
+    category: "Self Defense",
+    price: 20,
+    image: "1.jpg",
+    badge: "Hot",
+    rating: 4.5,
+  },
+  {
+    id: 39,
+    name: "YB1321 Taser",
+    category: "Self Defense",
+    price: 15,
+    image:
+      "https://images.unsplash.com/photo-1595590424283-b8f17842773f?w=400&q=80",
+    rating: 4.2,
+  },
+  {
+    id: 40,
+    name: "928 Taser",
+    category: "Self Defense",
+    price: 15,
+    image:
+      "https://images.unsplash.com/photo-1595590424283-b8f17842773f?w=400&q=80",
+    rating: 4.2,
+  },
+  {
+    id: 41,
+    name: "288 Taser",
+    category: "Self Defense",
+    price: 10,
+    image:
+      "https://images.unsplash.com/photo-1595590424283-b8f17842773f?w=400&q=80",
+    rating: 4.0,
+  },
+  {
+    id: 42,
+    name: "809 Taser",
+    category: "Self Defense",
+    price: 35,
+    oldPrice: 45,
+    image:
+      "https://images.unsplash.com/photo-1595590424283-b8f17842773f?w=400&q=80",
+    rating: 4.6,
+  },
+  {
+    id: 43,
+    name: "HY-X10 Taser",
+    category: "Self Defense",
+    price: 30,
+    image:
+      "https://images.unsplash.com/photo-1595590424283-b8f17842773f?w=400&q=80",
+    rating: 4.5,
+  },
+  {
+    id: 44,
+    name: "1109 Taser",
+    category: "Self Defense",
+    price: 30,
+    image:
+      "https://images.unsplash.com/photo-1595590424283-b8f17842773f?w=400&q=80",
+    rating: 4.4,
+  },
+  {
+    id: 45,
+    name: "1188 Taser",
+    category: "Self Defense",
+    price: 30,
+    image:
+      "https://images.unsplash.com/photo-1595590424283-b8f17842773f?w=400&q=80",
+    rating: 4.4,
+  },
+  {
+    id: 46,
+    name: "1108 Taser",
+    category: "Self Defense",
+    price: 25,
+    image:
+      "https://images.unsplash.com/photo-1595590424283-b8f17842773f?w=400&q=80",
+    rating: 4.3,
+  },
+  // ===== Spy Cameras =====
+  {
+    id: 47,
+    name: "Spy Wall Clock",
+    category: "Spy Cameras",
+    price: 90,
+    image:
+      "https://images.unsplash.com/photo-1563396983906-b3795482a59a?w=400&q=80",
+    badge: "Best Seller",
+    rating: 4.7,
+  },
+  {
+    id: 48,
+    name: "HD WiFi Clock Camera",
+    category: "Spy Cameras",
+    price: 65,
+    image:
+      "https://images.unsplash.com/photo-1563396983906-b3795482a59a?w=400&q=80",
+    rating: 4.6,
+  },
+  {
+    id: 49,
+    name: "Spy Pen",
+    category: "Spy Cameras",
+    price: 45,
+    image:
+      "https://images.unsplash.com/photo-1563396983906-b3795482a59a?w=400&q=80",
+    badge: "Popular",
+    rating: 4.5,
+  },
+  {
+    id: 50,
+    name: "Spy Glasses",
+    category: "Spy Cameras",
     price: 25,
     image:
       "https://images.unsplash.com/photo-1563396983906-b3795482a59a?w=400&q=80",
     rating: 4.3,
   },
+  {
+    id: 51,
+    name: "IC Voice Recorder",
+    category: "Spy Cameras",
+    price: 45,
+    image:
+      "https://images.unsplash.com/photo-1563396983906-b3795482a59a?w=400&q=80",
+    rating: 4.4,
+  },
+  {
+    id: 52,
+    name: "Spy Button Camera",
+    category: "Spy Cameras",
+    price: 25,
+    image:
+      "https://images.unsplash.com/photo-1563396983906-b3795482a59a?w=400&q=80",
+    rating: 4.2,
+  },
+  {
+    id: 53,
+    name: "Smart Charger Spy Camera",
+    category: "Spy Cameras",
+    price: 45,
+    image:
+      "https://images.unsplash.com/photo-1563396983906-b3795482a59a?w=400&q=80",
+    badge: "New",
+    rating: 4.6,
+  },
+  {
+    id: 54,
+    name: "Signal Detector",
+    category: "Spy Cameras",
+    price: 45,
+    image:
+      "https://images.unsplash.com/photo-1563396983906-b3795482a59a?w=400&q=80",
+    rating: 4.3,
+  },
+  {
+    id: 55,
+    name: "Spy Wristwatch",
+    category: "Spy Cameras",
+    price: 45,
+    image:
+      "https://images.unsplash.com/photo-1563396983906-b3795482a59a?w=400&q=80",
+    rating: 4.4,
+  },
+  {
+    id: 56,
+    name: "Spy Bulb Camera",
+    category: "Spy Cameras",
+    price: 35,
+    image:
+      "https://images.unsplash.com/photo-1563396983906-b3795482a59a?w=400&q=80",
+    rating: 4.3,
+  },
+  {
+    id: 57,
+    name: "A9 Mini Camera",
+    category: "Spy Cameras",
+    price: 15,
+    image:
+      "https://images.unsplash.com/photo-1563396983906-b3795482a59a?w=400&q=80",
+    rating: 4.1,
+  },
+  {
+    id: 58,
+    name: "Spy Bulb with Plug",
+    category: "Spy Cameras",
+    price: 30,
+    image:
+      "https://images.unsplash.com/photo-1563396983906-b3795482a59a?w=400&q=80",
+    rating: 4.2,
+  },
+  {
+    id: 59,
+    name: "Dual-Lens WiFi Spy Camera",
+    category: "Spy Cameras",
+    price: 45,
+    image:
+      "https://images.unsplash.com/photo-1563396983906-b3795482a59a?w=400&q=80",
+    rating: 4.5,
+  },
+  {
+    id: 60,
+    name: "PIR Sensor Spy Camera",
+    category: "Spy Cameras",
+    price: 30,
+    image:
+      "https://images.unsplash.com/photo-1563396983906-b3795482a59a?w=400&q=80",
+    rating: 4.2,
+  },
+  {
+    id: 61,
+    name: "Advanced Spy Detector",
+    category: "Spy Cameras",
+    price: 65,
+    oldPrice: 80,
+    image:
+      "https://images.unsplash.com/photo-1563396983906-b3795482a59a?w=400&q=80",
+    rating: 4.7,
+  },
+  {
+    id: 62,
+    name: "Spy Diffuser Camera",
+    category: "Spy Cameras",
+    price: 80,
+    image:
+      "https://images.unsplash.com/photo-1563396983906-b3795482a59a?w=400&q=80",
+    badge: "Premium",
+    rating: 4.8,
+  },
+  // ===== Dashboard Cameras =====
+  {
+    id: 63,
+    name: "Car Camcorder",
+    category: "Dashboard Cameras",
+    price: 45,
+    image:
+      "https://images.unsplash.com/photo-1617788138017-80ad40651399?w=400&q=80",
+    rating: 4.3,
+  },
+  {
+    id: 64,
+    name: "Video Black Box DVR (Pink)",
+    category: "Dashboard Cameras",
+    price: 45,
+    image:
+      "https://images.unsplash.com/photo-1617788138017-80ad40651399?w=400&q=80",
+    rating: 4.2,
+  },
+  {
+    id: 65,
+    name: "4G Cloud Dashcam",
+    category: "Dashboard Cameras",
+    price: 150,
+    oldPrice: 180,
+    image:
+      "https://images.unsplash.com/photo-1617788138017-80ad40651399?w=400&q=80",
+    badge: "Premium",
+    rating: 4.9,
+  },
+  {
+    id: 66,
+    name: "WiFi Dashcam 1080P",
+    category: "Dashboard Cameras",
+    price: 65,
+    image:
+      "https://images.unsplash.com/photo-1617788138017-80ad40651399?w=400&q=80",
+    badge: "Popular",
+    rating: 4.6,
+  },
+  {
+    id: 67,
+    name: "4G LTE Car Dashcam",
+    category: "Dashboard Cameras",
+    price: 120,
+    image:
+      "https://images.unsplash.com/photo-1617788138017-80ad40651399?w=400&q=80",
+    rating: 4.7,
+  },
+  {
+    id: 68,
+    name: "Dual Lens Vehicle Black Box DVR",
+    category: "Dashboard Cameras",
+    price: 30,
+    image:
+      "https://images.unsplash.com/photo-1617788138017-80ad40651399?w=400&q=80",
+    rating: 4.2,
+  },
+  {
+    id: 69,
+    name: "Advanced Portable Car Camcorder",
+    category: "Dashboard Cameras",
+    price: 35,
+    image:
+      "https://images.unsplash.com/photo-1617788138017-80ad40651399?w=400&q=80",
+    rating: 4.3,
+  },
+  {
+    id: 70,
+    name: "Car Alarm System",
+    category: "Dashboard Cameras",
+    price: 25,
+    image:
+      "https://images.unsplash.com/photo-1617788138017-80ad40651399?w=400&q=80",
+    rating: 4.1,
+  },
+  {
+    id: 71,
+    name: "Vehicle Black Box DVR (Orange)",
+    category: "Dashboard Cameras",
+    price: 45,
+    image:
+      "https://images.unsplash.com/photo-1617788138017-80ad40651399?w=400&q=80",
+    rating: 4.3,
+  },
+  {
+    id: 72,
+    name: "Vehicle Black Box DVR",
+    category: "Dashboard Cameras",
+    price: 35,
+    image:
+      "https://images.unsplash.com/photo-1617788138017-80ad40651399?w=400&q=80",
+    badge: "Best Seller",
+    rating: 4.4,
+  },
+  // ===== Trackers =====
+  {
+    id: 73,
+    name: "GPS Tracker (Blue Box)",
+    category: "Trackers",
+    price: 35,
+    image:
+      "https://images.unsplash.com/photo-1590859808308-3d2d9c515b1a?w=400&q=80",
+    rating: 4.3,
+  },
+  {
+    id: 74,
+    name: "Pet Collar Tracker",
+    category: "Trackers",
+    price: 45,
+    image:
+      "https://images.unsplash.com/photo-1590859808308-3d2d9c515b1a?w=400&q=80",
+    badge: "New",
+    rating: 4.5,
+  },
+  {
+    id: 75,
+    name: "Magnetic GPS Tracker",
+    category: "Trackers",
+    price: 85,
+    oldPrice: 100,
+    image:
+      "https://images.unsplash.com/photo-1590859808308-3d2d9c515b1a?w=400&q=80",
+    badge: "Best Seller",
+    rating: 4.8,
+  },
+  {
+    id: 76,
+    name: "GPS Tracker (Green Box)",
+    category: "Trackers",
+    price: 65,
+    image:
+      "https://images.unsplash.com/photo-1590859808308-3d2d9c515b1a?w=400&q=80",
+    rating: 4.4,
+  },
+  // ===== Detectors =====
+  {
+    id: 77,
+    name: "Super Scanner Metal Detector",
+    category: "Detectors",
+    price: 25,
+    image:
+      "https://images.unsplash.com/photo-1589935447067-5531094415d1?w=400&q=80",
+    badge: "Popular",
+    rating: 4.5,
+  },
+  {
+    id: 78,
+    name: "Handheld Security Detector",
+    category: "Detectors",
+    price: 35,
+    image:
+      "https://images.unsplash.com/photo-1589935447067-5531094415d1?w=400&q=80",
+    rating: 4.4,
+  },
+  {
+    id: 79,
+    name: "PIR Detector",
+    category: "Detectors",
+    price: 5,
+    image:
+      "https://images.unsplash.com/photo-1589935447067-5531094415d1?w=400&q=80",
+    rating: 4.0,
+  },
+  {
+    id: 80,
+    name: "Super Scanner MD-800",
+    category: "Detectors",
+    price: 30,
+    image:
+      "https://images.unsplash.com/photo-1589935447067-5531094415d1?w=400&q=80",
+    rating: 4.3,
+  },
+  {
+    id: 81,
+    name: "Diamond Selector",
+    category: "Detectors",
+    price: 15,
+    image:
+      "https://images.unsplash.com/photo-1589935447067-5531094415d1?w=400&q=80",
+    rating: 4.2,
+  },
+  {
+    id: 82,
+    name: "Gold Snipper",
+    category: "Detectors",
+    price: 250,
+    image:
+      "https://images.unsplash.com/photo-1589935447067-5531094415d1?w=400&q=80",
+    badge: "Premium",
+    rating: 4.9,
+  },
+  // ===== Flashlights =====
+  {
+    id: 83,
+    name: "Aerbes LED Solar Light AB-T76",
+    category: "Flashlights",
+    price: 15,
+    image:
+      "https://images.unsplash.com/photo-1567306226416-28f0efdc88ce?w=400&q=80",
+    rating: 4.3,
+  },
+  {
+    id: 84,
+    name: "Aerbes Solar Induction Wall Lamp",
+    category: "Flashlights",
+    price: 10,
+    image:
+      "https://images.unsplash.com/photo-1567306226416-28f0efdc88ce?w=400&q=80",
+    rating: 4.2,
+  },
+  {
+    id: 85,
+    name: "Aerbes LED Solar Light AB-T76 (Large)",
+    category: "Flashlights",
+    price: 25,
+    image:
+      "https://images.unsplash.com/photo-1567306226416-28f0efdc88ce?w=400&q=80",
+    rating: 4.4,
+  },
+  {
+    id: 86,
+    name: "Aerbes Flashlight AB-SD103",
+    category: "Flashlights",
+    price: 20,
+    image:
+      "https://images.unsplash.com/photo-1567306226416-28f0efdc88ce?w=400&q=80",
+    rating: 4.3,
+  },
+  {
+    id: 87,
+    name: "Multifunction Solar Light ZH-1288",
+    category: "Flashlights",
+    price: 5,
+    image:
+      "https://images.unsplash.com/photo-1567306226416-28f0efdc88ce?w=400&q=80",
+    rating: 4.0,
+  },
+  {
+    id: 88,
+    name: "Aerbes LED Solar Light AB-TA163",
+    category: "Flashlights",
+    price: 20,
+    image:
+      "https://images.unsplash.com/photo-1567306226416-28f0efdc88ce?w=400&q=80",
+    rating: 4.3,
+  },
+  {
+    id: 89,
+    name: "Aerbes LED Headlamp AB-Z1181",
+    category: "Flashlights",
+    price: 5,
+    image:
+      "https://images.unsplash.com/photo-1567306226416-28f0efdc88ce?w=400&q=80",
+    rating: 4.1,
+  },
+  {
+    id: 90,
+    name: "Aerbes Zoom Flashlight AB-SD10",
+    category: "Flashlights",
+    price: 15,
+    image:
+      "https://images.unsplash.com/photo-1567306226416-28f0efdc88ce?w=400&q=80",
+    rating: 4.2,
+  },
+  {
+    id: 91,
+    name: "Feimao FM-D6001",
+    category: "Flashlights",
+    price: 5,
+    image:
+      "https://images.unsplash.com/photo-1567306226416-28f0efdc88ce?w=400&q=80",
+    rating: 4.0,
+  },
+  {
+    id: 92,
+    name: "Aerbes Solar Projection Lamp AB-T77",
+    category: "Flashlights",
+    price: 10,
+    image:
+      "https://images.unsplash.com/photo-1567306226416-28f0efdc88ce?w=400&q=80",
+    rating: 4.2,
+  },
+  {
+    id: 93,
+    name: "LED Rechargeable Light GU10",
+    category: "Flashlights",
+    price: 2,
+    image:
+      "https://images.unsplash.com/photo-1567306226416-28f0efdc88ce?w=400&q=80",
+    rating: 4.0,
+  },
+  {
+    id: 94,
+    name: "Feimao FM-D6002",
+    category: "Flashlights",
+    price: 5,
+    image:
+      "https://images.unsplash.com/photo-1567306226416-28f0efdc88ce?w=400&q=80",
+    rating: 4.0,
+  },
+  {
+    id: 95,
+    name: "COB Keychain Light W5135",
+    category: "Flashlights",
+    price: 5,
+    image:
+      "https://images.unsplash.com/photo-1567306226416-28f0efdc88ce?w=400&q=80",
+    rating: 4.1,
+  },
+  {
+    id: 96,
+    name: "Andowl QB-707 Flashlight",
+    category: "Flashlights",
+    price: 30,
+    image:
+      "https://images.unsplash.com/photo-1567306226416-28f0efdc88ce?w=400&q=80",
+    badge: "Popular",
+    rating: 4.6,
+  },
+  {
+    id: 97,
+    name: "Aerbes AB-SD02",
+    category: "Flashlights",
+    price: 10,
+    image:
+      "https://images.unsplash.com/photo-1567306226416-28f0efdc88ce?w=400&q=80",
+    rating: 4.1,
+  },
+  {
+    id: 98,
+    name: "P50 Flashlight",
+    category: "Flashlights",
+    price: 15,
+    image:
+      "https://images.unsplash.com/photo-1567306226416-28f0efdc88ce?w=400&q=80",
+    rating: 4.3,
+  },
+  {
+    id: 99,
+    name: "Telescopic Flashlight",
+    category: "Flashlights",
+    price: 5,
+    image:
+      "https://images.unsplash.com/photo-1567306226416-28f0efdc88ce?w=400&q=80",
+    rating: 4.0,
+  },
+  {
+    id: 100,
+    name: "5000 Lumens Flashlight",
+    category: "Flashlights",
+    price: 50,
+    oldPrice: 60,
+    image:
+      "https://images.unsplash.com/photo-1567306226416-28f0efdc88ce?w=400&q=80",
+    badge: "Hot",
+    rating: 4.8,
+  },
+  {
+    id: 101,
+    name: "EJC Super Bright Flashlight W5161-2",
+    category: "Flashlights",
+    price: 25,
+    image:
+      "https://images.unsplash.com/photo-1567306226416-28f0efdc88ce?w=400&q=80",
+    rating: 4.4,
+  },
+  {
+    id: 102,
+    name: "TD-T66 Flashlight",
+    category: "Flashlights",
+    price: 15,
+    image:
+      "https://images.unsplash.com/photo-1567306226416-28f0efdc88ce?w=400&q=80",
+    rating: 4.2,
+  },
+  {
+    id: 103,
+    name: "W590 Flashlight",
+    category: "Flashlights",
+    price: 25,
+    image:
+      "https://images.unsplash.com/photo-1567306226416-28f0efdc88ce?w=400&q=80",
+    rating: 4.4,
+  },
+  // ===== Money Accessories =====
+  {
+    id: 104,
+    name: "2-in-1 Money Detector",
+    category: "Money Accessories",
+    price: 10,
+    image:
+      "https://images.unsplash.com/photo-1553729459-afe8f2e2ed65?w=400&q=80",
+    rating: 4.2,
+  },
+  {
+    id: 105,
+    name: "Banknote Tester Pen",
+    category: "Money Accessories",
+    price: 2,
+    image:
+      "https://images.unsplash.com/photo-1553729459-afe8f2e2ed65?w=400&q=80",
+    rating: 4.0,
+  },
+  {
+    id: 106,
+    name: "Bill Counter",
+    category: "Money Accessories",
+    price: 120,
+    image:
+      "https://images.unsplash.com/photo-1553729459-afe8f2e2ed65?w=400&q=80",
+    badge: "Best Seller",
+    rating: 4.7,
+  },
+  {
+    id: 107,
+    name: "Bill Counter (Blue & White)",
+    category: "Money Accessories",
+    price: 220,
+    oldPrice: 260,
+    image:
+      "https://images.unsplash.com/photo-1553729459-afe8f2e2ed65?w=400&q=80",
+    badge: "Premium",
+    rating: 4.9,
+  },
+  {
+    id: 108,
+    name: "Medium Digital Safe",
+    category: "Money Accessories",
+    price: 60,
+    image:
+      "https://images.unsplash.com/photo-1553729459-afe8f2e2ed65?w=400&q=80",
+    rating: 4.5,
+  },
+  {
+    id: 109,
+    name: "Mini Digital Safe",
+    category: "Money Accessories",
+    price: 50,
+    image:
+      "https://images.unsplash.com/photo-1553729459-afe8f2e2ed65?w=400&q=80",
+    rating: 4.4,
+  },
+  {
+    id: 110,
+    name: "Small Cash Box",
+    category: "Money Accessories",
+    price: 10,
+    image:
+      "https://images.unsplash.com/photo-1553729459-afe8f2e2ed65?w=400&q=80",
+    rating: 4.1,
+  },
+  {
+    id: 111,
+    name: "Large Cash Box with Till",
+    category: "Money Accessories",
+    price: 30,
+    image:
+      "https://images.unsplash.com/photo-1553729459-afe8f2e2ed65?w=400&q=80",
+    rating: 4.4,
+  },
+  {
+    id: 112,
+    name: "Medium Cash Box",
+    category: "Money Accessories",
+    price: 15,
+    image:
+      "https://images.unsplash.com/photo-1553729459-afe8f2e2ed65?w=400&q=80",
+    rating: 4.2,
+  },
+  {
+    id: 113,
+    name: "30-Key Cabinet",
+    category: "Money Accessories",
+    price: 30,
+    image:
+      "https://images.unsplash.com/photo-1553729459-afe8f2e2ed65?w=400&q=80",
+    rating: 4.3,
+  },
+  {
+    id: 114,
+    name: "Large Book Safe",
+    category: "Money Accessories",
+    price: 20,
+    image:
+      "https://images.unsplash.com/photo-1553729459-afe8f2e2ed65?w=400&q=80",
+    badge: "New",
+    rating: 4.3,
+  },
+  {
+    id: 115,
+    name: "Small Book Safe",
+    category: "Money Accessories",
+    price: 10,
+    image:
+      "https://images.unsplash.com/photo-1553729459-afe8f2e2ed65?w=400&q=80",
+    rating: 4.1,
+  },
+  // ===== Guard Equipment =====
+  {
+    id: 116,
+    name: "10km Walkie Talkie",
+    category: "Communication",
+    price: 40,
+    image:
+      "https://images.unsplash.com/photo-1521791055366-0d553872125f?w=400&q=80",
+    rating: 4.5,
+  },
+  {
+    id: 117,
+    name: "Mini Walkie Talkie",
+    category: "Communication",
+    price: 60,
+    image:
+      "https://images.unsplash.com/photo-1521791055366-0d553872125f?w=400&q=80",
+    rating: 4.3,
+  },
+  {
+    id: 118,
+    name: "Baofeng BF-888s",
+    category: "Communication",
+    price: 50,
+    image:
+      "https://images.unsplash.com/photo-1521791055366-0d553872125f?w=400&q=80",
+    badge: "Best Seller",
+    rating: 4.7,
+  },
+  {
+    id: 119,
+    name: "P29 Magazine",
+    category: "Guard Equipment",
+    price: 50,
+    image:
+      "https://images.unsplash.com/photo-1521791055366-0d553872125f?w=400&q=80",
+    rating: 4.3,
+  },
+  {
+    id: 120,
+    name: "F92 Magazine",
+    category: "Guard Equipment",
+    price: 50,
+    image:
+      "https://images.unsplash.com/photo-1521791055366-0d553872125f?w=400&q=80",
+    rating: 4.3,
+  },
+  {
+    id: 121,
+    name: "Tactical Belt",
+    category: "Guard Equipment",
+    price: 15,
+    image:
+      "https://images.unsplash.com/photo-1521791055366-0d553872125f?w=400&q=80",
+    rating: 4.2,
+  },
+  {
+    id: 122,
+    name: "Small Gun Holster",
+    category: "Guard Equipment",
+    price: 10,
+    image:
+      "https://images.unsplash.com/photo-1521791055366-0d553872125f?w=400&q=80",
+    rating: 4.1,
+  },
+  {
+    id: 123,
+    name: "Large Gun Holster",
+    category: "Guard Equipment",
+    price: 15,
+    image:
+      "https://images.unsplash.com/photo-1521791055366-0d553872125f?w=400&q=80",
+    rating: 4.2,
+  },
+  {
+    id: 124,
+    name: "Plastic Large Gun Holster",
+    category: "Guard Equipment",
+    price: 25,
+    image:
+      "https://images.unsplash.com/photo-1521791055366-0d553872125f?w=400&q=80",
+    rating: 4.2,
+  },
+  {
+    id: 125,
+    name: "CO2 Gas Canister",
+    category: "Guard Equipment",
+    price: 3,
+    image:
+      "https://images.unsplash.com/photo-1521791055366-0d553872125f?w=400&q=80",
+    rating: 4.0,
+  },
+  {
+    id: 126,
+    name: "Shoulder Holster",
+    category: "Guard Equipment",
+    price: 25,
+    image:
+      "https://images.unsplash.com/photo-1521791055366-0d553872125f?w=400&q=80",
+    rating: 4.3,
+  },
+  {
+    id: 127,
+    name: "Leg Holster",
+    category: "Guard Equipment",
+    price: 20,
+    image:
+      "https://images.unsplash.com/photo-1521791055366-0d553872125f?w=400&q=80",
+    rating: 4.2,
+  },
+  {
+    id: 128,
+    name: "Thigh Holster",
+    category: "Guard Equipment",
+    price: 25,
+    image:
+      "https://images.unsplash.com/photo-1521791055366-0d553872125f?w=400&q=80",
+    rating: 4.3,
+  },
+  {
+    id: 129,
+    name: "Tactical Belt (Heavy Duty)",
+    category: "Guard Equipment",
+    price: 30,
+    image:
+      "https://images.unsplash.com/photo-1521791055366-0d553872125f?w=400&q=80",
+    rating: 4.4,
+  },
+  {
+    id: 130,
+    name: "P29 Blank Gun",
+    category: "Guard Equipment",
+    price: 250,
+    image:
+      "https://images.unsplash.com/photo-1521791055366-0d553872125f?w=400&q=80",
+    badge: "Premium",
+    rating: 4.8,
+  },
+  {
+    id: 131,
+    name: "F92 Blank Gun",
+    category: "Guard Equipment",
+    price: 300,
+    oldPrice: 350,
+    image:
+      "https://images.unsplash.com/photo-1521791055366-0d553872125f?w=400&q=80",
+    badge: "Premium",
+    rating: 4.9,
+  },
+  {
+    id: 132,
+    name: "Tactical Vest",
+    category: "Guard Equipment",
+    price: 45,
+    image:
+      "https://images.unsplash.com/photo-1521791055366-0d553872125f?w=400&q=80",
+    badge: "Hot",
+    rating: 4.6,
+  },
+  {
+    id: 133,
+    name: "Face Mask",
+    category: "Guard Equipment",
+    price: 10,
+    image:
+      "https://images.unsplash.com/photo-1521791055366-0d553872125f?w=400&q=80",
+    rating: 4.1,
+  },
+  {
+    id: 134,
+    name: "Blank Bullets/Cartridges",
+    category: "Guard Equipment",
+    price: 2,
+    image:
+      "https://images.unsplash.com/photo-1521791055366-0d553872125f?w=400&q=80",
+    rating: 4.0,
+  },
+  {
+    id: 135,
+    name: "Black Beret",
+    category: "Guard Equipment",
+    price: 6,
+    image:
+      "https://images.unsplash.com/photo-1521791055366-0d553872125f?w=400&q=80",
+    rating: 4.1,
+  },
+  {
+    id: 136,
+    name: "Red Beret",
+    category: "Guard Equipment",
+    price: 6,
+    image:
+      "https://images.unsplash.com/photo-1521791055366-0d553872125f?w=400&q=80",
+    rating: 4.1,
+  },
+  {
+    id: 137,
+    name: "Navy Blue Beret",
+    category: "Guard Equipment",
+    price: 6,
+    image:
+      "https://images.unsplash.com/photo-1521791055366-0d553872125f?w=400&q=80",
+    rating: 4.1,
+  },
+  {
+    id: 138,
+    name: "Royal Blue Beret",
+    category: "Guard Equipment",
+    price: 6,
+    image:
+      "https://images.unsplash.com/photo-1521791055366-0d553872125f?w=400&q=80",
+    rating: 4.1,
+  },
+  {
+    id: 139,
+    name: "Army Green Beret",
+    category: "Guard Equipment",
+    price: 6,
+    image:
+      "https://images.unsplash.com/photo-1521791055366-0d553872125f?w=400&q=80",
+    rating: 4.1,
+  },
+  {
+    id: 140,
+    name: "Tactical Baton Stick",
+    category: "Guard Equipment",
+    price: 20,
+    image:
+      "https://images.unsplash.com/photo-1521791055366-0d553872125f?w=400&q=80",
+    rating: 4.3,
+  },
+  {
+    id: 141,
+    name: "Straight Baton Stick",
+    category: "Guard Equipment",
+    price: 6,
+    image:
+      "https://images.unsplash.com/photo-1521791055366-0d553872125f?w=400&q=80",
+    rating: 4.0,
+  },
+  {
+    id: 142,
+    name: "T-Shaped Baton Stick",
+    category: "Guard Equipment",
+    price: 5,
+    image:
+      "https://images.unsplash.com/photo-1521791055366-0d553872125f?w=400&q=80",
+    rating: 4.0,
+  },
+  {
+    id: 143,
+    name: "Baton Stick Holder",
+    category: "Guard Equipment",
+    price: 1,
+    image:
+      "https://images.unsplash.com/photo-1521791055366-0d553872125f?w=400&q=80",
+    rating: 4.0,
+  },
+  {
+    id: 144,
+    name: "Red Security Belt",
+    category: "Guard Equipment",
+    price: 5,
+    image:
+      "https://images.unsplash.com/photo-1521791055366-0d553872125f?w=400&q=80",
+    rating: 4.0,
+  },
+  {
+    id: 145,
+    name: "Black Security Belt",
+    category: "Guard Equipment",
+    price: 5,
+    image:
+      "https://images.unsplash.com/photo-1521791055366-0d553872125f?w=400&q=80",
+    rating: 4.0,
+  },
+  {
+    id: 146,
+    name: "Navy Blue Belt",
+    category: "Guard Equipment",
+    price: 5,
+    image:
+      "https://images.unsplash.com/photo-1521791055366-0d553872125f?w=400&q=80",
+    rating: 4.0,
+  },
+  {
+    id: 147,
+    name: "Yellow Belt",
+    category: "Guard Equipment",
+    price: 5,
+    image:
+      "https://images.unsplash.com/photo-1521791055366-0d553872125f?w=400&q=80",
+    rating: 4.0,
+  },
+  {
+    id: 148,
+    name: "Tactical Glove (Short)",
+    category: "Guard Equipment",
+    price: 10,
+    image:
+      "https://images.unsplash.com/photo-1521791055366-0d553872125f?w=400&q=80",
+    rating: 4.2,
+  },
+  {
+    id: 149,
+    name: "Tactical Glove (Long)",
+    category: "Guard Equipment",
+    price: 15,
+    image:
+      "https://images.unsplash.com/photo-1521791055366-0d553872125f?w=400&q=80",
+    rating: 4.3,
+  },
+  {
+    id: 150,
+    name: "Black Security Cap",
+    category: "Guard Equipment",
+    price: 5,
+    image:
+      "https://images.unsplash.com/photo-1521791055366-0d553872125f?w=400&q=80",
+    rating: 4.1,
+  },
+  {
+    id: 151,
+    name: "Black Plain Cap",
+    category: "Guard Equipment",
+    price: 2,
+    image:
+      "https://images.unsplash.com/photo-1521791055366-0d553872125f?w=400&q=80",
+    rating: 4.0,
+  },
+  {
+    id: 152,
+    name: "Sling Bag",
+    category: "Guard Equipment",
+    price: 15,
+    image:
+      "https://images.unsplash.com/photo-1521791055366-0d553872125f?w=400&q=80",
+    rating: 4.2,
+  },
+  {
+    id: 153,
+    name: "Handcuff",
+    category: "Guard Equipment",
+    price: 10,
+    image:
+      "https://images.unsplash.com/photo-1521791055366-0d553872125f?w=400&q=80",
+    badge: "Popular",
+    rating: 4.4,
+  },
+  {
+    id: 154,
+    name: "Plastic Handcuff",
+    category: "Guard Equipment",
+    price: 2,
+    image:
+      "https://images.unsplash.com/photo-1521791055366-0d553872125f?w=400&q=80",
+    rating: 4.0,
+  },
+  {
+    id: 155,
+    name: "Handcuff Pouch",
+    category: "Guard Equipment",
+    price: 2,
+    image:
+      "https://images.unsplash.com/photo-1521791055366-0d553872125f?w=400&q=80",
+    rating: 4.0,
+  },
+  {
+    id: 156,
+    name: "Reflective Vest",
+    category: "Guard Equipment",
+    price: 5,
+    image:
+      "https://images.unsplash.com/photo-1521791055366-0d553872125f?w=400&q=80",
+    rating: 4.2,
+  },
+  {
+    id: 157,
+    name: "Reflective Vest (Long)",
+    category: "Guard Equipment",
+    price: 10,
+    image:
+      "https://images.unsplash.com/photo-1521791055366-0d553872125f?w=400&q=80",
+    rating: 4.3,
+  },
+  {
+    id: 158,
+    name: "Blackhawk Belt",
+    category: "Guard Equipment",
+    price: 6,
+    image:
+      "https://images.unsplash.com/photo-1521791055366-0d553872125f?w=400&q=80",
+    rating: 4.1,
+  },
+  {
+    id: 159,
+    name: "Bulletproof Vest",
+    category: "Guard Equipment",
+    price: 250,
+    oldPrice: 300,
+    image:
+      "https://images.unsplash.com/photo-1521791055366-0d553872125f?w=400&q=80",
+    badge: "Sale",
+    rating: 4.9,
+  },
+  {
+    id: 160,
+    name: "Tactical Dog Leash",
+    category: "Guard Equipment",
+    price: 15,
+    image:
+      "https://images.unsplash.com/photo-1521791055366-0d553872125f?w=400&q=80",
+    rating: 4.2,
+  },
+  {
+    id: 161,
+    name: "Car Sunshade",
+    category: "Guard Equipment",
+    price: 10,
+    image:
+      "https://images.unsplash.com/photo-1521791055366-0d553872125f?w=400&q=80",
+    rating: 4.0,
+  },
+  {
+    id: 162,
+    name: "Car Cover",
+    category: "Guard Equipment",
+    price: 15,
+    image:
+      "https://images.unsplash.com/photo-1521791055366-0d553872125f?w=400&q=80",
+    rating: 4.1,
+  },
+  {
+    id: 163,
+    name: "Tactical Goggles",
+    category: "Guard Equipment",
+    price: 15,
+    image:
+      "https://images.unsplash.com/photo-1521791055366-0d553872125f?w=400&q=80",
+    rating: 4.3,
+  },
+  {
+    id: 164,
+    name: "Lanyard",
+    category: "Guard Equipment",
+    price: 2,
+    image:
+      "https://images.unsplash.com/photo-1521791055366-0d553872125f?w=400&q=80",
+    rating: 4.0,
+  },
+  {
+    id: 165,
+    name: "Raincoat",
+    category: "Guard Equipment",
+    price: 10,
+    image:
+      "https://images.unsplash.com/photo-1521791055366-0d553872125f?w=400&q=80",
+    rating: 4.1,
+  },
+  {
+    id: 166,
+    name: "Rifle Bag",
+    category: "Guard Equipment",
+    price: 35,
+    image:
+      "https://images.unsplash.com/photo-1521791055366-0d553872125f?w=400&q=80",
+    rating: 4.4,
+  },
+  {
+    id: 167,
+    name: "Tactical Water Bottle",
+    category: "Guard Equipment",
+    price: 10,
+    image:
+      "https://images.unsplash.com/photo-1521791055366-0d553872125f?w=400&q=80",
+    rating: 4.1,
+  },
+  {
+    id: 168,
+    name: "Tactical Elbow & Knee Pads",
+    category: "Guard Equipment",
+    price: 15,
+    image:
+      "https://images.unsplash.com/photo-1521791055366-0d553872125f?w=400&q=80",
+    rating: 4.3,
+  },
+  {
+    id: 169,
+    name: "Pellet Gun",
+    category: "Guard Equipment",
+    price: 120,
+    oldPrice: 145,
+    image:
+      "https://images.unsplash.com/photo-1521791055366-0d553872125f?w=400&q=80",
+    badge: "Hot",
+    rating: 4.7,
+  },
+  {
+    id: 170,
+    name: "Black Security Jacket",
+    category: "Guard Equipment",
+    price: 35,
+    image:
+      "https://images.unsplash.com/photo-1521791055366-0d553872125f?w=400&q=80",
+    rating: 4.4,
+  },
+  {
+    id: 171,
+    name: "Whistle",
+    category: "Guard Equipment",
+    price: 2,
+    image:
+      "https://images.unsplash.com/photo-1521791055366-0d553872125f?w=400&q=80",
+    rating: 4.0,
+  },
+  {
+    id: 172,
+    name: "Water Bag",
+    category: "Guard Equipment",
+    price: 15,
+    image:
+      "https://images.unsplash.com/photo-1521791055366-0d553872125f?w=400&q=80",
+    rating: 4.1,
+  },
+  {
+    id: 173,
+    name: "Handmade Sjambok",
+    category: "Guard Equipment",
+    price: 5,
+    image:
+      "https://images.unsplash.com/photo-1521791055366-0d553872125f?w=400&q=80",
+    rating: 4.0,
+  },
+  {
+    id: 174,
+    name: "Machine Made Sjambok",
+    category: "Guard Equipment",
+    price: 5,
+    image:
+      "https://images.unsplash.com/photo-1521791055366-0d553872125f?w=400&q=80",
+    rating: 4.0,
+  },
+  {
+    id: 175,
+    name: "Small Knuckle Duster",
+    category: "Guard Equipment",
+    price: 5,
+    image:
+      "https://images.unsplash.com/photo-1521791055366-0d553872125f?w=400&q=80",
+    rating: 4.0,
+  },
+  {
+    id: 176,
+    name: "Junction Box",
+    category: "Accessories",
+    price: 2,
+    image:
+      "https://images.unsplash.com/photo-1531492746076-161ca9bcad58?w=400&q=80",
+    rating: 4.0,
+  },
+  {
+    id: 177,
+    name: "Gun Oil",
+    category: "Guard Equipment",
+    price: 15,
+    image:
+      "https://images.unsplash.com/photo-1521791055366-0d553872125f?w=400&q=80",
+    rating: 4.1,
+  },
+  {
+    id: 178,
+    name: "4.5mm Pointed Pellet",
+    category: "Guard Equipment",
+    price: 10,
+    image:
+      "https://images.unsplash.com/photo-1521791055366-0d553872125f?w=400&q=80",
+    rating: 4.1,
+  },
+  {
+    id: 179,
+    name: "5.5mm Pointed Pellet",
+    category: "Guard Equipment",
+    price: 10,
+    image:
+      "https://images.unsplash.com/photo-1521791055366-0d553872125f?w=400&q=80",
+    rating: 4.1,
+  },
+  // ===== Footwear =====
+  {
+    id: 180,
+    name: "TTP Safety Shoe",
+    category: "Footwear",
+    price: 25,
+    image: "12.webp",
+    rating: 4.5,
+  },
+  {
+    id: 181,
+    name: "Pioneer Canvas Security Shoe",
+    category: "Footwear",
+    price: 25,
+    image: "13.png",
+    badge: "Best Seller",
+    rating: 4.7,
+  },
+  // ===== Communication =====
+  {
+    id: 182,
+    name: "Baofeng UV-5R Radio",
+    category: "Communication",
+    price: 25,
+    oldPrice: 35,
+    image: "14.webp",
+    badge: "Best Seller",
+    rating: 4.8,
+  },
+  // ===== Accessories =====
+  {
+    id: 183,
+    name: "Video Intercom System",
+    category: "Gate Automation",
+    price: 85,
+    image: "9.webp",
+    rating: 4.6,
+  },
   // Accessories
   {
-    id: 9,
+    id: 184,
     name: "1TB Hard Drive",
     category: "Accessories",
     price: 40,
@@ -208,78 +1864,6 @@ export const products = [
       "https://images.unsplash.com/photo-1531492746076-161ca9bcad58?w=400&q=80",
     badge: "Sale",
     rating: 4.7,
-  },
-  // Self Defense
-  {
-    id: 13,
-    name: "TW 1502 Type Taser",
-    category: "Self Defense",
-    price: 10,
-    image: "6.jpg",
-    badge: "Popular",
-    rating: 4.3,
-  },
-  {
-    id: 15,
-    name: "Tactical Stun Flashlight",
-    category: "Self Defense",
-    price: 20,
-    image: "1.jpg",
-    badge: "Hot",
-    rating: 4.5,
-  },
-  {
-    id: 16,
-    name: "Shooting Taser",
-    category: "Self Defense",
-    price: 65,
-    oldPrice: 80,
-    image: "2.webp",
-    badge: "Premium",
-    rating: 4.8,
-  },
-  // Footwear
-  {
-    id: 17,
-    name: "TTP Security Boots",
-    category: "Footwear",
-    price: 25,
-    image:
-      "12.webp",
-    rating: 4.5,
-  },
-  {
-    id: 18,
-    name: "Pioneer Security Boots",
-    category: "Footwear",
-    price: 35,
-    image:
-      "13.png",
-    badge: "Best Seller",
-    rating: 4.7,
-  },
-  // Communication
-  {
-    id: 21,
-    name: "Baofeng UV-5R Radio",
-    category: "Communication",
-    price: 25,
-    oldPrice: 35,
-    image:
-      "14.webp",
-    badge: "Best Seller",
-    rating: 4.8,
-  },
-  // Alarm Systems
-  // Gate Automation
-  {
-    id: 26,
-    name: "Video Intercom System",
-    category: "Gate Automation",
-    price: 85,
-    image:
-      "9.webp",
-    rating: 4.6,
   },
 ];
 
@@ -464,25 +2048,67 @@ export const searchableContent = [
     title: "CCTV Cameras",
     section: "shop",
     path: "/shop?cat=CCTV+Cameras",
-    keywords: "cameras cctv dvr nvr bullet dome ptz spy",
+    keywords: "cameras cctv dvr nvr bullet dome ptz hikvision dahua hilook aerbes solar wifi 4g",
   },
   {
     title: "Self Defense Products",
     section: "shop",
     path: "/shop?cat=Self+Defense",
-    keywords: "taser self defense stun flashlight protection",
+    keywords: "taser self defense stun flashlight protection pepper spray",
   },
   {
     title: "Security Footwear",
     section: "shop",
     path: "/shop?cat=Footwear",
-    keywords: "boots shoes combat security footwear canvas pioneer",
+    keywords: "boots shoes combat security footwear canvas pioneer ttp safety",
   },
   {
     title: "Communication Devices",
     section: "shop",
     path: "/shop?cat=Communication",
     keywords: "radio walkie talkie baofeng two-way communication",
+  },
+  {
+    title: "Spy Cameras",
+    section: "shop",
+    path: "/shop?cat=Spy+Cameras",
+    keywords:
+      "spy camera hidden camera clock pen glasses voice recorder button charger wristwatch bulb mini covert surveillance",
+  },
+  {
+    title: "Dashboard Cameras",
+    section: "shop",
+    path: "/shop?cat=Dashboard+Cameras",
+    keywords:
+      "dashcam dashboard camera car camcorder black box dvr vehicle recording driving 4g wifi",
+  },
+  {
+    title: "Trackers",
+    section: "shop",
+    path: "/shop?cat=Trackers",
+    keywords:
+      "gps tracker tracking device pet collar magnetic vehicle fleet tracking location",
+  },
+  {
+    title: "Detectors",
+    section: "shop",
+    path: "/shop?cat=Detectors",
+    keywords:
+      "metal detector scanner security detector pir diamond selector gold snipper handheld",
+  },
+  {
+    title: "Flashlights",
+    section: "shop",
+    path: "/shop?cat=Flashlights",
+    keywords:
+      "flashlight torch solar light lamp headlamp led rechargeable aerbes lumens zoom tactical",
+  },
+  {
+    title: "Money Accessories",
+    section: "shop",
+    path: "/shop?cat=Money+Accessories",
+    keywords:
+      "money detector bill counter banknote tester safe cash box key cabinet book safe digital safe",
   },
   {
     title: "Gallery",

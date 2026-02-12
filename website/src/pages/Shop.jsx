@@ -2,15 +2,32 @@ import React from 'react';
 import { useState, useMemo } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Search, SlidersHorizontal, Star, ShoppingCart, Eye, X, Grid3X3, LayoutList, ArrowUpDown, Phone } from 'lucide-react';
+import { Search, SlidersHorizontal, Star, ShoppingCart, Eye, X, Grid3X3, LayoutList, Heart, Phone } from 'lucide-react';
 import AnimatedSection from '../components/AnimatedSection';
 import PageSEO from '../components/PageSEO';
 import { products, productCategories, siteInfo } from '../data/siteData';
 
+/* ── Skeleton placeholder for images ── */
+function ProductImage({ src, alt, className = '', ...props }) {
+  const [loaded, setLoaded] = useState(false);
+  return (
+    <div className="relative w-full h-full">
+      {!loaded && <div className="absolute inset-0 skeleton" />}
+      <img
+        src={src}
+        alt={alt}
+        className={`${className} transition-opacity duration-500 ${loaded ? 'opacity-100' : 'opacity-0'}`}
+        onLoad={() => setLoaded(true)}
+        {...props}
+      />
+    </div>
+  );
+}
+
 export default function ShopPage() {
   const [searchParams, setSearchParams] = useSearchParams();
   const initialCat = searchParams.get('cat') || 'All';
-  
+
   const [category, setCategory] = useState(initialCat);
   const [searchQuery, setSearchQuery] = useState('');
   const [sortBy, setSortBy] = useState('default');
@@ -19,16 +36,45 @@ export default function ShopPage() {
   const [showFilters, setShowFilters] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState(null);
 
+  /* ── Wishlist — persisted in localStorage ── */
+  const [favorites, setFavorites] = useState(() => {
+    try { return JSON.parse(localStorage.getItem('gemak-favorites') || '[]'); }
+    catch { return []; }
+  });
+
+  const toggleFavorite = (e, productId) => {
+    e.stopPropagation();
+    setFavorites(prev => {
+      const next = prev.includes(productId)
+        ? prev.filter(id => id !== productId)
+        : [...prev, productId];
+      localStorage.setItem('gemak-favorites', JSON.stringify(next));
+      return next;
+    });
+  };
+
+  /* ── Product image zoom state ── */
+  const [zoomPos, setZoomPos] = useState({ x: 50, y: 50 });
+  const [isZoomed, setIsZoomed] = useState(false);
+
+  const handleZoomMove = (e) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    setZoomPos({
+      x: ((e.clientX - rect.left) / rect.width) * 100,
+      y: ((e.clientY - rect.top) / rect.height) * 100,
+    });
+  };
+
   const filteredProducts = useMemo(() => {
     let filtered = products;
-    
+
     if (category !== 'All') filtered = filtered.filter(p => p.category === category);
     if (searchQuery) {
       const q = searchQuery.toLowerCase();
       filtered = filtered.filter(p => p.name.toLowerCase().includes(q) || p.category.toLowerCase().includes(q));
     }
     filtered = filtered.filter(p => p.price >= priceRange[0] && p.price <= priceRange[1]);
-    
+
     switch (sortBy) {
       case 'price-low': return [...filtered].sort((a, b) => a.price - b.price);
       case 'price-high': return [...filtered].sort((a, b) => b.price - a.price);
@@ -46,7 +92,7 @@ export default function ShopPage() {
       <section className="relative pt-32 pb-12 overflow-hidden bg-gemak-black-light">
         <div className="absolute inset-0 bg-grid-pattern opacity-20" />
         <div className="absolute top-0 right-0 w-96 h-96 bg-radial-green opacity-20 pointer-events-none" />
-        
+
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }}>
             <span className="text-gemak-green text-xs font-heading uppercase tracking-[0.3em]">Security Equipment</span>
@@ -102,7 +148,7 @@ export default function ShopPage() {
           </div>
 
           <div className="flex gap-8">
-            {/* Sidebar Filters — Desktop */}
+            {/* Sidebar Filters */}
             <aside className={`${showFilters ? 'block fixed inset-0 z-50 bg-gemak-black/95 p-6 pt-20' : 'hidden'} md:block md:static md:bg-transparent md:p-0 md:w-60 shrink-0`}>
               {showFilters && (
                 <button onClick={() => setShowFilters(false)} className="md:hidden absolute top-6 right-6 text-white">
@@ -178,19 +224,19 @@ export default function ShopPage() {
               ) : (
                 <motion.div layout className={`grid gap-4 ${viewMode === 'grid' ? 'grid-cols-2 lg:grid-cols-3' : 'grid-cols-1'}`}>
                   <AnimatePresence>
-                    {filteredProducts.map((product) => (
+                    {filteredProducts.map((product, idx) => (
                       <motion.div
                         key={product.id}
                         layout
                         initial={{ opacity: 0, scale: 0.9 }}
                         animate={{ opacity: 1, scale: 1 }}
                         exit={{ opacity: 0, scale: 0.9 }}
-                        transition={{ duration: 0.3 }}
+                        transition={{ duration: 0.3, delay: idx * 0.04 }}
                       >
                         {viewMode === 'grid' ? (
                           <div className="group glass-card rounded-2xl overflow-hidden hover:border-gemak-green/20 transition-all duration-300 cursor-pointer" onClick={() => setSelectedProduct(product)}>
                             <div className="relative aspect-square overflow-hidden bg-white/5">
-                              <img src={product.image} alt={product.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" loading="lazy" />
+                              <ProductImage src={product.image} alt={product.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" loading="lazy" />
                               {product.badge && (
                                 <div className={`absolute top-3 left-3 px-2 py-0.5 rounded-md text-[10px] font-heading uppercase tracking-wider ${
                                   product.badge === 'Premium' ? 'bg-gemak-green text-gemak-black' :
@@ -199,10 +245,21 @@ export default function ShopPage() {
                                 }`}>{product.badge}</div>
                               )}
                               {product.oldPrice && (
-                                <div className="absolute top-3 right-3 bg-gemak-red/90 text-white text-[10px] font-bold px-2 py-0.5 rounded-md">
+                                <div className="absolute top-3 right-12 bg-gemak-red/90 text-white text-[10px] font-bold px-2 py-0.5 rounded-md">
                                   {Math.round((1 - product.price / product.oldPrice) * 100)}% OFF
                                 </div>
                               )}
+                              {/* Wishlist heart */}
+                              <button
+                                onClick={(e) => toggleFavorite(e, product.id)}
+                                className={`absolute top-3 right-3 w-8 h-8 rounded-full flex items-center justify-center backdrop-blur-sm transition-all z-10 ${
+                                  favorites.includes(product.id)
+                                    ? 'bg-gemak-red text-white scale-100'
+                                    : 'bg-black/30 text-white/50 hover:text-white opacity-0 group-hover:opacity-100'
+                                }`}
+                              >
+                                <Heart size={14} className={favorites.includes(product.id) ? 'fill-current' : ''} />
+                              </button>
                               <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center">
                                 <div className="opacity-0 group-hover:opacity-100 transition-opacity">
                                   <Eye size={24} className="text-white" />
@@ -226,7 +283,7 @@ export default function ShopPage() {
                         ) : (
                           <div className="group glass-card rounded-xl p-4 flex gap-4 hover:border-gemak-green/20 transition-all cursor-pointer" onClick={() => setSelectedProduct(product)}>
                             <div className="w-24 h-24 rounded-lg overflow-hidden bg-white/5 shrink-0">
-                              <img src={product.image} alt={product.name} className="w-full h-full object-cover" loading="lazy" />
+                              <ProductImage src={product.image} alt={product.name} className="w-full h-full object-cover" loading="lazy" />
                             </div>
                             <div className="flex-1 min-w-0">
                               <p className="text-white/30 text-[10px] font-heading uppercase tracking-wider">{product.category}</p>
@@ -237,9 +294,19 @@ export default function ShopPage() {
                                 ))}
                               </div>
                             </div>
-                            <div className="text-right shrink-0">
+                            <div className="flex flex-col items-end gap-2 shrink-0">
                               <span className="font-display text-2xl text-gemak-green">${product.price}</span>
                               {product.oldPrice && <p className="text-white/20 text-xs line-through">${product.oldPrice}</p>}
+                              <button
+                                onClick={(e) => toggleFavorite(e, product.id)}
+                                className={`w-8 h-8 rounded-full flex items-center justify-center transition-all ${
+                                  favorites.includes(product.id)
+                                    ? 'bg-gemak-red/10 text-gemak-red'
+                                    : 'text-white/20 hover:text-white/50'
+                                }`}
+                              >
+                                <Heart size={14} className={favorites.includes(product.id) ? 'fill-current' : ''} />
+                              </button>
                             </div>
                           </div>
                         )}
@@ -253,7 +320,7 @@ export default function ShopPage() {
         </div>
       </section>
 
-      {/* Product Quick View Modal */}
+      {/* Product Quick View Modal — with image zoom */}
       <AnimatePresence>
         {selectedProduct && (
           <motion.div
@@ -261,7 +328,7 @@ export default function ShopPage() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             className="fixed inset-0 z-50 bg-black/80 backdrop-blur-xl flex items-center justify-center p-4"
-            onClick={() => setSelectedProduct(null)}
+            onClick={() => { setSelectedProduct(null); setIsZoomed(false); }}
           >
             <motion.div
               initial={{ opacity: 0, scale: 0.9, y: 30 }}
@@ -271,13 +338,39 @@ export default function ShopPage() {
               onClick={(e) => e.stopPropagation()}
             >
               <div className="grid md:grid-cols-2">
-                <div className="aspect-square bg-white/5">
-                  <img src={selectedProduct.image} alt={selectedProduct.name} className="w-full h-full object-cover" />
+                {/* Zoomable Image */}
+                <div
+                  className="aspect-square bg-white/5 overflow-hidden cursor-zoom-in"
+                  onMouseMove={handleZoomMove}
+                  onMouseEnter={() => setIsZoomed(true)}
+                  onMouseLeave={() => setIsZoomed(false)}
+                >
+                  <img
+                    src={selectedProduct.image}
+                    alt={selectedProduct.name}
+                    className="w-full h-full object-cover transition-transform duration-200 ease-out"
+                    style={{
+                      transform: isZoomed ? 'scale(2)' : 'scale(1)',
+                      transformOrigin: `${zoomPos.x}% ${zoomPos.y}%`,
+                    }}
+                  />
                 </div>
                 <div className="p-6 md:p-8 flex flex-col">
-                  <button onClick={() => setSelectedProduct(null)} className="self-end p-1 text-white/30 hover:text-white">
-                    <X size={20} />
-                  </button>
+                  <div className="flex items-center justify-between">
+                    <button
+                      onClick={(e) => { e.stopPropagation(); toggleFavorite(e, selectedProduct.id); }}
+                      className={`p-2 rounded-lg transition-all ${
+                        favorites.includes(selectedProduct.id)
+                          ? 'bg-gemak-red/10 text-gemak-red'
+                          : 'text-white/30 hover:text-white/60'
+                      }`}
+                    >
+                      <Heart size={18} className={favorites.includes(selectedProduct.id) ? 'fill-current' : ''} />
+                    </button>
+                    <button onClick={() => { setSelectedProduct(null); setIsZoomed(false); }} className="p-1 text-white/30 hover:text-white">
+                      <X size={20} />
+                    </button>
+                  </div>
                   <p className="text-gemak-green text-xs font-heading uppercase tracking-wider">{selectedProduct.category}</p>
                   <h2 className="font-heading text-2xl uppercase tracking-wider text-white mt-2">{selectedProduct.name}</h2>
                   <div className="flex items-center gap-1 mt-2">
@@ -298,6 +391,7 @@ export default function ShopPage() {
                   <p className="text-white/30 text-sm mt-4 leading-relaxed">
                     Available at all 9 Gemak Security Shop branches nationwide. Contact us for bulk pricing and installation services.
                   </p>
+                  <p className="text-white/15 text-xs mt-2 hidden md:block">Hover over image to zoom</p>
                   <div className="mt-auto pt-6 flex gap-3">
                     <a href={siteInfo.social.whatsapp} target="_blank" rel="noopener noreferrer" className="flex-1 flex items-center justify-center gap-2 bg-gemak-green text-gemak-black font-heading uppercase text-sm tracking-wider py-3 rounded-xl hover:bg-gemak-green-dark transition-all">
                       <ShoppingCart size={16} /> Order via WhatsApp

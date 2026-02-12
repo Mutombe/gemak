@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Phone, Mail, MapPin, Clock, Send, CheckCircle, MessageSquare, ChevronDown, ArrowRight, Shield, Globe } from 'lucide-react';
+import { Phone, Mail, MapPin, Clock, Send, CheckCircle, MessageSquare, ChevronDown, ArrowRight, Shield, Globe, AlertCircle } from 'lucide-react';
 import { toast } from 'sonner';
 import AnimatedSection, { StaggerContainer, StaggerItem } from '../components/AnimatedSection';
 import PageSEO from '../components/PageSEO';
@@ -27,20 +27,65 @@ export default function ContactPage() {
     inquiryType: '',
     message: '',
   });
+  const [errors, setErrors] = useState({});
+  const [touched, setTouched] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [activeBranch, setActiveBranch] = useState(0);
   const formRef = useRef(null);
 
+  /* ── Validation rules ── */
+  const validate = (name, value) => {
+    switch (name) {
+      case 'name':
+        if (!value.trim()) return 'Name is required';
+        if (value.trim().length < 2) return 'At least 2 characters';
+        return '';
+      case 'phone':
+        if (!value.trim()) return 'Phone number is required';
+        if (!/^[+]?[\d\s\-()]{7,}$/.test(value.trim())) return 'Enter a valid phone number';
+        return '';
+      case 'email':
+        if (value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) return 'Enter a valid email address';
+        return '';
+      case 'message':
+        if (!value.trim()) return 'Message is required';
+        if (value.trim().length < 10) return 'At least 10 characters';
+        return '';
+      default:
+        return '';
+    }
+  };
+
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+    if (touched[name]) {
+      setErrors(prev => ({ ...prev, [name]: validate(name, value) }));
+    }
+  };
+
+  const handleBlur = (e) => {
+    const { name, value } = e.target;
+    setTouched(prev => ({ ...prev, [name]: true }));
+    setErrors(prev => ({ ...prev, [name]: validate(name, value) }));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setIsSubmitting(true);
 
-    // Simulate form submission
+    const allTouched = { name: true, phone: true, email: true, message: true };
+    setTouched(allTouched);
+
+    const newErrors = {};
+    Object.keys(formData).forEach(key => {
+      const error = validate(key, formData[key]);
+      if (error) newErrors[key] = error;
+    });
+    setErrors(newErrors);
+    if (Object.keys(newErrors).length > 0) return;
+
+    setIsSubmitting(true);
     await new Promise(resolve => setTimeout(resolve, 1500));
 
     setIsSubmitting(false);
@@ -50,15 +95,24 @@ export default function ContactPage() {
     setTimeout(() => {
       setSubmitted(false);
       setFormData({ name: '', email: '', phone: '', inquiryType: '', message: '' });
+      setTouched({});
+      setErrors({});
     }, 4000);
   };
+
+  const inputClass = (name) =>
+    `w-full bg-white/5 border rounded-xl px-4 py-3 text-white text-sm outline-none transition-colors placeholder:text-white/15 ${
+      touched[name] && errors[name]
+        ? 'border-gemak-red/50 focus:border-gemak-red/70'
+        : 'border-white/10 focus:border-gemak-green/30'
+    }`;
 
   return (
     <>
       <PageSEO title="Contact" description="Get in touch with Gemak Security Shop — request a quote, schedule an installation, or visit one of our 9 branches across Zimbabwe." keywords="contact Gemak Security, security installation quote, Zimbabwe security company" />
 
       {/* Hero — Diagonal Split */}
-      <section className="relative min-h-[80vh] flex items-center overflow-hidden">
+      <section className="hero-section relative min-h-[80vh] flex items-center overflow-hidden">
         {/* Vision: Professional security team in a modern office, maybe reviewing security plans on a table or monitoring screens */}
         <div className="absolute inset-0">
           <img
@@ -182,10 +236,22 @@ export default function ContactPage() {
                             name="name"
                             value={formData.name}
                             onChange={handleChange}
-                            required
-                            className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white text-sm outline-none focus:border-gemak-green/30 transition-colors placeholder:text-white/15"
+                            onBlur={handleBlur}
+                            className={inputClass('name')}
                             placeholder="John Doe"
                           />
+                          <AnimatePresence>
+                            {touched.name && errors.name && (
+                              <motion.p
+                                initial={{ opacity: 0, y: -8, height: 0 }}
+                                animate={{ opacity: 1, y: 0, height: 'auto' }}
+                                exit={{ opacity: 0, y: -8, height: 0 }}
+                                className="text-gemak-red text-xs mt-1.5 flex items-center gap-1"
+                              >
+                                <AlertCircle size={12} /> {errors.name}
+                              </motion.p>
+                            )}
+                          </AnimatePresence>
                         </div>
                         <div>
                           <label className="text-white/40 text-xs font-heading uppercase tracking-wider mb-1.5 block">Phone *</label>
@@ -194,10 +260,22 @@ export default function ContactPage() {
                             name="phone"
                             value={formData.phone}
                             onChange={handleChange}
-                            required
-                            className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white text-sm outline-none focus:border-gemak-green/30 transition-colors placeholder:text-white/15"
+                            onBlur={handleBlur}
+                            className={inputClass('phone')}
                             placeholder="+263 7XX XXX XXX"
                           />
+                          <AnimatePresence>
+                            {touched.phone && errors.phone && (
+                              <motion.p
+                                initial={{ opacity: 0, y: -8, height: 0 }}
+                                animate={{ opacity: 1, y: 0, height: 'auto' }}
+                                exit={{ opacity: 0, y: -8, height: 0 }}
+                                className="text-gemak-red text-xs mt-1.5 flex items-center gap-1"
+                              >
+                                <AlertCircle size={12} /> {errors.phone}
+                              </motion.p>
+                            )}
+                          </AnimatePresence>
                         </div>
                       </div>
 
@@ -208,9 +286,22 @@ export default function ContactPage() {
                           name="email"
                           value={formData.email}
                           onChange={handleChange}
-                          className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white text-sm outline-none focus:border-gemak-green/30 transition-colors placeholder:text-white/15"
+                          onBlur={handleBlur}
+                          className={inputClass('email')}
                           placeholder="you@company.co.zw"
                         />
+                        <AnimatePresence>
+                          {touched.email && errors.email && (
+                            <motion.p
+                              initial={{ opacity: 0, y: -8, height: 0 }}
+                              animate={{ opacity: 1, y: 0, height: 'auto' }}
+                              exit={{ opacity: 0, y: -8, height: 0 }}
+                              className="text-gemak-red text-xs mt-1.5 flex items-center gap-1"
+                            >
+                              <AlertCircle size={12} /> {errors.email}
+                            </motion.p>
+                          )}
+                        </AnimatePresence>
                       </div>
 
                       <div>
@@ -237,11 +328,23 @@ export default function ContactPage() {
                           name="message"
                           value={formData.message}
                           onChange={handleChange}
-                          required
+                          onBlur={handleBlur}
                           rows={4}
-                          className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white text-sm outline-none focus:border-gemak-green/30 transition-colors resize-none placeholder:text-white/15"
+                          className={`${inputClass('message')} resize-none`}
                           placeholder="Tell us about your security needs..."
                         />
+                        <AnimatePresence>
+                          {touched.message && errors.message && (
+                            <motion.p
+                              initial={{ opacity: 0, y: -8, height: 0 }}
+                              animate={{ opacity: 1, y: 0, height: 'auto' }}
+                              exit={{ opacity: 0, y: -8, height: 0 }}
+                              className="text-gemak-red text-xs mt-1.5 flex items-center gap-1"
+                            >
+                              <AlertCircle size={12} /> {errors.message}
+                            </motion.p>
+                          )}
+                        </AnimatePresence>
                       </div>
 
                       <button
@@ -337,9 +440,9 @@ export default function ContactPage() {
                   {/* Map Embed — Vision: Actual Google Maps embed showing the branch location */}
                   <div className="aspect-video bg-gemak-black-light relative">
                     <iframe
-                      title={`${branches[activeBranch].name} location`}
+                      title={`${branches[activeBranch].name || branches[activeBranch].city} location`}
                       src={`https://maps.google.com/maps?q=${encodeURIComponent(branches[activeBranch].address + ', Zimbabwe')}&output=embed`}
-                      className="w-full h-full border-0 grayscale opacity-80"
+                      className="w-full h-full border-0 dark-map"
                       loading="lazy"
                       allowFullScreen
                     />

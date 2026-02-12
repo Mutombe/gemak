@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run build:*)",
+      "Bash(timeout 10 npx vite:*)",
+      "Bash(python:*)",
+      "Bash(node -e:*)",
+      "Bash(npx tailwindcss --help:*)"
+    ]
+  }
+}
