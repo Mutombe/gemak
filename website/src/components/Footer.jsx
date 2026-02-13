@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { Phone, Mail, MapPin, ExternalLink, ArrowUpRight, Facebook, Twitter, Linkedin, Instagram } from 'lucide-react';
 import { siteInfo, branches } from '../data/siteData';
 import AnimatedSection from './AnimatedSection';
+import { FaXTwitter } from "react-icons/fa6";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -79,7 +80,7 @@ export default function Footer() {
               {[
                 { icon: Facebook, href: siteInfo.social.facebook },
                 { icon: Instagram, href: siteInfo.social.instagram },
-                { icon: Twitter, href: siteInfo.social.twitter },
+                { icon: FaXTwitter, href: siteInfo.social.twitter },
                 { icon: Linkedin, href: siteInfo.social.linkedin },
               ].map((social, i) => (
                 <a key={i} href={social.href} target="_blank" rel="noopener noreferrer"
@@ -139,7 +140,7 @@ export default function Footer() {
 
         {/* Bottom */}
         <div className="mt-8 pt-6 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-white/20">
-          <p>&copy; {currentYear} Gemak Security Shop. All rights reserved.</p>
+          <p>&copy; {currentYear} Gemak Security Shop. All rights reserved. Website by <a href="https://bitstudio.co.zw" target="_blank" rel="noopener noreferrer" className="text-gemak-green hover:text-gemak-green-light transition-colors">Bit Studio ZW</a></p>
           <div className="flex items-center gap-4">
             <button onClick={() => window.dispatchEvent(new CustomEvent('openPolicy', { detail: 'privacy' }))} className="hover:text-gemak-green transition-colors cursor-pointer">Privacy Policy</button>
             <button onClick={() => window.dispatchEvent(new CustomEvent('openPolicy', { detail: 'terms' }))} className="hover:text-gemak-green transition-colors cursor-pointer">Terms of Use</button>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Phone, Mail, MapPin, Clock, Send, CheckCircle, MessageSquare, ChevronDown, ArrowRight, Shield, Globe, AlertCircle } from 'lucide-react';
+import { Phone, Mail, MapPin, Clock, CheckCircle, MessageSquare, ChevronDown, ArrowRight, Shield, Globe, AlertCircle } from 'lucide-react';
 import { toast } from 'sonner';
 import AnimatedSection, { StaggerContainer, StaggerItem } from '../components/AnimatedSection';
 import PageSEO from '../components/PageSEO';
@@ -29,7 +29,6 @@ export default function ContactPage() {
   });
   const [errors, setErrors] = useState({});
   const [touched, setTouched] = useState({});
-  const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [activeBranch, setActiveBranch] = useState(0);
   const formRef = useRef(null);
@@ -71,9 +70,17 @@ export default function ContactPage() {
     setErrors(prev => ({ ...prev, [name]: validate(name, value) }));
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const buildMessage = () => {
+    const lines = [`Hi Gemak Security Shop,`, ''];
+    lines.push(`Name: ${formData.name}`);
+    lines.push(`Phone: ${formData.phone}`);
+    if (formData.email) lines.push(`Email: ${formData.email}`);
+    if (formData.inquiryType) lines.push(`Inquiry: ${formData.inquiryType}`);
+    lines.push('', `Message:`, formData.message);
+    return lines.join('\n');
+  };
 
+  const validateForm = () => {
     const allTouched = { name: true, phone: true, email: true, message: true };
     setTouched(allTouched);
 
@@ -83,15 +90,36 @@ export default function ContactPage() {
       if (error) newErrors[key] = error;
     });
     setErrors(newErrors);
-    if (Object.keys(newErrors).length > 0) return;
+    return Object.keys(newErrors).length === 0;
+  };
 
-    setIsSubmitting(true);
-    await new Promise(resolve => setTimeout(resolve, 1500));
+  const handleWhatsApp = (e) => {
+    e.preventDefault();
+    if (!validateForm()) return;
+    const msg = buildMessage();
+    const url = `https://wa.me/263773910305?text=${encodeURIComponent(msg)}`;
+    window.open(url, '_blank');
+    setSubmitted('whatsapp');
+    toast.success('Opening WhatsApp with your message!');
+    setTimeout(() => {
+      setSubmitted(false);
+      setFormData({ name: '', email: '', phone: '', inquiryType: '', message: '' });
+      setTouched({});
+      setErrors({});
+    }, 4000);
+  };
 
-    setIsSubmitting(false);
-    setSubmitted(true);
-    toast.success('Message sent! We\'ll get back to you within 24 hours.');
-
+  const handleEmail = (e) => {
+    e.preventDefault();
+    if (!validateForm()) return;
+    const subject = formData.inquiryType
+      ? `${formData.inquiryType} — ${formData.name}`
+      : `Inquiry from ${formData.name}`;
+    const body = buildMessage();
+    const mailto = `mailto:${siteInfo.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = mailto;
+    setSubmitted('email');
+    toast.success('Opening your email client!');
     setTimeout(() => {
       setSubmitted(false);
       setFormData({ name: '', email: '', phone: '', inquiryType: '', message: '' });
@@ -211,8 +239,14 @@ export default function ContactPage() {
                       <div className="w-16 h-16 bg-gemak-green/10 rounded-full flex items-center justify-center mx-auto">
                         <CheckCircle size={32} className="text-gemak-green" />
                       </div>
-                      <h3 className="font-heading text-2xl uppercase tracking-wider text-white mt-6">Message Sent!</h3>
-                      <p className="text-white/40 mt-2 text-sm">We'll respond within 24 hours.</p>
+                      <h3 className="font-heading text-2xl uppercase tracking-wider text-white mt-6">
+                        {submitted === 'whatsapp' ? 'Opening WhatsApp!' : 'Opening Email!'}
+                      </h3>
+                      <p className="text-white/40 mt-2 text-sm">
+                        {submitted === 'whatsapp'
+                          ? 'Your message is pre-filled in WhatsApp. Just hit send!'
+                          : 'Your message is pre-filled in your email client. Just hit send!'}
+                      </p>
                     </motion.div>
                   ) : (
                     <motion.form
@@ -220,7 +254,7 @@ export default function ContactPage() {
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       exit={{ opacity: 0 }}
-                      onSubmit={handleSubmit}
+                      onSubmit={(e) => e.preventDefault()}
                       className="relative space-y-4"
                     >
                       <div>
@@ -347,22 +381,23 @@ export default function ContactPage() {
                         </AnimatePresence>
                       </div>
 
-                      <button
-                        type="submit"
-                        disabled={isSubmitting}
-                        className="w-full bg-gemak-green text-gemak-black font-heading uppercase text-sm tracking-wider py-4 rounded-xl hover:bg-gemak-green-dark transition-all flex items-center justify-center gap-2 disabled:opacity-50"
-                      >
-                        {isSubmitting ? (
-                          <>
-                            <div className="w-4 h-4 border-2 border-gemak-black/30 border-t-gemak-black rounded-full animate-spin" />
-                            Sending...
-                          </>
-                        ) : (
-                          <>
-                            <Send size={16} /> Send Message
-                          </>
-                        )}
-                      </button>
+                      <p className="text-white/25 text-xs text-center font-heading uppercase tracking-wider">Choose how to send</p>
+                      <div className="grid grid-cols-2 gap-3">
+                        <button
+                          type="button"
+                          onClick={handleWhatsApp}
+                          className="bg-[#25D366] text-white font-heading uppercase text-sm tracking-wider py-3.5 rounded-xl hover:bg-[#1da851] transition-all flex items-center justify-center gap-2"
+                        >
+                          <MessageSquare size={16} /> WhatsApp
+                        </button>
+                        <button
+                          type="button"
+                          onClick={handleEmail}
+                          className="bg-gemak-green text-gemak-black font-heading uppercase text-sm tracking-wider py-3.5 rounded-xl hover:bg-gemak-green-dark transition-all flex items-center justify-center gap-2"
+                        >
+                          <Mail size={16} /> Email
+                        </button>
+                      </div>
                     </motion.form>
                   )}
                 </AnimatePresence>

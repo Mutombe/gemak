@@ -1697,35 +1697,35 @@ export const galleryItems = [
     title: "CCTV Installation — Commercial Complex",
     category: "CCTV",
     image:
-      "https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=600&q=80",
+      "/29.jpeg",
   },
   {
     id: 2,
     title: "Electric Fence — Residential Estate",
     category: "Electric Fence",
     image:
-      "https://images.unsplash.com/photo-1504893524553-b855bce32c67?w=600&q=80",
+      "/30.jpeg",
   },
   {
     id: 3,
     title: "Gate Automation — Office Park",
     category: "Gate Automation",
     image:
-      "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=600&q=80",
+      "/31.jpeg",
   },
   {
     id: 4,
     title: "Alarm System — Luxury Home",
     category: "Alarms",
     image:
-      "https://images.unsplash.com/photo-1558002038-1055907df827?w=600&q=80",
+      "/32.jpeg",
   },
   {
     id: 5,
     title: "CCTV Network — Shopping Mall",
     category: "CCTV",
     image:
-      "https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=600&q=80",
+      "/33.jpeg",
   },
   {
     id: 6,
@@ -1748,34 +1748,7 @@ export const galleryItems = [
     image:
       "https://images.unsplash.com/photo-1521791055366-0d553872125f?w=600&q=80",
   },
-  {
-    id: 9,
-    title: "Access Control — Corporate",
-    category: "Gate Automation",
-    image:
-      "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=600&q=80",
-  },
-  {
-    id: 10,
-    title: "Surveillance Upgrade — Hotel",
-    category: "CCTV",
-    image:
-      "https://images.unsplash.com/photo-1589935447067-5531094415d1?w=600&q=80",
-  },
-  {
-    id: 11,
-    title: "Smart Lock Installation",
-    category: "Smart Home",
-    image:
-      "https://images.unsplash.com/photo-1558002038-1055907df827?w=600&q=80",
-  },
-  {
-    id: 12,
-    title: "Guard Deployment — Event",
-    category: "Guard Services",
-    image:
-      "https://images.unsplash.com/photo-1521791055366-0d553872125f?w=600&q=80",
-  },
+
 ];
 
 export const testimonials = [
