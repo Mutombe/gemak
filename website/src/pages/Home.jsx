@@ -34,7 +34,7 @@ function createRipple(e) {
 /* ── Hero carousel slides ── */
 const heroSlides = [
   {
-    image: 'https://images.unsplash.com/photo-1558002038-1055907df827?w=1920&q=80',
+    image: '/15.jpeg',
     badge: "Zimbabwe's #1 Security Provider",
     headline: <>PROTECT<br />WHAT <span className="text-gradient-green">MATTERS</span><br /><span className="text-gemak-red">MOST</span></>,
     subtitle: 'Advanced security systems, professional guard equipment, and smart home solutions. Harnessing technology for your convenience across 9 branches nationwide.',
@@ -50,7 +50,7 @@ const heroSlides = [
     ctaSecondary: { label: 'Get a Quote', to: '/contact' },
   },
   {
-    image: 'https://images.unsplash.com/photo-1521791055366-0d553872125f?w=600&q=80',
+    image: '/16.jpg',
     badge: 'Professional Equipment Supplier',
     headline: <>EQUIP YOUR<br /><span className="text-gradient-green">SECURITY</span><br /><span className="text-gemak-red">TEAM</span></>,
     subtitle: 'Guard uniforms, tactical gear, boots, walkie-talkies, blank guns, and more. Everything your security company needs under one roof.',
@@ -58,7 +58,7 @@ const heroSlides = [
     ctaSecondary: { label: 'Learn More', to: '/services' },
   },
   {
-    image: 'https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=1920&q=80',
+    image: '/17.jpg',
     badge: '9 Branches Nationwide',
     headline: <>SECURITY<br />MADE <span className="text-gradient-green">ACCESSIBLE</span><br />FOR ALL</>,
     subtitle: 'From Harare to Kariba, from homes to enterprises — affordable, world-class security solutions available at every branch.',
@@ -396,7 +396,7 @@ function WhyChooseUs() {
               <div className="relative rounded-2xl overflow-hidden aspect-[4/3]">
                 <motion.img
                   style={{ y: imageY }}
-                  src="https://images.unsplash.com/photo-1521791055366-0d553872125f?w=800&q=80"
+                  src="/18.jpg"
                   alt="Security professional"
                   className="w-full h-[120%] object-cover"
                   loading="lazy"

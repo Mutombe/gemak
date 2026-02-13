@@ -8,15 +8,18 @@ import PageSEO from '../components/PageSEO';
 import { products, productCategories, siteInfo } from '../data/siteData';
 
 /* ── Skeleton placeholder for images ── */
+const isPlaceholder = (src) => src && src.includes('LOGO');
+
 function ProductImage({ src, alt, className = '', ...props }) {
   const [loaded, setLoaded] = useState(false);
+  const placeholder = isPlaceholder(src);
   return (
     <div className="relative w-full h-full">
       {!loaded && <div className="absolute inset-0 skeleton" />}
       <img
         src={src}
         alt={alt}
-        className={`${className} transition-opacity duration-500 ${loaded ? 'opacity-100' : 'opacity-0'}`}
+        className={`${placeholder ? 'w-full h-full object-contain p-6' : className} transition-opacity duration-500 ${loaded ? 'opacity-100' : 'opacity-0'}`}
         onLoad={() => setLoaded(true)}
         {...props}
       />
@@ -348,9 +351,9 @@ export default function ShopPage() {
                   <img
                     src={selectedProduct.image}
                     alt={selectedProduct.name}
-                    className="w-full h-full object-cover transition-transform duration-200 ease-out"
+                    className={`w-full h-full transition-transform duration-200 ease-out ${isPlaceholder(selectedProduct.image) ? 'object-contain p-8' : 'object-cover'}`}
                     style={{
-                      transform: isZoomed ? 'scale(2)' : 'scale(1)',
+                      transform: isZoomed && !isPlaceholder(selectedProduct.image) ? 'scale(2)' : 'scale(1)',
                       transformOrigin: `${zoomPos.x}% ${zoomPos.y}%`,
                     }}
                   />
@@ -393,7 +396,7 @@ export default function ShopPage() {
                   </p>
                   <p className="text-white/15 text-xs mt-2 hidden md:block">Hover over image to zoom</p>
                   <div className="mt-auto pt-6 flex gap-3">
-                    <a href={siteInfo.social.whatsapp} target="_blank" rel="noopener noreferrer" className="flex-1 flex items-center justify-center gap-2 bg-gemak-green text-gemak-black font-heading uppercase text-sm tracking-wider py-3 rounded-xl hover:bg-gemak-green-dark transition-all">
+                    <a href={`https://wa.me/263773910305?text=${encodeURIComponent(`Hi Gemak Security Shop,\n\nI'm interested in ordering:\n\n*${selectedProduct.name}*\nPrice: $${selectedProduct.price}\nCategory: ${selectedProduct.category}\n\nPlease confirm availability and provide further details. Thank you!`)}`} target="_blank" rel="noopener noreferrer" className="flex-1 flex items-center justify-center gap-2 bg-gemak-green text-gemak-black font-heading uppercase text-sm tracking-wider py-3 rounded-xl hover:bg-gemak-green-dark transition-all">
                       <ShoppingCart size={16} /> Order via WhatsApp
                     </a>
                     <a href={`tel:${siteInfo.phone[0]}`} className="flex items-center justify-center px-4 border border-white/10 rounded-xl text-white/60 hover:bg-white/5 transition-all">
