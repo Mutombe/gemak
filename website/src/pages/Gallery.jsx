@@ -68,7 +68,7 @@ export default function GalleryPage() {
         {/* Vision: Dramatic wide-angle shot of a secured estate at dusk with visible CCTV cameras and perimeter lighting */}
         <div className="absolute inset-0">
           <img
-            src="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=1920&q=80"
+            src="/42.jpeg"
             alt="Security installations portfolio"
             className="w-full h-full object-cover"
           />
@@ -261,7 +261,7 @@ export default function GalleryPage() {
               <div className="relative">
                 <div className="rounded-2xl overflow-hidden">
                   <img
-                    src="https://images.unsplash.com/photo-1551808525-51a94da548ce?w=800&q=80"
+                    src="/15.jpeg"
                     alt="Command center installation"
                     className="w-full aspect-[4/3] object-cover"
                   />

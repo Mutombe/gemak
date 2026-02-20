@@ -1692,7 +1692,127 @@ export const products = [
 ];
 
 export const galleryItems = [
+
+    {
+    id: 9,
+    title: "Guard Equipment Supply",
+    category: "Guard Services",
+    image:
+      "/19.jpeg",
+  },
+    {
+    id: 10,
+    title: "Guard Equipment Supply",
+    category: "Guard Services",
+    image:
+      "/20.jpeg",
+  },
+    {
+    id: 11,
+    title: "Guard Equipment Supply",
+    category: "Guard Services",
+    image:
+      "/21.jpeg",
+  },
+    {
+    id: 13,
+    title: "Guard Equipment Supply",
+    category: "Guard Services",
+    image:
+      "/22.jpeg",
+  },
+    {
+    id: 14,
+    title: "Guard Equipment Supply",
+    category: "Guard Services",
+    image:
+      "/23.jpeg",
+  },
+    {
+    id: 15,
+    title: "Guard Equipment Supply",
+    category: "Guard Services",
+    image:
+      "/24.jpeg",
+  },
+    {
+    id: 16,
+    title: "Guard Equipment Supply",
+    category: "Guard Services",
+    image:
+      "/25.jpeg",
+  },
+    {
+    id: 17,
+    title: "Guard Equipment Supply",
+    category: "Guard Services",
+    image:
+      "/26.jpeg",
+  },
+    {
+    id: 18,
+    title: "Guard Equipment Supply",
+    category: "Guard Services",
+    image:
+      "/27.jpeg",
+  },
+    {
+    id: 19,
+    title: "Guard Equipment Supply",
+    category: "Guard Services",
+    image:
+      "/28.jpeg",
+  },
   {
+    id: 20,
+    title: "Guard Equipment Supply",
+    category: "Guard Services",
+    image:
+      "/36.jpeg",
+  },
+  {
+    id: 21,
+    title: "Guard Equipment Supply",
+    category: "Guard Services",
+    image:
+      "/37.jpeg",
+  },
+  {
+    id: 22,
+    title: "Guard Equipment Supply",
+    category: "Guard Services",
+    image:
+      "/38.jpeg",
+  },
+  {
+    id: 23,
+    title: "Guard Equipment Supply",
+    category: "Guard Services",
+    image:
+      "/39.jpeg",
+  },
+  {
+    id: 24,
+    title: "Guard Equipment Supply",
+    category: "Guard Services",
+    image:
+      "/40.jpeg",
+  },
+  {
+    id: 25,
+    title: "Guard Equipment Supply",
+    category: "Guard Services",
+    image:
+      "/41.jpeg",
+  },
+  {
+    id: 26,
+    title: "Guard Equipment Supply",
+    category: "Guard Services",
+    image:
+      "/42.jpeg",
+  },
+    {
     id: 1,
     title: "CCTV Installation — Commercial Complex",
     category: "CCTV",
@@ -1726,27 +1846,6 @@ export const galleryItems = [
     category: "CCTV",
     image:
       "/33.jpeg",
-  },
-  {
-    id: 6,
-    title: "Smart Home Integration",
-    category: "Smart Home",
-    image:
-      "https://images.unsplash.com/photo-1558002038-1055907df827?w=600&q=80",
-  },
-  {
-    id: 7,
-    title: "Perimeter Security — Industrial",
-    category: "Electric Fence",
-    image:
-      "https://images.unsplash.com/photo-1504893524553-b855bce32c67?w=600&q=80",
-  },
-  {
-    id: 8,
-    title: "Guard Equipment Supply",
-    category: "Guard Services",
-    image:
-      "https://images.unsplash.com/photo-1521791055366-0d553872125f?w=600&q=80",
   },
 
 ];
