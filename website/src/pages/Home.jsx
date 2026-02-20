@@ -34,7 +34,7 @@ function createRipple(e) {
 /* ── Hero carousel slides ── */
 const heroSlides = [
   {
-    image: '/15.jpeg',
+    image: '/38.jpeg',
     badge: "Zimbabwe's #1 Security Provider",
     headline: <>PROTECT<br />WHAT <span className="text-gradient-green">MATTERS</span><br /><span className="text-gemak-red">MOST</span></>,
     subtitle: 'Advanced security systems, professional guard equipment, and smart home solutions. Harnessing technology for your convenience across 9 branches nationwide.',
@@ -42,7 +42,7 @@ const heroSlides = [
     ctaSecondary: { label: 'Visit Shop', to: '/shop' },
   },
   {
-    image: 'https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=1920&q=80',
+    image: '/25.jpeg',
     badge: 'CCTV & Surveillance Experts',
     headline: <>TOTAL<br /><span className="text-gradient-green">SURVEILLANCE</span><br />SOLUTIONS</>,
     subtitle: 'From 2MP to 5MP, Hikvision to Dahua — HD cameras, NVR kits, PTZ systems, and AI-powered analytics installed by certified professionals.',
