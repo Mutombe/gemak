@@ -106,7 +106,7 @@ export default function Navbar() {
             {/* Logo — theme-aware */}
             <Link to="/" className="flex items-center gap-2 group shrink-0">
               <img
-                src={isDark ? '/logo2.png' : '/dark-logo.png'}
+                src={isDark ? '/logo2.png' : '/logo2.png'}
                 alt="Gemak Security Shop"
                 className="h-12 md:h-14 w-auto object-contain"
                 loading="eager"
