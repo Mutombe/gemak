@@ -176,7 +176,7 @@ export const products = [
     name: "2MP Hikvision Dome Camera",
     category: "CCTV Cameras",
     price: 25,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/3.png",
     rating: 4.6,
   },
   {
@@ -184,7 +184,7 @@ export const products = [
     name: "2MP Hilook Bullet Camera",
     category: "CCTV Cameras",
     price: 20,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/4.png",
     rating: 4.3,
   },
   {
@@ -192,7 +192,7 @@ export const products = [
     name: "2MP Hilook Dome Camera",
     category: "CCTV Cameras",
     price: 20,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/5.png",
     rating: 4.3,
   },
   {
@@ -200,7 +200,7 @@ export const products = [
     name: "AHD ColorVu 4 Channel",
     category: "CCTV Cameras",
     price: 20,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/6.png",
     rating: 4.2,
   },
   {
@@ -225,7 +225,7 @@ export const products = [
     name: "5MP AHD Full Color Bullet Camera",
     category: "CCTV Cameras",
     price: 30,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/9.png",
     rating: 4.4,
   },
   {
@@ -233,7 +233,7 @@ export const products = [
     name: "5MP AHD Full Color Dome Camera",
     category: "CCTV Cameras",
     price: 30,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/10.png",
     rating: 4.4,
   },
   {
@@ -241,7 +241,7 @@ export const products = [
     name: "Aerbes Solar Camera",
     category: "CCTV Cameras",
     price: 60,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/11.png",
     rating: 4.5,
   },
   {
@@ -249,7 +249,7 @@ export const products = [
     name: "4G Standalone PTZ Camera",
     category: "CCTV Cameras",
     price: 60,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/12.png",
     rating: 4.7,
   },
   {
@@ -266,7 +266,7 @@ export const products = [
     name: "4G 3-Lens Camera",
     category: "CCTV Cameras",
     price: 90,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/14.png",
     rating: 4.6,
   },
   {
@@ -274,7 +274,7 @@ export const products = [
     name: "Mobile DVR",
     category: "CCTV Cameras",
     price: 45,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/15.png",
     rating: 4.2,
   },
   {
@@ -302,7 +302,7 @@ export const products = [
     name: "Solar Alarm Lamp",
     category: "Alarms",
     price: 20,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/18.png",
     rating: 4.2,
   },
   {
@@ -310,7 +310,7 @@ export const products = [
     name: "Mini Alarm",
     category: "Alarms",
     price: 10,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/19.png",
     rating: 4.0,
   },
   {
@@ -318,7 +318,7 @@ export const products = [
     name: "Alarm Lock",
     category: "Alarms",
     price: 5,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/20.png",
     rating: 4.1,
   },
   {
@@ -326,7 +326,7 @@ export const products = [
     name: "Door Stopper Alarm",
     category: "Alarms",
     price: 5,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/21.png",
     rating: 4.0,
   },
   {
@@ -334,7 +334,7 @@ export const products = [
     name: "Door/Window Entry Alarm",
     category: "Alarms",
     price: 2,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/22.png",
     rating: 4.1,
   },
   {
@@ -342,7 +342,7 @@ export const products = [
     name: "Signal Horn",
     category: "Alarms",
     price: 20,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/23.png",
     rating: 4.3,
   },
   {
@@ -350,7 +350,7 @@ export const products = [
     name: "Smoke Detector",
     category: "Alarms",
     price: 15,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/24.png",
     rating: 4.5,
   },
   {
@@ -358,7 +358,7 @@ export const products = [
     name: "Siren Horn",
     category: "Alarms",
     price: 5,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/25.png",
     rating: 4.0,
   },
   {
@@ -375,7 +375,7 @@ export const products = [
     name: "Smoke Alarm",
     category: "Alarms",
     price: 15,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/27.png",
     rating: 4.4,
   },
   {
@@ -384,7 +384,7 @@ export const products = [
     category: "Alarms",
     price: 100,
     oldPrice: 120,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/28.png",
     rating: 4.5,
   },
   {
@@ -401,7 +401,7 @@ export const products = [
     name: "Outdoor PIR Motion Detector",
     category: "Alarms",
     price: 35,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/30.png",
     rating: 4.3,
   },
   {
@@ -409,7 +409,7 @@ export const products = [
     name: "Personal Alarm",
     category: "Alarms",
     price: 5,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/31.png",
     rating: 4.1,
   },
   {
@@ -417,7 +417,7 @@ export const products = [
     name: "Fire Alarm System Detector",
     category: "Alarms",
     price: 10,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/32.png",
     rating: 4.2,
   },
   // ===== Self Defense =====
@@ -426,7 +426,7 @@ export const products = [
     name: "60ml NATO Pepper Spray",
     category: "Self Defense",
     price: 5,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/33.png",
     rating: 4.3,
   },
   {
@@ -434,7 +434,7 @@ export const products = [
     name: "110ml Pepper Spray",
     category: "Self Defense",
     price: 10,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/34.png",
     rating: 4.4,
   },
   {
@@ -442,7 +442,7 @@ export const products = [
     name: "Lipstick Pepper Spray",
     category: "Self Defense",
     price: 3,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/35.png",
     badge: "Popular",
     rating: 4.5,
   },
@@ -478,7 +478,7 @@ export const products = [
     name: "YB1321 Taser",
     category: "Self Defense",
     price: 15,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/39.png",
     rating: 4.2,
   },
   {
@@ -486,7 +486,7 @@ export const products = [
     name: "928 Taser",
     category: "Self Defense",
     price: 15,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/40.png",
     rating: 4.2,
   },
   {
@@ -494,7 +494,7 @@ export const products = [
     name: "288 Taser",
     category: "Self Defense",
     price: 10,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/41.png",
     rating: 4.0,
   },
   {
@@ -503,7 +503,7 @@ export const products = [
     category: "Self Defense",
     price: 35,
     oldPrice: 45,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/42.png",
     rating: 4.6,
   },
   {
@@ -511,7 +511,7 @@ export const products = [
     name: "HY-X10 Taser",
     category: "Self Defense",
     price: 30,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/43.png",
     rating: 4.5,
   },
   {
@@ -519,7 +519,7 @@ export const products = [
     name: "1109 Taser",
     category: "Self Defense",
     price: 30,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/44.png",
     rating: 4.4,
   },
   {
@@ -527,7 +527,7 @@ export const products = [
     name: "1188 Taser",
     category: "Self Defense",
     price: 30,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/45.png",
     rating: 4.4,
   },
   {
@@ -535,7 +535,7 @@ export const products = [
     name: "1108 Taser",
     category: "Self Defense",
     price: 25,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/46.png",
     rating: 4.3,
   },
   // ===== Spy Cameras =====
@@ -544,7 +544,7 @@ export const products = [
     name: "Spy Wall Clock",
     category: "Spy Cameras",
     price: 90,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/47.png",
     badge: "Best Seller",
     rating: 4.7,
   },
@@ -553,7 +553,7 @@ export const products = [
     name: "HD WiFi Clock Camera",
     category: "Spy Cameras",
     price: 65,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/48.png",
     rating: 4.6,
   },
   {
@@ -561,7 +561,7 @@ export const products = [
     name: "Spy Pen",
     category: "Spy Cameras",
     price: 45,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/49.png",
     badge: "Popular",
     rating: 4.5,
   },
@@ -570,7 +570,7 @@ export const products = [
     name: "Spy Glasses",
     category: "Spy Cameras",
     price: 25,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/50.png",
     rating: 4.3,
   },
   {
@@ -578,7 +578,7 @@ export const products = [
     name: "IC Voice Recorder",
     category: "Spy Cameras",
     price: 45,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/51.png",
     rating: 4.4,
   },
   {
@@ -586,7 +586,7 @@ export const products = [
     name: "Spy Button Camera",
     category: "Spy Cameras",
     price: 25,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/52.png",
     rating: 4.2,
   },
   {
@@ -594,7 +594,7 @@ export const products = [
     name: "Smart Charger Spy Camera",
     category: "Spy Cameras",
     price: 45,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/53.png",
     badge: "New",
     rating: 4.6,
   },
@@ -603,7 +603,7 @@ export const products = [
     name: "Signal Detector",
     category: "Spy Cameras",
     price: 45,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/54.png",
     rating: 4.3,
   },
   {
@@ -611,7 +611,7 @@ export const products = [
     name: "Spy Wristwatch",
     category: "Spy Cameras",
     price: 45,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/55.png",
     rating: 4.4,
   },
   {
@@ -619,7 +619,7 @@ export const products = [
     name: "Spy Bulb Camera",
     category: "Spy Cameras",
     price: 35,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/56.png",
     rating: 4.3,
   },
   {
@@ -627,7 +627,7 @@ export const products = [
     name: "A9 Mini Camera",
     category: "Spy Cameras",
     price: 15,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/57.png",
     rating: 4.1,
   },
   {
@@ -635,7 +635,7 @@ export const products = [
     name: "Spy Bulb with Plug",
     category: "Spy Cameras",
     price: 30,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/58.png",
     rating: 4.2,
   },
   {
@@ -643,7 +643,7 @@ export const products = [
     name: "Dual-Lens WiFi Spy Camera",
     category: "Spy Cameras",
     price: 45,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/59.png",
     rating: 4.5,
   },
   {
@@ -651,7 +651,7 @@ export const products = [
     name: "PIR Sensor Spy Camera",
     category: "Spy Cameras",
     price: 30,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/60.png",
     rating: 4.2,
   },
   {
@@ -660,7 +660,7 @@ export const products = [
     category: "Spy Cameras",
     price: 65,
     oldPrice: 80,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/61.png",
     rating: 4.7,
   },
   {
@@ -668,7 +668,7 @@ export const products = [
     name: "Spy Diffuser Camera",
     category: "Spy Cameras",
     price: 80,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/62.png",
     badge: "Premium",
     rating: 4.8,
   },
@@ -678,7 +678,7 @@ export const products = [
     name: "Car Camcorder",
     category: "Dashboard Cameras",
     price: 45,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/63.png",
     rating: 4.3,
   },
   {
@@ -686,7 +686,7 @@ export const products = [
     name: "Video Black Box DVR (Pink)",
     category: "Dashboard Cameras",
     price: 45,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/64.png",
     rating: 4.2,
   },
   {
@@ -695,7 +695,7 @@ export const products = [
     category: "Dashboard Cameras",
     price: 150,
     oldPrice: 180,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/65.png",
     badge: "Premium",
     rating: 4.9,
   },
@@ -704,7 +704,7 @@ export const products = [
     name: "WiFi Dashcam 1080P",
     category: "Dashboard Cameras",
     price: 65,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/66.png",
     badge: "Popular",
     rating: 4.6,
   },
@@ -713,7 +713,7 @@ export const products = [
     name: "4G LTE Car Dashcam",
     category: "Dashboard Cameras",
     price: 120,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/67.png",
     rating: 4.7,
   },
   {
@@ -721,7 +721,7 @@ export const products = [
     name: "Dual Lens Vehicle Black Box DVR",
     category: "Dashboard Cameras",
     price: 30,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/68.png",
     rating: 4.2,
   },
   {
@@ -729,7 +729,7 @@ export const products = [
     name: "Advanced Portable Car Camcorder",
     category: "Dashboard Cameras",
     price: 35,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/69.png",
     rating: 4.3,
   },
   {
@@ -737,7 +737,7 @@ export const products = [
     name: "Car Alarm System",
     category: "Dashboard Cameras",
     price: 25,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/70.png",
     rating: 4.1,
   },
   {
@@ -745,7 +745,7 @@ export const products = [
     name: "Vehicle Black Box DVR (Orange)",
     category: "Dashboard Cameras",
     price: 45,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/71.png",
     rating: 4.3,
   },
   {
@@ -753,7 +753,7 @@ export const products = [
     name: "Vehicle Black Box DVR",
     category: "Dashboard Cameras",
     price: 35,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/72.png",
     badge: "Best Seller",
     rating: 4.4,
   },
@@ -763,7 +763,7 @@ export const products = [
     name: "GPS Tracker (Blue Box)",
     category: "Trackers",
     price: 35,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/73.png",
     rating: 4.3,
   },
   {
@@ -771,7 +771,7 @@ export const products = [
     name: "Pet Collar Tracker",
     category: "Trackers",
     price: 45,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/74.png",
     badge: "New",
     rating: 4.5,
   },
@@ -781,7 +781,7 @@ export const products = [
     category: "Trackers",
     price: 85,
     oldPrice: 100,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/75.png",
     badge: "Best Seller",
     rating: 4.8,
   },
@@ -790,7 +790,7 @@ export const products = [
     name: "GPS Tracker (Green Box)",
     category: "Trackers",
     price: 65,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/76.png",
     rating: 4.4,
   },
   // ===== Detectors =====
@@ -799,7 +799,7 @@ export const products = [
     name: "Super Scanner Metal Detector",
     category: "Detectors",
     price: 25,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/77.png",
     badge: "Popular",
     rating: 4.5,
   },
@@ -808,7 +808,7 @@ export const products = [
     name: "Handheld Security Detector",
     category: "Detectors",
     price: 35,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/78.png",
     rating: 4.4,
   },
   {
@@ -816,7 +816,7 @@ export const products = [
     name: "PIR Detector",
     category: "Detectors",
     price: 5,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/79.png",
     rating: 4.0,
   },
   {
@@ -824,7 +824,7 @@ export const products = [
     name: "Super Scanner MD-800",
     category: "Detectors",
     price: 30,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/80.png",
     rating: 4.3,
   },
   {
@@ -832,7 +832,7 @@ export const products = [
     name: "Diamond Selector",
     category: "Detectors",
     price: 15,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/81.png",
     rating: 4.2,
   },
   {
@@ -840,7 +840,7 @@ export const products = [
     name: "Gold Snipper",
     category: "Detectors",
     price: 250,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/82.png",
     badge: "Premium",
     rating: 4.9,
   },
@@ -850,7 +850,7 @@ export const products = [
     name: "Aerbes LED Solar Light AB-T76",
     category: "Flashlights",
     price: 15,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/83.png",
     rating: 4.3,
   },
   {
@@ -858,7 +858,7 @@ export const products = [
     name: "Aerbes Solar Induction Wall Lamp",
     category: "Flashlights",
     price: 10,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/84.png",
     rating: 4.2,
   },
   {
@@ -866,7 +866,7 @@ export const products = [
     name: "Aerbes LED Solar Light AB-T76 (Large)",
     category: "Flashlights",
     price: 25,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/85.png",
     rating: 4.4,
   },
   {
@@ -874,7 +874,7 @@ export const products = [
     name: "Aerbes Flashlight AB-SD103",
     category: "Flashlights",
     price: 20,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/86.png",
     rating: 4.3,
   },
   {
@@ -882,7 +882,7 @@ export const products = [
     name: "Multifunction Solar Light ZH-1288",
     category: "Flashlights",
     price: 5,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/87.png",
     rating: 4.0,
   },
   {
@@ -890,7 +890,7 @@ export const products = [
     name: "Aerbes LED Solar Light AB-TA163",
     category: "Flashlights",
     price: 20,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/88.png",
     rating: 4.3,
   },
   {
@@ -898,7 +898,7 @@ export const products = [
     name: "Aerbes LED Headlamp AB-Z1181",
     category: "Flashlights",
     price: 5,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/89.png",
     rating: 4.1,
   },
   {
@@ -906,7 +906,7 @@ export const products = [
     name: "Aerbes Zoom Flashlight AB-SD10",
     category: "Flashlights",
     price: 15,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/90.png",
     rating: 4.2,
   },
   {
@@ -914,7 +914,7 @@ export const products = [
     name: "Feimao FM-D6001",
     category: "Flashlights",
     price: 5,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/91.png",
     rating: 4.0,
   },
   {
@@ -922,7 +922,7 @@ export const products = [
     name: "Aerbes Solar Projection Lamp AB-T77",
     category: "Flashlights",
     price: 10,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/92.png",
     rating: 4.2,
   },
   {
@@ -930,7 +930,7 @@ export const products = [
     name: "LED Rechargeable Light GU10",
     category: "Flashlights",
     price: 2,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/93.png",
     rating: 4.0,
   },
   {
@@ -938,7 +938,7 @@ export const products = [
     name: "Feimao FM-D6002",
     category: "Flashlights",
     price: 5,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/94.png",
     rating: 4.0,
   },
   {
@@ -946,7 +946,7 @@ export const products = [
     name: "COB Keychain Light W5135",
     category: "Flashlights",
     price: 5,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/95.png",
     rating: 4.1,
   },
   {
@@ -954,7 +954,7 @@ export const products = [
     name: "Andowl QB-707 Flashlight",
     category: "Flashlights",
     price: 30,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/96.png",
     badge: "Popular",
     rating: 4.6,
   },
@@ -963,7 +963,7 @@ export const products = [
     name: "Aerbes AB-SD02",
     category: "Flashlights",
     price: 10,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/97.png",
     rating: 4.1,
   },
   {
@@ -971,7 +971,7 @@ export const products = [
     name: "P50 Flashlight",
     category: "Flashlights",
     price: 15,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/98.png",
     rating: 4.3,
   },
   {
@@ -979,7 +979,7 @@ export const products = [
     name: "Telescopic Flashlight",
     category: "Flashlights",
     price: 5,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/99.png",
     rating: 4.0,
   },
   {
@@ -988,7 +988,7 @@ export const products = [
     category: "Flashlights",
     price: 50,
     oldPrice: 60,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/100.png",
     badge: "Hot",
     rating: 4.8,
   },
@@ -997,7 +997,7 @@ export const products = [
     name: "EJC Super Bright Flashlight W5161-2",
     category: "Flashlights",
     price: 25,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/101.png",
     rating: 4.4,
   },
   {
@@ -1005,7 +1005,7 @@ export const products = [
     name: "TD-T66 Flashlight",
     category: "Flashlights",
     price: 15,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/102.png",
     rating: 4.2,
   },
   {
@@ -1013,7 +1013,7 @@ export const products = [
     name: "W590 Flashlight",
     category: "Flashlights",
     price: 25,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/103.png",
     rating: 4.4,
   },
   // ===== Money Accessories =====
@@ -1022,7 +1022,7 @@ export const products = [
     name: "2-in-1 Money Detector",
     category: "Money Accessories",
     price: 10,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/104.png",
     rating: 4.2,
   },
   {
@@ -1030,7 +1030,7 @@ export const products = [
     name: "Banknote Tester Pen",
     category: "Money Accessories",
     price: 2,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/105.png",
     rating: 4.0,
   },
   {
@@ -1038,7 +1038,7 @@ export const products = [
     name: "Bill Counter",
     category: "Money Accessories",
     price: 120,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/106.png",
     badge: "Best Seller",
     rating: 4.7,
   },
@@ -1048,7 +1048,7 @@ export const products = [
     category: "Money Accessories",
     price: 220,
     oldPrice: 260,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/107.png",
     badge: "Premium",
     rating: 4.9,
   },
@@ -1057,7 +1057,7 @@ export const products = [
     name: "Medium Digital Safe",
     category: "Money Accessories",
     price: 60,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/108.png",
     rating: 4.5,
   },
   {
@@ -1065,7 +1065,7 @@ export const products = [
     name: "Mini Digital Safe",
     category: "Money Accessories",
     price: 50,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/109.png",
     rating: 4.4,
   },
   {
@@ -1073,7 +1073,7 @@ export const products = [
     name: "Small Cash Box",
     category: "Money Accessories",
     price: 10,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/110.png",
     rating: 4.1,
   },
   {
@@ -1081,7 +1081,7 @@ export const products = [
     name: "Large Cash Box with Till",
     category: "Money Accessories",
     price: 30,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/111.png",
     rating: 4.4,
   },
   {
@@ -1089,7 +1089,7 @@ export const products = [
     name: "Medium Cash Box",
     category: "Money Accessories",
     price: 15,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/112.png",
     rating: 4.2,
   },
   {
@@ -1097,7 +1097,7 @@ export const products = [
     name: "30-Key Cabinet",
     category: "Money Accessories",
     price: 30,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/113.png",
     rating: 4.3,
   },
   {
@@ -1105,7 +1105,7 @@ export const products = [
     name: "Large Book Safe",
     category: "Money Accessories",
     price: 20,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/114.png",
     badge: "New",
     rating: 4.3,
   },
@@ -1114,7 +1114,7 @@ export const products = [
     name: "Small Book Safe",
     category: "Money Accessories",
     price: 10,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/115.png",
     rating: 4.1,
   },
   // ===== Guard Equipment =====
@@ -1123,7 +1123,7 @@ export const products = [
     name: "10km Walkie Talkie",
     category: "Communication",
     price: 40,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/116.png",
     rating: 4.5,
   },
   {
@@ -1131,7 +1131,7 @@ export const products = [
     name: "Mini Walkie Talkie",
     category: "Communication",
     price: 60,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/117.png",
     rating: 4.3,
   },
   {
@@ -1139,7 +1139,7 @@ export const products = [
     name: "Baofeng BF-888s",
     category: "Communication",
     price: 50,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/118.png",
     badge: "Best Seller",
     rating: 4.7,
   },
@@ -1148,7 +1148,7 @@ export const products = [
     name: "P29 Magazine",
     category: "Guard Equipment",
     price: 50,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/119.png",
     rating: 4.3,
   },
   {
@@ -1156,7 +1156,7 @@ export const products = [
     name: "F92 Magazine",
     category: "Guard Equipment",
     price: 50,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/120.png",
     rating: 4.3,
   },
   {
@@ -1164,7 +1164,7 @@ export const products = [
     name: "Tactical Belt",
     category: "Guard Equipment",
     price: 15,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/121.png",
     rating: 4.2,
   },
   {
@@ -1172,7 +1172,7 @@ export const products = [
     name: "Small Gun Holster",
     category: "Guard Equipment",
     price: 10,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/122.png",
     rating: 4.1,
   },
   {
@@ -1180,7 +1180,7 @@ export const products = [
     name: "Large Gun Holster",
     category: "Guard Equipment",
     price: 15,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/123.png",
     rating: 4.2,
   },
   {
@@ -1188,7 +1188,7 @@ export const products = [
     name: "Plastic Large Gun Holster",
     category: "Guard Equipment",
     price: 25,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/124.png",
     rating: 4.2,
   },
   {
@@ -1196,7 +1196,7 @@ export const products = [
     name: "CO2 Gas Canister",
     category: "Guard Equipment",
     price: 3,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/125.png",
     rating: 4.0,
   },
   {
@@ -1204,7 +1204,7 @@ export const products = [
     name: "Shoulder Holster",
     category: "Guard Equipment",
     price: 25,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/126.png",
     rating: 4.3,
   },
   {
@@ -1212,7 +1212,7 @@ export const products = [
     name: "Leg Holster",
     category: "Guard Equipment",
     price: 20,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/127.png",
     rating: 4.2,
   },
   {
@@ -1220,7 +1220,7 @@ export const products = [
     name: "Thigh Holster",
     category: "Guard Equipment",
     price: 25,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/128.png",
     rating: 4.3,
   },
   {
@@ -1228,7 +1228,7 @@ export const products = [
     name: "Tactical Belt (Heavy Duty)",
     category: "Guard Equipment",
     price: 30,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/129.png",
     rating: 4.4,
   },
   {
@@ -1236,7 +1236,7 @@ export const products = [
     name: "P29 Blank Gun",
     category: "Guard Equipment",
     price: 250,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/130.png",
     badge: "Premium",
     rating: 4.8,
   },
@@ -1246,7 +1246,7 @@ export const products = [
     category: "Guard Equipment",
     price: 300,
     oldPrice: 350,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/131.png",
     badge: "Premium",
     rating: 4.9,
   },
@@ -1255,7 +1255,7 @@ export const products = [
     name: "Tactical Vest",
     category: "Guard Equipment",
     price: 45,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/132.png",
     badge: "Hot",
     rating: 4.6,
   },
@@ -1264,7 +1264,7 @@ export const products = [
     name: "Face Mask",
     category: "Guard Equipment",
     price: 10,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/133.png",
     rating: 4.1,
   },
   {
@@ -1272,7 +1272,7 @@ export const products = [
     name: "Blank Bullets/Cartridges",
     category: "Guard Equipment",
     price: 2,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/134.png",
     rating: 4.0,
   },
   {
@@ -1280,7 +1280,7 @@ export const products = [
     name: "Black Beret",
     category: "Guard Equipment",
     price: 6,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/135.png",
     rating: 4.1,
   },
   {
@@ -1288,7 +1288,7 @@ export const products = [
     name: "Red Beret",
     category: "Guard Equipment",
     price: 6,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/136.png",
     rating: 4.1,
   },
   {
@@ -1296,7 +1296,7 @@ export const products = [
     name: "Navy Blue Beret",
     category: "Guard Equipment",
     price: 6,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/137.png",
     rating: 4.1,
   },
   {
@@ -1304,7 +1304,7 @@ export const products = [
     name: "Royal Blue Beret",
     category: "Guard Equipment",
     price: 6,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/138.png",
     rating: 4.1,
   },
   {
@@ -1312,7 +1312,7 @@ export const products = [
     name: "Army Green Beret",
     category: "Guard Equipment",
     price: 6,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/139.png",
     rating: 4.1,
   },
   {
@@ -1320,7 +1320,7 @@ export const products = [
     name: "Tactical Baton Stick",
     category: "Guard Equipment",
     price: 20,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/140.png",
     rating: 4.3,
   },
   {
@@ -1328,7 +1328,7 @@ export const products = [
     name: "Straight Baton Stick",
     category: "Guard Equipment",
     price: 6,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/141.png",
     rating: 4.0,
   },
   {
@@ -1336,7 +1336,7 @@ export const products = [
     name: "T-Shaped Baton Stick",
     category: "Guard Equipment",
     price: 5,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/142.png",
     rating: 4.0,
   },
   {
@@ -1344,7 +1344,7 @@ export const products = [
     name: "Baton Stick Holder",
     category: "Guard Equipment",
     price: 1,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/143.png",
     rating: 4.0,
   },
   {
@@ -1352,7 +1352,7 @@ export const products = [
     name: "Red Security Belt",
     category: "Guard Equipment",
     price: 5,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/144.png",
     rating: 4.0,
   },
   {
@@ -1360,7 +1360,7 @@ export const products = [
     name: "Black Security Belt",
     category: "Guard Equipment",
     price: 5,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/145.png",
     rating: 4.0,
   },
   {
@@ -1368,7 +1368,7 @@ export const products = [
     name: "Navy Blue Belt",
     category: "Guard Equipment",
     price: 5,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/146.png",
     rating: 4.0,
   },
   {
@@ -1376,7 +1376,7 @@ export const products = [
     name: "Yellow Belt",
     category: "Guard Equipment",
     price: 5,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/147.png",
     rating: 4.0,
   },
   {
@@ -1384,7 +1384,7 @@ export const products = [
     name: "Tactical Glove (Short)",
     category: "Guard Equipment",
     price: 10,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/148.png",
     rating: 4.2,
   },
   {
@@ -1392,7 +1392,7 @@ export const products = [
     name: "Tactical Glove (Long)",
     category: "Guard Equipment",
     price: 15,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/149.png",
     rating: 4.3,
   },
   {
@@ -1400,7 +1400,7 @@ export const products = [
     name: "Black Security Cap",
     category: "Guard Equipment",
     price: 5,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/150.png",
     rating: 4.1,
   },
   {
@@ -1408,7 +1408,7 @@ export const products = [
     name: "Black Plain Cap",
     category: "Guard Equipment",
     price: 2,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/151.png",
     rating: 4.0,
   },
   {
@@ -1416,7 +1416,7 @@ export const products = [
     name: "Sling Bag",
     category: "Guard Equipment",
     price: 15,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/152.png",
     rating: 4.2,
   },
   {
@@ -1424,7 +1424,7 @@ export const products = [
     name: "Handcuff",
     category: "Guard Equipment",
     price: 10,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/153.png",
     badge: "Popular",
     rating: 4.4,
   },
@@ -1433,7 +1433,7 @@ export const products = [
     name: "Plastic Handcuff",
     category: "Guard Equipment",
     price: 2,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/154.png",
     rating: 4.0,
   },
   {
@@ -1441,7 +1441,7 @@ export const products = [
     name: "Handcuff Pouch",
     category: "Guard Equipment",
     price: 2,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/155.png",
     rating: 4.0,
   },
   {
@@ -1449,7 +1449,7 @@ export const products = [
     name: "Reflective Vest",
     category: "Guard Equipment",
     price: 5,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/156.png",
     rating: 4.2,
   },
   {
@@ -1457,7 +1457,7 @@ export const products = [
     name: "Reflective Vest (Long)",
     category: "Guard Equipment",
     price: 10,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/157.png",
     rating: 4.3,
   },
   {
@@ -1465,7 +1465,7 @@ export const products = [
     name: "Blackhawk Belt",
     category: "Guard Equipment",
     price: 6,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/158.png",
     rating: 4.1,
   },
   {
@@ -1474,7 +1474,7 @@ export const products = [
     category: "Guard Equipment",
     price: 250,
     oldPrice: 300,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/159.png",
     badge: "Sale",
     rating: 4.9,
   },
@@ -1483,7 +1483,7 @@ export const products = [
     name: "Tactical Dog Leash",
     category: "Guard Equipment",
     price: 15,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/160.png",
     rating: 4.2,
   },
   {
@@ -1491,7 +1491,7 @@ export const products = [
     name: "Car Sunshade",
     category: "Guard Equipment",
     price: 10,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/161.png",
     rating: 4.0,
   },
   {
@@ -1499,7 +1499,7 @@ export const products = [
     name: "Car Cover",
     category: "Guard Equipment",
     price: 15,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/162.png",
     rating: 4.1,
   },
   {
@@ -1507,7 +1507,7 @@ export const products = [
     name: "Tactical Goggles",
     category: "Guard Equipment",
     price: 15,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/163.png",
     rating: 4.3,
   },
   {
@@ -1515,7 +1515,7 @@ export const products = [
     name: "Lanyard",
     category: "Guard Equipment",
     price: 2,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/164.png",
     rating: 4.0,
   },
   {
@@ -1523,7 +1523,7 @@ export const products = [
     name: "Raincoat",
     category: "Guard Equipment",
     price: 10,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/165.png",
     rating: 4.1,
   },
   {
@@ -1531,7 +1531,7 @@ export const products = [
     name: "Rifle Bag",
     category: "Guard Equipment",
     price: 35,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/166.png",
     rating: 4.4,
   },
   {
@@ -1539,7 +1539,7 @@ export const products = [
     name: "Tactical Water Bottle",
     category: "Guard Equipment",
     price: 10,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/167.png",
     rating: 4.1,
   },
   {
@@ -1547,7 +1547,7 @@ export const products = [
     name: "Tactical Elbow & Knee Pads",
     category: "Guard Equipment",
     price: 15,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/168.png",
     rating: 4.3,
   },
   {
@@ -1556,7 +1556,7 @@ export const products = [
     category: "Guard Equipment",
     price: 120,
     oldPrice: 145,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/169.png",
     badge: "Hot",
     rating: 4.7,
   },
@@ -1565,7 +1565,7 @@ export const products = [
     name: "Black Security Jacket",
     category: "Guard Equipment",
     price: 35,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/170.png",
     rating: 4.4,
   },
   {
@@ -1573,7 +1573,7 @@ export const products = [
     name: "Whistle",
     category: "Guard Equipment",
     price: 2,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/171.png",
     rating: 4.0,
   },
   {
@@ -1581,7 +1581,7 @@ export const products = [
     name: "Water Bag",
     category: "Guard Equipment",
     price: 15,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/172.png",
     rating: 4.1,
   },
   {
@@ -1589,7 +1589,7 @@ export const products = [
     name: "Handmade Sjambok",
     category: "Guard Equipment",
     price: 5,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/173.png",
     rating: 4.0,
   },
   {
@@ -1597,7 +1597,7 @@ export const products = [
     name: "Machine Made Sjambok",
     category: "Guard Equipment",
     price: 5,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/174.png",
     rating: 4.0,
   },
   {
@@ -1605,7 +1605,7 @@ export const products = [
     name: "Small Knuckle Duster",
     category: "Guard Equipment",
     price: 5,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/175.png",
     rating: 4.0,
   },
   {
@@ -1613,7 +1613,7 @@ export const products = [
     name: "Junction Box",
     category: "Accessories",
     price: 2,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/176.png",
     rating: 4.0,
   },
   {
@@ -1621,7 +1621,7 @@ export const products = [
     name: "Gun Oil",
     category: "Guard Equipment",
     price: 15,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/177.png",
     rating: 4.1,
   },
   {
@@ -1629,7 +1629,7 @@ export const products = [
     name: "4.5mm Pointed Pellet",
     category: "Guard Equipment",
     price: 10,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/178.png",
     rating: 4.1,
   },
   {
@@ -1637,7 +1637,7 @@ export const products = [
     name: "5.5mm Pointed Pellet",
     category: "Guard Equipment",
     price: 10,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/179.png",
     rating: 4.1,
   },
   // ===== Footwear =====
@@ -1685,7 +1685,7 @@ export const products = [
     category: "Accessories",
     price: 40,
     oldPrice: 50,
-    image: "/GEMAK SECURITY SERVICES LOGO.png",
+    image: "/products/184.png",
     badge: "Sale",
     rating: 4.7,
   },
