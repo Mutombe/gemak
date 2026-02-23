@@ -7,7 +7,9 @@
       "Bash(node -e:*)",
       "Bash(npx tailwindcss --help:*)",
       "Bash(pip --version 2>&1 && python -c \"import PIL; print\\('Pillow:', PIL.__version__\\)\" 2>&1 && python -c \"import requests; print\\('requests:', requests.__version__\\)\" 2>&1)",
-      "Bash(tail:*)"
+      "Bash(tail:*)",
+      "Bash(sort:*)",
+      "Bash(cd:*)"
     ]
   }
 }

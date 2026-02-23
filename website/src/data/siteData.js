@@ -4,7 +4,7 @@ export const siteInfo = {
   phone: ["+263 773 910 305", "+263 715 015 250", "+263 864 429 6356"],
   email: "info@gemaksecurity.co.zw",
   website: "www.gemaksecurity.co.zw",
-  address: "59 Central Avenue, Harare, Zimbabwe",
+  address: "153 Union Ave, Corner 7th & Kwame Nkrumah, Harare, Zimbabwe",
   social: {
     facebook: "https://facebook.com/gemaksecurity",
     instagram: "https://instagram.com/gemaksecurity",
@@ -15,15 +15,23 @@ export const siteInfo = {
 };
 
 export const branches = [
-  { city: "Harare", address: "59 Central Avenue", isHQ: true },
-  { city: "Chitungwiza", address: "Chitungwiza Branch" },
-  { city: "Bulawayo", address: "Bulawayo Branch" },
-  { city: "Gweru", address: "Gweru Branch" },
-  { city: "Mutare", address: "Mutare Branch" },
-  { city: "Chinhoyi", address: "Chinhoyi Branch" },
-  { city: "Bindura", address: "Bindura Branch" },
-  { city: "Masvingo", address: "Masvingo Branch" },
-  { city: "Kariba", address: "Kariba Branch" },
+  { id: 1, city: "Harare", name: "Harare - Central Avenue", address: "59 Central Ave, Corner 6th St", contactPerson: "Aliyah", phone: "0712119412", lat: -17.8292, lng: 31.0522 },
+  { id: 2, city: "Harare", name: "Harare - Easy Walk Mall", address: "Easy Walk Mall, Shop 2, Angwa & Silundika", contactPerson: "Rejoice", phone: "0777527358", lat: -17.8310, lng: 31.0480 },
+  { id: 3, city: "Harare", name: "Harare - Union Avenue (HQ)", address: "153 Union Ave, Corner 7th & Kwame Nkrumah", contactPerson: "Natasha", phone: "0786113440", isHQ: true, lat: -17.8270, lng: 31.0475 },
+  { id: 4, city: "Harare", name: "Harare - Msasa", address: "10 Steven Drive, Msasa, next to Fidelity", contactPerson: "Rumbi", phone: "0777900817", lat: -17.8185, lng: 31.1105 },
+  { id: 5, city: "Harare", name: "Harare - Samora Machel", address: "Samora Machel Ave and First Street", contactPerson: "Mitchell", phone: "0775190941", lat: -17.8300, lng: 31.0505 },
+  { id: 6, city: "Norton", name: "Norton", address: "21826 Katanga Drive, Industry", contactPerson: "Nyasha", phone: "0784143619", lat: -17.8833, lng: 30.7000 },
+  { id: 7, city: "Chegutu", name: "Chegutu", address: "Chegutu Mall CG17, Charles Street", contactPerson: "Tanatswa", phone: "0773566327", lat: -18.1306, lng: 30.1397 },
+  { id: 8, city: "Kadoma", name: "Kadoma", address: "Hera Complex, Shop A4, Herbert Chitepo St", contactPerson: "Praise", phone: "0715832859", lat: -18.3443, lng: 29.9153 },
+  { id: 9, city: "Kwekwe", name: "Kwekwe", address: "Mzanzi Complex (upstairs), 2nd & 3rd St", contactPerson: "Abby", phone: "0787940864", lat: -18.9281, lng: 29.8149 },
+  { id: 10, city: "Gweru", name: "Gweru", address: "Shop C14, Nice Time Mall, Main Street", contactPerson: "Portia", phone: "0782825204", lat: -19.4500, lng: 29.8167 },
+  { id: 11, city: "Zvishavane", name: "Zvishavane", address: "Sparkles Complex, Kataza Road", contactPerson: "Sibo", phone: "0779763576", lat: -20.3280, lng: 30.0520 },
+  { id: 12, city: "Masvingo", name: "Masvingo", address: "Junior Complex, 1st floor, Shop 1", contactPerson: "Emy", phone: "0781611099", lat: -20.0639, lng: 30.8328 },
+  { id: 13, city: "Bulawayo", name: "Bulawayo", address: "Baobab Mall, Shop 14, Opposite Hafelis", contactPerson: "Bongiwe", phone: "0784369811", lat: -20.1500, lng: 28.5833 },
+  { id: 14, city: "Mutare", name: "Mutare", address: "Shop 23, 4th Street, opposite Puma", contactPerson: "Mitchell", phone: "0787974350", lat: -18.9707, lng: 32.6709 },
+  { id: 15, city: "Chitungwiza", name: "Chitungwiza", address: "Makoni Shopping Centre, Mangwende & Mharapara", phone: "0771623762", lat: -18.0127, lng: 31.0753 },
+  { id: 16, city: "Chinhoyi", name: "Chinhoyi", address: "48 Arthur Mara", lat: -17.3622, lng: 30.1955 },
+  { id: 17, city: "Mashwede", name: "Mashwede", address: "Mashwede Complex, Area 8, Shop 14", lat: -17.8400, lng: 31.0600 },
 ];
 
 export const services = [
@@ -1812,42 +1820,6 @@ export const galleryItems = [
     image:
       "/42.jpeg",
   },
-    {
-    id: 1,
-    title: "CCTV Installation — Commercial Complex",
-    category: "CCTV",
-    image:
-      "/29.jpeg",
-  },
-  {
-    id: 2,
-    title: "Electric Fence — Residential Estate",
-    category: "Electric Fence",
-    image:
-      "/30.jpeg",
-  },
-  {
-    id: 3,
-    title: "Gate Automation — Office Park",
-    category: "Gate Automation",
-    image:
-      "/31.jpeg",
-  },
-  {
-    id: 4,
-    title: "Alarm System — Luxury Home",
-    category: "Alarms",
-    image:
-      "/32.jpeg",
-  },
-  {
-    id: 5,
-    title: "CCTV Network — Shopping Mall",
-    category: "CCTV",
-    image:
-      "/33.jpeg",
-  },
-
 ];
 
 export const testimonials = [
@@ -1891,7 +1863,7 @@ export const testimonials = [
 
 export const stats = [
   { value: "10K+", label: "Installations" },
-  { value: "9", label: "Branches" },
+  { value: "17", label: "Branches" },
   { value: "15+", label: "Years Experience" },
   { value: "98%", label: "Client Satisfaction" },
 ];
@@ -2028,7 +2000,7 @@ export const searchableContent = [
     title: "Harare Branch",
     section: "branches",
     path: "/contact#branches",
-    keywords: "harare branch headquarters central avenue",
+    keywords: "harare branch headquarters union avenue kwame nkrumah",
   },
   {
     title: "Bulawayo Branch",

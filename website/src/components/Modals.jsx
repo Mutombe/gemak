@@ -86,7 +86,7 @@ Data Security: We implement appropriate technical and organizational security me
 
 Your Rights: You have the right to access, correct, update, or request deletion of your personal information. You may contact us at info@gemaksecurity.co.zw to exercise these rights.
 
-Contact Us: If you have questions about this privacy policy, please contact us at info@gemaksecurity.co.zw or visit our headquarters at 59 Central Avenue, Harare, Zimbabwe.`
+Contact Us: If you have questions about this privacy policy, please contact us at info@gemaksecurity.co.zw or visit our headquarters at 153 Union Ave, Corner 7th & Kwame Nkrumah, Harare, Zimbabwe.`
     },
     terms: {
       icon: FileText,

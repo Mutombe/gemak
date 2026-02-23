@@ -92,6 +92,15 @@ const statsData = [
   { value: '15+', label: 'Years Experience' },
 ];
 
+/* Image data for the showcase gallery */
+const showcaseImages = [
+  { src: '/29.jpeg', alt: 'Gemak security officers on duty', label: 'On-Site Guarding' },
+  { src: '/30.jpeg', alt: 'Gemak Security Shop storefront', label: 'Security Equipment' },
+  { src: '/31.jpeg', alt: 'Gemak Security Shop product display', label: 'Technology Solutions' },
+  { src: '/32.jpeg', alt: 'Gemak armed response team with patrol vehicle', label: 'Armed Response' },
+  { src: '/33.jpeg', alt: 'Gemak security personnel on patrol', label: 'Patrol Operations' },
+];
+
 export default function SecurityServicesPage() {
   return (
     <>
@@ -102,11 +111,18 @@ export default function SecurityServicesPage() {
       />
 
       {/* ═══════════════ HERO ═══════════════ */}
-      <section className="hero-section relative min-h-[80vh] flex items-center overflow-hidden">
-        {/* BG */}
+      <section className="hero-section relative min-h-[90vh] flex items-center overflow-hidden">
+        {/* Background image with Ken Burns */}
         <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-gemak-black via-gemak-black/95 to-gemak-black/80" />
-          <div className="absolute inset-0 bg-grid-pattern opacity-40" />
+          <img
+            src="/32.jpeg"
+            alt="Gemak armed response officers"
+            className="absolute inset-0 w-full h-full object-cover object-top animate-ken-burns"
+            loading="eager"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-gemak-black via-gemak-black/90 to-gemak-black/50" />
+          <div className="absolute inset-0 bg-gradient-to-t from-gemak-black via-transparent to-gemak-black/40" />
+          <div className="absolute inset-0 bg-grid-pattern opacity-20" />
         </div>
 
         {/* Animated accent lines */}
@@ -116,7 +132,7 @@ export default function SecurityServicesPage() {
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32">
           <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
-            {/* Left — Content */}
+            {/* Left -- Content */}
             <div className="flex-1 text-center lg:text-left">
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
@@ -174,7 +190,7 @@ export default function SecurityServicesPage() {
               </motion.div>
             </div>
 
-            {/* Right — Logo */}
+            {/* Right -- Logo */}
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -207,7 +223,7 @@ export default function SecurityServicesPage() {
         </motion.div>
       </section>
 
-      {/* ═══════════════ ABOUT SECTION ═══════════════ */}
+      {/* ═══════════════ ABOUT / WHO WE ARE ═══════════════ */}
       <section className="py-24 md:py-32">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
@@ -234,30 +250,90 @@ export default function SecurityServicesPage() {
               </div>
             </AnimatedSection>
 
+            {/* Right -- Dual image composition with trust points */}
             <AnimatedSection variant="fadeRight" delay={0.2}>
-              <div className="grid grid-cols-2 gap-4">
-                {trustPoints.map((point, i) => (
-                  <motion.div
-                    key={i}
-                    whileHover={{ y: -4 }}
-                    transition={{ type: 'spring', stiffness: 400, damping: 20 }}
-                    className="glass-card rounded-2xl p-6 text-center hover:border-gemak-green/20 transition-all duration-300 group"
-                  >
-                    <div className="w-12 h-12 mx-auto rounded-xl bg-gemak-green/10 flex items-center justify-center mb-4 group-hover:bg-gemak-green/20 transition-colors">
-                      <point.icon size={22} className="text-gemak-green" />
-                    </div>
-                    <h3 className="font-heading text-sm uppercase tracking-wider text-white">{point.title}</h3>
-                    <p className="text-white/30 text-xs mt-2 leading-relaxed">{point.description}</p>
-                  </motion.div>
-                ))}
+              <div className="relative">
+                {/* Primary image -- security officers on site */}
+                <div className="rounded-2xl overflow-hidden">
+                  <img
+                    src="/29.jpeg"
+                    alt="Gemak security officers on duty"
+                    className="w-full aspect-[4/3] object-cover object-top"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-gemak-black/80 via-gemak-black/20 to-transparent rounded-2xl" />
+                </div>
+
+                {/* Trust points overlay at bottom */}
+                <div className="absolute bottom-0 left-0 right-0 p-6">
+                  <div className="grid grid-cols-2 gap-3">
+                    {trustPoints.map((point, i) => (
+                      <div key={i} className="bg-black/40 backdrop-blur-sm rounded-xl p-4 text-center border border-white/5">
+                        <point.icon size={18} className="text-gemak-green mx-auto mb-2" />
+                        <h3 className="font-heading text-xs uppercase tracking-wider text-white">{point.title}</h3>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Inset secondary image -- patrol personnel */}
+                <div className="absolute -bottom-6 -right-6 w-36 md:w-44 rounded-xl overflow-hidden border-4 border-gemak-black shadow-2xl">
+                  <img
+                    src="/33.jpeg"
+                    alt="Gemak security personnel on patrol"
+                    className="w-full aspect-square object-cover object-top"
+                    loading="lazy"
+                  />
+                </div>
               </div>
             </AnimatedSection>
           </div>
         </div>
       </section>
 
+      {/* ═══════════════ IMAGE SHOWCASE STRIP ═══════════════ */}
+      <section className="py-16 md:py-20 bg-gemak-black-light relative overflow-hidden">
+        <div className="absolute inset-0 bg-grid-pattern opacity-20" />
+
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <AnimatedSection variant="fadeUp" className="text-center mb-12">
+            <span className="text-gemak-green text-xs font-heading uppercase tracking-[0.3em]">Our Work In Action</span>
+            <h2 className="font-display text-3xl md:text-4xl mt-2">
+              PROVEN <span className="text-gradient-green">PROTECTION</span>
+            </h2>
+            <p className="text-white/30 mt-3 max-w-xl mx-auto text-sm">
+              From armed response teams and on-site guarding to security equipment solutions,
+              see Gemak Security Services at work across Zimbabwe.
+            </p>
+          </AnimatedSection>
+
+          <StaggerContainer className="grid grid-cols-2 md:grid-cols-5 gap-3 md:gap-4" staggerDelay={0.08}>
+            {showcaseImages.map((img, i) => (
+              <StaggerItem key={i}>
+                <div className="group relative rounded-xl overflow-hidden aspect-[3/4] cursor-default">
+                  <img
+                    src={img.src}
+                    alt={img.alt}
+                    className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-110"
+                    loading="lazy"
+                  />
+                  {/* Gradient overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-gemak-black via-gemak-black/20 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
+                  {/* Green accent line at top */}
+                  <div className="absolute top-0 left-0 right-0 h-0.5 bg-gemak-green scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
+                  {/* Label */}
+                  <div className="absolute bottom-0 left-0 right-0 p-4">
+                    <p className="font-heading text-xs uppercase tracking-wider text-white/90">{img.label}</p>
+                  </div>
+                </div>
+              </StaggerItem>
+            ))}
+          </StaggerContainer>
+        </div>
+      </section>
+
       {/* ═══════════════ SERVICES GRID ═══════════════ */}
-      <section className="py-24 md:py-32 bg-gemak-black-light relative overflow-hidden">
+      <section className="py-24 md:py-32 relative overflow-hidden">
         <div className="absolute inset-0 bg-grid-pattern opacity-30" />
         <div className="absolute top-0 right-0 w-96 h-96 bg-radial-green opacity-20 pointer-events-none" />
 
@@ -313,11 +389,38 @@ export default function SecurityServicesPage() {
         </div>
       </section>
 
+      {/* ═══════════════ FULL-WIDTH IMAGE DIVIDER ═══════════════ */}
+      <section className="relative h-64 md:h-80 lg:h-96 overflow-hidden">
+        <img
+          src="/30.jpeg"
+          alt="Gemak Security Shop storefront"
+          className="absolute inset-0 w-full h-full object-cover object-center"
+          loading="lazy"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-gemak-black via-gemak-black/70 to-gemak-black/40" />
+        <div className="absolute inset-0 bg-gradient-to-t from-gemak-black/60 via-transparent to-gemak-black/60" />
+
+        <div className="relative h-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center">
+          <AnimatedSection variant="fadeLeft">
+            <div className="max-w-lg">
+              <span className="text-gemak-green text-xs font-heading uppercase tracking-[0.3em]">Gemak Security Shop</span>
+              <h2 className="font-display text-3xl md:text-5xl mt-2 text-white">
+                SECURITY <span className="text-gradient-green">EQUIPMENT</span>
+              </h2>
+              <p className="text-white/50 mt-3 leading-relaxed">
+                Visit our fully stocked security shop for CCTV cameras, alarm systems, guard equipment,
+                and professional security technology solutions.
+              </p>
+            </div>
+          </AnimatedSection>
+        </div>
+      </section>
+
       {/* ═══════════════ WHY CHOOSE OUR SERVICES ═══════════════ */}
       <section className="py-24 md:py-32 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
-            {/* Left — Content */}
+            {/* Left -- Content */}
             <div>
               <AnimatedSection variant="fadeLeft">
                 <span className="text-gemak-green text-xs font-heading uppercase tracking-[0.3em]">Why Choose Us</span>
@@ -357,45 +460,42 @@ export default function SecurityServicesPage() {
               </StaggerContainer>
             </div>
 
-            {/* Right — Logo & Trust Graphic */}
+            {/* Right -- Image composition */}
             <AnimatedSection variant="fadeRight" delay={0.2}>
-              <div className="relative flex items-center justify-center">
-                {/* Background glow */}
-                <div className="absolute inset-0 bg-gemak-green/5 blur-3xl rounded-full" />
+              <div className="relative">
+                {/* Main image -- shop window display */}
+                <div className="rounded-2xl overflow-hidden">
+                  <img
+                    src="/31.jpeg"
+                    alt="Gemak Security Shop product display"
+                    className="w-full aspect-[4/3] object-cover"
+                    loading="lazy"
+                  />
+                </div>
 
-                <div className="relative glass-card rounded-3xl p-10 md:p-14 text-center">
+                {/* Secondary image -- armed response, offset overlap */}
+                <div className="absolute -bottom-8 -left-8 w-48 md:w-56 rounded-xl overflow-hidden border-4 border-gemak-black shadow-2xl">
+                  <img
+                    src="/32.jpeg"
+                    alt="Gemak armed response team"
+                    className="w-full aspect-square object-cover object-top"
+                    loading="lazy"
+                  />
+                </div>
+
+                {/* Logo badge -- top right */}
+                <div className="absolute -top-4 -right-4 glass-card-green rounded-xl p-3 flex items-center gap-3">
                   <img
                     src="/GEMAK SECURITY SERVICES LOGO.png"
                     alt="Gemak Security Services"
-                    className="h-20 md:h-28 w-auto mx-auto mb-8"
+                    className="h-10 w-auto"
                     loading="lazy"
                   />
-
-                  <h3 className="font-display text-2xl md:text-3xl text-white">TRUSTED <span className="text-gradient-green">PROTECTION</span></h3>
-                  <p className="text-white/30 text-sm mt-3 max-w-xs mx-auto leading-relaxed">
-                    Safeguarding lives, property, and assets across Zimbabwe with professionalism,
-                    integrity, and unwavering commitment.
-                  </p>
-
-                  {/* Mini stats inside card */}
-                  <div className="grid grid-cols-2 gap-4 mt-8">
-                    {[
-                      { val: '500+', label: 'Officers' },
-                      { val: '24/7', label: 'Coverage' },
-                      { val: '98%', label: 'Satisfaction' },
-                      { val: '15+', label: 'Years' },
-                    ].map((stat, i) => (
-                      <div key={i} className="bg-white/5 rounded-xl p-3">
-                        <span className="font-display text-xl text-gemak-green">{stat.val}</span>
-                        <p className="text-white/30 text-[10px] font-heading uppercase tracking-wider mt-1">{stat.label}</p>
-                      </div>
-                    ))}
+                  <div>
+                    <span className="font-display text-lg text-gemak-green">15+</span>
+                    <p className="text-white/40 text-[10px] font-heading uppercase tracking-wider">Years</p>
                   </div>
                 </div>
-
-                {/* Corner accents */}
-                <div className="absolute -top-4 -left-4 w-24 h-24 border-l-2 border-t-2 border-gemak-green/20 rounded-tl-3xl" />
-                <div className="absolute -bottom-4 -right-4 w-24 h-24 border-r-2 border-b-2 border-gemak-green/20 rounded-br-3xl" />
               </div>
             </AnimatedSection>
           </div>
@@ -420,8 +520,19 @@ export default function SecurityServicesPage() {
       </section>
 
       {/* ═══════════════ CTA SECTION ═══════════════ */}
-      <section className="py-24 bg-gemak-black-light">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <section className="py-24 bg-gemak-black-light relative overflow-hidden">
+        {/* Subtle background image */}
+        <div className="absolute inset-0">
+          <img
+            src="/33.jpeg"
+            alt=""
+            className="absolute inset-0 w-full h-full object-cover opacity-[0.04]"
+            loading="lazy"
+            aria-hidden="true"
+          />
+        </div>
+
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <AnimatedSection variant="scale">
             <div className="inline-flex items-center justify-center mb-6">
               <img

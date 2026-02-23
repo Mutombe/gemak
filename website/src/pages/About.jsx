@@ -17,7 +17,8 @@ export default function AboutPage() {
     { year: '2015', title: 'Product Range Growth', desc: 'Became authorized distributors for Hikvision and Dahua camera systems.' },
     { year: '2018', title: '5 Branches Strong', desc: 'Expanded to Gweru, Mutare and Chinhoyi, establishing nationwide presence.' },
     { year: '2021', title: 'Smart Home Integration', desc: 'Launched smart home security solutions and IoT-connected systems.' },
-    { year: '2024', title: '9 Branches Nationwide', desc: 'Now serving Zimbabwe from 9 strategic locations with 10,000+ installations.' },
+    { year: '2024', title: '9 Branches Nationwide', desc: 'Reached 9 strategic locations across Zimbabwe with 10,000+ installations.' },
+    { year: '2025', title: '17 Branches Nationwide', desc: 'Major expansion to 17 branches, bringing Gemak security solutions to even more Zimbabwean communities.' },
   ];
 
   const values = [

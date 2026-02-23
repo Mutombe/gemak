@@ -1,11 +1,12 @@
 import React from 'react';
 import { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Phone, Mail, MapPin, Clock, CheckCircle, MessageSquare, ChevronDown, ArrowRight, Shield, Globe, AlertCircle } from 'lucide-react';
+import { Phone, Mail, MapPin, Clock, CheckCircle, MessageSquare, ChevronDown, ArrowRight, Shield, Globe, AlertCircle, User } from 'lucide-react';
 import { toast } from 'sonner';
 import AnimatedSection, { StaggerContainer, StaggerItem } from '../components/AnimatedSection';
 import PageSEO from '../components/PageSEO';
 import { siteInfo, branches } from '../data/siteData';
+import BranchMap from '../components/BranchMap';
 
 const inquiryTypes = [
   'General Inquiry',
@@ -137,7 +138,7 @@ export default function ContactPage() {
 
   return (
     <>
-      <PageSEO title="Contact" description="Get in touch with Gemak Security Shop — request a quote, schedule an installation, or visit one of our 9 branches across Zimbabwe." keywords="contact Gemak Security, security installation quote, Zimbabwe security company" />
+      <PageSEO title="Contact" description="Get in touch with Gemak Security Shop — request a quote, schedule an installation, or visit one of our 17 branches across Zimbabwe." keywords="contact Gemak Security, security installation quote, Zimbabwe security company" />
 
       {/* Hero — Diagonal Split */}
       <section className="hero-section relative min-h-[80vh] flex items-center overflow-hidden">
@@ -407,138 +408,90 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* Branch Locations — Interactive Map Section */}
+      {/* Branch Locations — Interactive Leaflet Map */}
       <section className="py-24 bg-gemak-black-light relative overflow-hidden">
         <div className="absolute inset-0 bg-grid-pattern opacity-10" />
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection variant="fadeUp">
-            <div className="text-center mb-16">
+            <div className="text-center mb-12">
               <span className="text-gemak-green text-xs font-heading uppercase tracking-[0.3em]">Nationwide Coverage</span>
               <h2 className="font-display text-4xl md:text-6xl mt-2">OUR <span className="text-gradient-green">BRANCHES</span></h2>
-              <p className="text-white/40 mt-3 max-w-lg mx-auto">Visit any of our 9 locations across Zimbabwe for personalized service and expert advice.</p>
+              <p className="text-white/40 mt-3 max-w-lg mx-auto">Visit any of our 17 locations across Zimbabwe for personalized service and expert advice.</p>
             </div>
           </AnimatedSection>
 
-          <div className="grid lg:grid-cols-5 gap-8">
-            {/* Branch List — Scrollable on left */}
-            <div className="lg:col-span-2 space-y-2 max-h-[600px] overflow-y-auto pr-2 scrollbar-hide">
-              {branches.map((branch, idx) => (
-                <motion.div
-                  key={branch.id}
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: idx * 0.05 }}
-                >
-                  <button
-                    onClick={() => setActiveBranch(idx)}
-                    className={`w-full text-left p-4 rounded-xl transition-all duration-300 ${
-                      activeBranch === idx
-                        ? 'bg-gemak-green/10 border border-gemak-green/20'
-                        : 'glass-card hover:border-white/10'
-                    }`}
-                  >
-                    <div className="flex items-start gap-3">
-                      <div className={`w-8 h-8 rounded-lg flex items-center justify-center shrink-0 ${
-                        activeBranch === idx ? 'bg-gemak-green text-gemak-black' : 'bg-white/5 text-white/30'
-                      }`}>
-                        <MapPin size={14} />
-                      </div>
-                      <div>
-                        <h3 className={`font-heading text-sm uppercase tracking-wider ${
-                          activeBranch === idx ? 'text-gemak-green' : 'text-white'
-                        }`}>
-                          {branch.name}
-                          {branch.isHQ && <span className="ml-2 text-[10px] bg-gemak-green/20 text-gemak-green px-2 py-0.5 rounded-full">HQ</span>}
-                        </h3>
-                        <p className="text-white/30 text-xs mt-1">{branch.address}</p>
-                        <p className="text-white/40 text-xs mt-0.5">{branch.phone}</p>
-                      </div>
-                    </div>
-                  </button>
-                </motion.div>
-              ))}
-            </div>
+          {/* Full-width Leaflet Map */}
+          <div className="rounded-2xl overflow-hidden border border-white/10" style={{ height: '60vh', minHeight: '500px' }}>
+            <BranchMap
+              branches={branches}
+              activeBranchId={activeBranch !== null ? branches[activeBranch]?.id : null}
+              onBranchClick={(id) => {
+                const idx = branches.findIndex(b => b.id === id);
+                if (idx !== -1) setActiveBranch(idx);
+              }}
+            />
+          </div>
 
-            {/* Map / Branch Detail — Right side */}
-            <div className="lg:col-span-3">
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={activeBranch}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -20 }}
-                  transition={{ duration: 0.3 }}
-                  className="glass-card rounded-2xl overflow-hidden h-full"
+          {/* Branch Cards Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mt-10">
+            {branches.map((branch, idx) => (
+              <motion.div
+                key={branch.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.03 }}
+              >
+                <button
+                  onClick={() => setActiveBranch(idx)}
+                  className={`w-full text-left p-5 rounded-xl transition-all duration-300 h-full ${
+                    activeBranch === idx
+                      ? 'bg-gemak-green/10 border border-gemak-green/20 ring-1 ring-gemak-green/20'
+                      : 'glass-card hover:border-white/10'
+                  }`}
                 >
-                  {/* Map Embed — Vision: Actual Google Maps embed showing the branch location */}
-                  <div className="aspect-video bg-gemak-black-light relative">
-                    <iframe
-                      title={`${branches[activeBranch].name || branches[activeBranch].city} location`}
-                      src={`https://maps.google.com/maps?q=${encodeURIComponent(branches[activeBranch].address + ', Zimbabwe')}&output=embed`}
-                      className="w-full h-full border-0 dark-map"
-                      loading="lazy"
-                      allowFullScreen
-                    />
-                    <div className="absolute inset-0 pointer-events-none border border-white/5 rounded-t-2xl" />
+                  <div className="flex items-start justify-between gap-2">
+                    <h3 className={`font-heading text-sm uppercase tracking-wider ${
+                      activeBranch === idx ? 'text-gemak-green' : 'text-white'
+                    }`}>
+                      {branch.name}
+                    </h3>
+                    {branch.isHQ && (
+                      <span className="text-[9px] bg-gemak-green/20 text-gemak-green px-2 py-0.5 rounded-full shrink-0 font-heading uppercase tracking-wider">HQ</span>
+                    )}
                   </div>
 
-                  {/* Branch Info */}
-                  <div className="p-6">
-                    <div className="flex items-start justify-between gap-4">
-                      <div>
-                        <h3 className="font-heading text-xl uppercase tracking-wider text-white">
-                          {branches[activeBranch].name}
-                        </h3>
-                        <p className="text-white/30 text-sm mt-1">{branches[activeBranch].address}</p>
-                      </div>
-                      {branches[activeBranch].isHQ && (
-                        <span className="text-[10px] bg-gemak-green text-gemak-black font-heading uppercase tracking-wider px-3 py-1 rounded-full shrink-0">
-                          Headquarters
-                        </span>
-                      )}
-                    </div>
+                  <p className="text-white/30 text-xs mt-2 flex items-start gap-1.5">
+                    <MapPin size={12} className="text-gemak-green/60 shrink-0 mt-0.5" />
+                    {branch.address}
+                  </p>
 
-                    <div className="grid grid-cols-2 gap-4 mt-6">
-                      <div className="flex items-center gap-2 text-white/40 text-sm">
-                        <Phone size={14} className="text-gemak-green shrink-0" />
-                        {branches[activeBranch].phone}
-                      </div>
-                      <div className="flex items-center gap-2 text-white/40 text-sm">
-                        <Clock size={14} className="text-gemak-green shrink-0" />
-                        Mon - Sat: 8am - 5pm
-                      </div>
-                      <div className="flex items-center gap-2 text-white/40 text-sm">
-                        <Mail size={14} className="text-gemak-green shrink-0" />
-                        {siteInfo.email}
-                      </div>
-                      <div className="flex items-center gap-2 text-white/40 text-sm">
-                        <Globe size={14} className="text-gemak-green shrink-0" />
-                        gemaksecurity.co.zw
-                      </div>
-                    </div>
+                  {branch.contactPerson && (
+                    <p className="text-white/25 text-xs mt-1.5 flex items-center gap-1.5">
+                      <User size={12} className="text-gemak-green/60 shrink-0" />
+                      {branch.contactPerson}
+                    </p>
+                  )}
 
-                    <div className="flex gap-3 mt-6">
-                      <a
-                        href={`tel:${branches[activeBranch].phone}`}
-                        className="flex-1 flex items-center justify-center gap-2 bg-gemak-green text-gemak-black font-heading uppercase text-xs tracking-wider py-3 rounded-xl hover:bg-gemak-green-dark transition-all"
-                      >
-                        <Phone size={14} /> Call Branch
-                      </a>
-                      <a
-                        href={`https://maps.google.com/?q=${encodeURIComponent(branches[activeBranch].address + ', Zimbabwe')}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex-1 flex items-center justify-center gap-2 border border-white/10 text-white/60 font-heading uppercase text-xs tracking-wider py-3 rounded-xl hover:bg-white/5 transition-all"
-                      >
-                        <MapPin size={14} /> Directions
-                      </a>
-                    </div>
+                  {branch.phone && (
+                    <a
+                      href={`tel:${branch.phone}`}
+                      onClick={(e) => e.stopPropagation()}
+                      className="text-gemak-green text-xs mt-1.5 flex items-center gap-1.5 hover:text-gemak-green-light transition-colors"
+                    >
+                      <Phone size={12} className="shrink-0" />
+                      {branch.phone}
+                    </a>
+                  )}
+
+                  <div className="mt-3 flex items-center gap-1 text-[10px] font-heading uppercase tracking-wider text-white/20">
+                    <MapPin size={10} />
+                    View on Map
                   </div>
-                </motion.div>
-              </AnimatePresence>
-            </div>
+                </button>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
@@ -560,7 +513,7 @@ export default function ContactPage() {
               },
               {
                 icon: Globe,
-                title: '9 Branches',
+                title: '17 Branches',
                 desc: 'Nationwide coverage ensures you\'re never far from expert help. Local teams, local knowledge.',
               },
             ].map((item, i) => (

@@ -73,7 +73,7 @@ export default function Footer() {
               />
             </Link>
             <p className="text-white/40 text-sm leading-relaxed max-w-sm">
-              Zimbabwe's leading security solutions provider with 9 branches nationwide. 
+              Zimbabwe's leading security solutions provider with 17 branches nationwide. 
               Harnessing technology for your convenience since 2009.
             </p>
             <div className="flex items-center gap-3 mt-6">
@@ -127,13 +127,21 @@ export default function Footer() {
           <p className="text-center text-xs text-white/20 font-heading uppercase tracking-widest mb-4">Our Branches Nationwide</p>
           <div className="overflow-hidden">
             <div className="flex gap-6 animate-marquee whitespace-nowrap">
-              {[...branches, ...branches].map((branch, i) => (
-                <span key={i} className="flex items-center gap-2 text-white/25 text-sm">
-                  <MapPin size={12} className="text-gemak-green/40" />
-                  {branch.city}
-                  {branch.isHQ && <span className="text-gemak-green/60 text-[10px]">HQ</span>}
-                </span>
-              ))}
+              {(() => {
+                const seen = new Set();
+                const unique = branches.filter(b => {
+                  if (seen.has(b.city)) return false;
+                  seen.add(b.city);
+                  return true;
+                });
+                return [...unique, ...unique].map((branch, i) => (
+                  <span key={i} className="flex items-center gap-2 text-white/25 text-sm">
+                    <MapPin size={12} className="text-gemak-green/40" />
+                    {branch.city}
+                    {branch.isHQ && <span className="text-gemak-green/60 text-[10px]">HQ</span>}
+                  </span>
+                ));
+              })()}
             </div>
           </div>
         </div>

@@ -37,7 +37,7 @@ const heroSlides = [
     image: '/38.jpeg',
     badge: "Zimbabwe's #1 Security Provider",
     headline: <>PROTECT<br />WHAT <span className="text-gradient-green">MATTERS</span><br /><span className="text-gemak-red">MOST</span></>,
-    subtitle: 'Advanced security systems, professional guard equipment, and smart home solutions. Harnessing technology for your convenience across 9 branches nationwide.',
+    subtitle: 'Advanced security systems, professional guard equipment, and smart home solutions. Harnessing technology for your convenience across 17 branches nationwide.',
     cta: { label: 'Explore Services', to: '/services' },
     ctaSecondary: { label: 'Visit Shop', to: '/shop' },
   },
@@ -59,9 +59,9 @@ const heroSlides = [
   },
   {
     image: '/17.jpg',
-    badge: '9 Branches Nationwide',
+    badge: '17 Branches Nationwide',
     headline: <>SECURITY<br />MADE <span className="text-gradient-green">ACCESSIBLE</span><br />FOR ALL</>,
-    subtitle: 'From Harare to Kariba, from homes to enterprises — affordable, world-class security solutions available at every branch.',
+    subtitle: 'From Harare to Bulawayo, from homes to enterprises — affordable, world-class security solutions available at every branch.',
     cta: { label: 'Find a Branch', to: '/contact' },
     ctaSecondary: { label: 'About Us', to: '/about' },
   },
@@ -382,7 +382,7 @@ function WhyChooseUs() {
   const reasons = [
     { icon: Eye, title: "24/7 Surveillance", desc: "Round-the-clock monitoring and support for all installed systems" },
     { icon: Lock, title: "Trusted Since 2009", desc: "Over 15 years of proven security expertise across Zimbabwe" },
-    { icon: Radio, title: "9 Branches", desc: "Nationwide coverage from Harare to Kariba, always close to you" },
+    { icon: Radio, title: "17 Branches", desc: "Nationwide coverage from Harare to Bulawayo, always close to you" },
     { icon: CheckCircle2, title: "Certified Experts", desc: "Factory-trained technicians with Hikvision & Dahua certifications" },
   ];
 
@@ -552,25 +552,39 @@ function TestimonialsSection() {
 
 /* ═══════════════ BRANCHES ═══════════════ */
 function BranchesSection() {
+  // Deduplicate by city for display, count locations per city
+  const cityMap = {};
+  branches.forEach(b => {
+    if (!cityMap[b.city]) cityMap[b.city] = { city: b.city, count: 0, isHQ: false };
+    cityMap[b.city].count++;
+    if (b.isHQ) cityMap[b.city].isHQ = true;
+  });
+  const uniqueCities = Object.values(cityMap);
+
   return (
     <section className="relative py-24 md:py-32 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <AnimatedSection variant="fadeUp" className="text-center mb-16">
           <span className="text-gemak-green text-xs font-heading uppercase tracking-[0.3em]">Nationwide Coverage</span>
           <h2 className="font-display text-4xl md:text-6xl mt-2">
-            <span className="text-gradient-green">9 BRANCHES</span> ACROSS ZIMBABWE
+            <span className="text-gradient-green">17 BRANCHES</span> ACROSS ZIMBABWE
           </h2>
         </AnimatedSection>
 
         <StaggerContainer className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3" staggerDelay={0.06}>
-          {branches.map((branch, i) => (
+          {uniqueCities.map((item, i) => (
             <StaggerItem key={i}>
-              <div className={`relative glass-card rounded-xl p-4 text-center hover:border-gemak-green/30 transition-all duration-300 group ${branch.isHQ ? 'border-gemak-green/20' : ''}`}>
+              <div className={`relative glass-card rounded-xl p-4 text-center hover:border-gemak-green/30 transition-all duration-300 group ${item.isHQ ? 'border-gemak-green/20' : ''}`}>
                 <motion.div whileHover={{ scale: 1.2, y: -2 }} transition={{ type: 'spring', stiffness: 400, damping: 15 }}>
                   <MapPin size={20} className="mx-auto text-gemak-green mb-2" />
                 </motion.div>
-                <h3 className="font-heading text-sm uppercase tracking-wider text-white">{branch.city}</h3>
-                {branch.isHQ && (
+                <h3 className="font-heading text-sm uppercase tracking-wider text-white">{item.city}</h3>
+                {item.count > 1 && (
+                  <span className="inline-block mt-1 text-[10px] font-heading uppercase tracking-wider text-white/30">
+                    ({item.count} locations)
+                  </span>
+                )}
+                {item.isHQ && (
                   <span className="inline-block mt-1 text-[10px] font-heading uppercase tracking-wider bg-gemak-green/10 text-gemak-green px-2 py-0.5 rounded-full">
                     Headquarters
                   </span>
@@ -590,7 +604,7 @@ export default function HomePage() {
     <>
       <PageSEO
         title="Home"
-        description="Gemak Security Shop — Zimbabwe's #1 security solutions provider. CCTV, alarms, gate automation, electric fencing, guard equipment. 9 branches nationwide."
+        description="Gemak Security Shop — Zimbabwe's #1 security solutions provider. CCTV, alarms, gate automation, electric fencing, guard equipment. 17 branches nationwide."
         keywords="security, CCTV, cameras, alarms, gate automation, electric fence, Zimbabwe, Harare, Gemak Security"
       />
       <HeroSection />

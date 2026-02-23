@@ -146,7 +146,7 @@ export default function GalleryPage() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
             {[
               { value: '10K+', label: 'Installations' },
-              { value: '9', label: 'Branches' },
+              { value: '17', label: 'Branches' },
               { value: '500+', label: 'Commercial Projects' },
               { value: '98%', label: 'Client Satisfaction' },
             ].map((stat, i) => (

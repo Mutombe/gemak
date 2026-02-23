@@ -100,7 +100,7 @@ export default function ShopPage() {
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }}>
             <span className="text-gemak-green text-xs font-heading uppercase tracking-[0.3em]">Security Equipment</span>
             <h1 className="font-display text-4xl md:text-6xl mt-2">OUR <span className="text-gradient-green">SHOP</span></h1>
-            <p className="text-white/40 mt-3 max-w-lg">Premium security products at unbeatable prices. Visit any of our 9 branches or order online.</p>
+            <p className="text-white/40 mt-3 max-w-lg">Premium security products at unbeatable prices. Visit any of our 17 branches or order online.</p>
           </motion.div>
         </div>
       </section>
@@ -392,7 +392,7 @@ export default function ShopPage() {
                     }`}>{selectedProduct.badge}</span>
                   )}
                   <p className="text-white/30 text-sm mt-4 leading-relaxed">
-                    Available at all 9 Gemak Security Shop branches nationwide. Contact us for bulk pricing and installation services.
+                    Available at all 17 Gemak Security Shop branches nationwide. Contact us for bulk pricing and installation services.
                   </p>
                   <p className="text-white/15 text-xs mt-2 hidden md:block">Hover over image to zoom</p>
                   <div className="mt-auto pt-6 flex gap-3">
